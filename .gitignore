@@ -52,5 +52,9 @@ tmp/
 # 念の為
 **/tmp/
 
+# Supabase接続確認用ページは無視
+src/app/test-supabase/
+# src/app/test-supabase/**
+
 # VSCode workspace
 _retreat_k.code-workspace
