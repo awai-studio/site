@@ -5,7 +5,6 @@
 import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
-import { createBookingRequest } from "@/lib/supabase/bookingRequests";
 import styles from "./BookingForm.module.scss";
 
 // 予約する日
@@ -109,17 +108,47 @@ export default function BookingForm({ experience }) {
       // FormDataクラスは、ブラウザが持っている Web API のクラス。
       // つまり、ブラウザが提供している機能を使ってインスタンスを作っている。
       const formData = new FormData(formElement);
-      // 入力フォームに入った属性の値を
-      // DB呼び出して、インサートする命令を出している。
-      await createBookingRequest({
-        experienceSlug: experience.slug,
-        customerName: formData.get("name"),
-        customerEmail: formData.get("email"),
-        guestCount: Number(formData.get("guestCount")),
-        preferredDate: formData.get("preferredDate"),
-        preferredTime: formData.get("preferredTime"),
-        message: formData.get("message"),
+      // // 入力フォームに入った属性の値を
+      // // DB呼び出して、インサートする命令を出している。
+      // await createBookingRequest({
+      //   experienceSlug: experience.slug,
+      //   customerName: formData.get("name"),
+      //   customerEmail: formData.get("email"),
+      //   guestCount: Number(formData.get("guestCount")),
+      //   preferredDate: formData.get("preferredDate"),
+      //   preferredTime: formData.get("preferredTime"),
+      //   message: formData.get("message"),
+      // });
+      // Resend設定でメール送信の道ができたので、直接DBにアクセスするのはやめて
+      //      BookingForm.jsx
+      //      ↓
+      //      fetch("/api/booking-request")
+      //      ↓
+      //      route.js
+      //      ↓
+      //      Supabase insert
+      //      ↓
+      //      Resend mail
+      // 以下のように設定する。
+      const response = await fetch("/api/booking-request", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          experienceSlug: experience.slug,
+          experienceTitle: experience.title,
+          customerName: formData.get("name"),
+          customerEmail: formData.get("email"),
+          guestCount: Number(formData.get("guestCount")),
+          preferredDate: formData.get("preferredDate"),
+          preferredTime: formData.get("preferredTime"),
+          message: formData.get("message"),
+        }),
       });
+      if (!response.ok) {
+        throw new Error("Failed to send booking request.")
+      }
 
       setSubmitStatus("success");
       // 使ったら戻すをやっている箇所。

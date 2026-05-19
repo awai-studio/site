@@ -159,12 +159,16 @@ mail: info@awai-studio.jp
 │   │   ├── layout.jsx
 │   │   ├── page.js
 │   │   ├── page.module.scss
+│   │   ├── api/
+│   │   │   └── booking-request/
+│   │   │       └── route.js
 │   │   ├── en/
 │   │   │   ├── booking/
 │   │   │   │   ├── page.js
 │   │   │   │   ├── booking.module.scss
 │   │   │   │   └── _components/
-│   │   │   │       └── BookingForm.jsx
+│   │   │   │       ├── BookingForm.jsx
+│   │   │   │       └── BookingForm.module.scss
 │   │   │   └── experiences/
 │   │   │       ├── page.js
 │   │   │       ├── experiences.module.scss
@@ -216,7 +220,7 @@ mail: info@awai-studio.jp
         └── top/
 ```
 
-_Last updated: 2026-05-15_
+_Last updated: 2026-05-19_
 
 ---
 
