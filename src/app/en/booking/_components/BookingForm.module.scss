@@ -1,0 +1,46 @@
+// @/app/en/booking/_components/BookingForm.module.scss
+
+@use '@/styles/shared/' as *;
+
+.bookingForm {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.label {
+  display: grid;
+  font-family: var(--ff-en-gothic);
+  font-size: .95rem;
+  letter-spacing: 0.03em;
+  color: rgba($color: $color-text, $alpha: .8);
+}
+
+// input,
+// textarea {
+//   width: 100%;
+//   padding: .9rem 1rem;
+//   border: 1px solid rgba($color: $color-black, $alpha: 0.3);
+//   border-radius: 2px;
+//   background-color: rgba($color: $color-white, $alpha: 1.0);
+//   font-family: var(--ff-gothic);
+//   font-size: 1rem;
+//   line-height: 1.5;
+//   transition: border-color 0.3s ease,
+//               box-shadow 0.3s ease;
+//   &:focus {
+//     outline: none;
+//     border-color: rgba($color: $color-primary, $alpha: .8);
+//     box-shadow: 0 0 0 3px rgba($color: $color-primary, $alpha: .3);
+//   }
+// }
+
+// textarea {
+//   resize: vertical;
+//   min-height: 10rem;
+// }
+
+// button {
+//   justify-self: start;
+//   margin-top: 1rem;
+// }

@@ -159,27 +159,29 @@ mail: info@awai-studio.jp
 │   │   ├── layout.jsx
 │   │   ├── page.js
 │   │   ├── page.module.scss
-│   │   └── en/
-│   │       ├── booking/
-│   │       │   ├── page.js
-│   │       │   ├── booking.module.scss
-│   │       │   └── _components/
-│   │       │       └── BookingForm.jsx
-│   │       └── experiences/
-│   │           ├── page.js
-│   │           ├── experiences.module.scss
-│   │           ├── _components/
-│   │           │   ├── BookingCard.jsx
-│   │           │   ├── BookingCard.module.scss
-│   │           │   ├── ExperienceSlider.jsx
-│   │           │   ├── ExperienceSlider.module.scss
-│   │           │   ├── ReviewList.jsx
-│   │           │   └── ReviewList.module.scss
-│   │           ├── _data/
-│   │           │   ├── experiences.js
-│   │           │   └── reviews.js
-│   │           └── [slug]/
-│   │               └── page.js
+│   │   ├── en/
+│   │   │   ├── booking/
+│   │   │   │   ├── page.js
+│   │   │   │   ├── booking.module.scss
+│   │   │   │   └── _components/
+│   │   │   │       └── BookingForm.jsx
+│   │   │   └── experiences/
+│   │   │       ├── page.js
+│   │   │       ├── experiences.module.scss
+│   │   │       ├── _components/
+│   │   │       │   ├── BookingCard.jsx
+│   │   │       │   ├── BookingCard.module.scss
+│   │   │       │   ├── ExperienceSlider.jsx
+│   │   │       │   ├── ExperienceSlider.module.scss
+│   │   │       │   ├── ReviewList.jsx
+│   │   │       │   └── ReviewList.module.scss
+│   │   │       ├── _data/
+│   │   │       │   ├── experiences.js
+│   │   │       │   └── reviews.js
+│   │   │       └── [slug]/
+│   │   │           └── page.js
+│   │   └── test-supabase/
+│   │       └── page.js
 │   ├── components/
 │   │   └── layout/
 │   │       ├── Header
@@ -193,8 +195,11 @@ mail: info@awai-studio.jp
 │   │   └── useScrollAnimation.js
 │   ├── lib/
 │   │   ├── formatExperiences.js
-│   │   └── config/
-│   │       └── site.js
+│   │   ├── config/
+│   │   │   └── site.js
+│   │   └── supabase/
+│   │       └── bookingRequests.js
+│   │       └── client.js
 │   └── styles/
 │       └── shared/
 │           ├── _daypicker.scss
@@ -211,7 +216,7 @@ mail: info@awai-studio.jp
         └── top/
 ```
 
-_Last updated: 2026-04-07_
+_Last updated: 2026-05-15_
 
 ---
 
