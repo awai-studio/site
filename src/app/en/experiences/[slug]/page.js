@@ -30,7 +30,7 @@ export default async function ExperienceDetailPage({ params }) {
           <div className={styles.detailHeroText}>
             <p className={styles.kicker}>Awai Studio Experience</p>
             <h1>{experience.title}</h1>
-            <p className={styles.shortDescription}>
+            <p className={`shortDescription ${styles.detailShortDesc}`}>
               {experience.shortDescription}
             </p>
           </div>

@@ -29,13 +29,14 @@ export default async function BookingPage({ searchParams }) {
   return (
     <div className="container">
       <div className={styles.bookingPage}>
-        <section className={styles.bookingHero}>
+        {/* <section className={styles.bookingHero}> */}
+        <section>
           <p className={styles.kicker}>Awai Studio</p>
           <h1>Request Booking</h1>
-          <p>
+          <p className="shortDescription">
             Please send us your preferred date and details. Availability will be
             confirmed munually before payment.
-          </p>
+          </p>          
         </section>
 
         <section className={styles.experienceSummary}>

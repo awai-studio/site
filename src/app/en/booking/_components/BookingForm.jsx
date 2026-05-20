@@ -230,15 +230,17 @@ export default function BookingForm({ experience }) {
           <textarea id="message" name="message" rows="5" />
         </label>
 
-        <button
-          className="btn btn--regular"
-          type="submit"
-          // 送信中はtrueのステートが来る、
-          // だからこの属性によってボタンを押せない状態になる。
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Sending..." : "Send Request"}
-        </button>
+        <div className="cta">
+          <button
+            className="btn btn--regular"
+            type="submit"
+            // 送信中はtrueのステートが来る、
+            // だからこの属性によってボタンを押せない状態になる。
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Sending..." : "Send Request"}
+          </button>
+        </div>
 
         {submitStatus === "success" && (
           <p className={styles.successMessage}>

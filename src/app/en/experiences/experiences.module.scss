@@ -55,15 +55,6 @@
 
 .detailMain {
   min-width: 0;
-  & section {
-    padding: 2rem 0 2.5rem;
-    border-top: 1px solid rgba($color: $color-black, $alpha: 0.3);
-  }
-  & section:first-child {
-    margin-top: 3rem;
-    padding-top: 0;
-    border-top: 0;
-  }
 }
 
 .detailHero {
@@ -73,6 +64,9 @@
     @include mq(md) {
       max-width: unset;
     }
+  }
+  & .detailShortDesc {
+    margin-bottom: 2rem;
   }
 }
 
@@ -87,6 +81,9 @@
 }
 
 .detailSection {
+  &:first-child {
+    padding-top: 3rem;
+  }
   &.explanation {
     & p,
     & li {
@@ -115,20 +112,6 @@
   }
 }
 
-.shortDescription {
-  max-width: 40rem;
-  margin-bottom: 1.75rem;
-  font-family: var(--ff-en-gothic);
-  font-size: 1.1rem;
-  line-height: 1.7;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: $color-primary;
-  @include mq(md) {
-    max-width: unset;
-  }  
-}
-
 .galleryPlaceholder {
   display: grid;
   place-items: center;
@@ -145,6 +128,7 @@
 }
 
 .detailSidebar {
+  margin-top: 2.5rem;
   @include mq(lg) {
     position: sticky;
     top: calc(#{$navHeight} + 2rem);

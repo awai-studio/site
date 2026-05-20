@@ -5,11 +5,10 @@
 .bookingPage {
   max-width: 52rem;
   margin: 0 auto;
-  padding: 3rem 0 6rem;
+  padding-bottom: 3rem;
 }
 
 .bookingHero {
-  margin-bottom: 4rem;
   & > p {
     max-width: 42rem;
   }
@@ -26,6 +25,6 @@
 
 .experienceSummary,
 .requestForm {
-  padding: 2rem 0 2.5rem;
-  border-top: 1px solid rgba($color: $color-black, $alpha: 0.3);
+  // padding: 2rem 0 2.5rem;
+  // border-top: 1px solid rgba($color: $color-black, $alpha: 0.3);
 }
