@@ -28,7 +28,7 @@ export default async function ExperienceDetailPage({ params }) {
         {/* HERO */}
         <div className={styles.detailHero}>
           <div className={styles.detailHeroText}>
-            <p className={styles.kicker}>Awai Studio Experience</p>
+            <p className="kicker">Awai Studio Experience</p>
             <h1>{experience.title}</h1>
             <p className={`shortDescription ${styles.detailShortDesc}`}>
               {experience.shortDescription}
@@ -71,7 +71,7 @@ export default async function ExperienceDetailPage({ params }) {
               <p>Interested in this experience?</p>
               <div className="cta">
                 <Link
-                  className="btn btn--regular"
+                  className={`btn btn--regular ${styles.expInlineCta}`}
                   href={`${experience.bookingHref}`}
                 >
                   Check Availability

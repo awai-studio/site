@@ -27,7 +27,10 @@ export default function BookingCard({ experience }) {
       )}
 
       <div className="cta">
-        <Link className="btn btn--regular" href={`${experience.bookingHref}`}>
+        <Link 
+          className={`btn btn--regular ${styles.bookingCardInlineCta}`}
+            href={`${experience.bookingHref}`}
+        >
           Check Availability
         </Link>
       </div>

@@ -31,7 +31,7 @@ export default async function BookingPage({ searchParams }) {
       <div className={styles.bookingPage}>
         {/* <section className={styles.bookingHero}> */}
         <section>
-          <p className={styles.kicker}>Awai Studio</p>
+          <p className="kicker">Awai Studio</p>
           <h1>Request Booking</h1>
           <p className="shortDescription">
             Please send us your preferred date and details. Availability will be

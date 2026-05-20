@@ -87,6 +87,14 @@ h3 {
   font-size: clamp(1.5rem, 3.5vw, 2.5rem);
 }
 
+.kicker {
+  font-family: var(--ff-en-gothic);
+  font-size: .85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba($color: $color-text, $alpha: .6);
+}
+
 .shortDescription {
   max-width: 40rem;
   font-family: var(--ff-en-gothic);
