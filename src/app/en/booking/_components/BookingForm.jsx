@@ -1,4 +1,4 @@
-// @/app/en/experiences/_components/BookingForm.jsx
+// @/app/en/booking/_components/BookingForm.jsx
 
 "use client";
 
