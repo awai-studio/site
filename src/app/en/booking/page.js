@@ -34,23 +34,25 @@ export default async function BookingPage({ searchParams }) {
           <p className="kicker">Awai Studio</p>
           <h1>Request Booking</h1>
           <p className="shortDescription">
-            Please send us your preferred date and details. Availability will be
-            confirmed munually before payment.
-          </p>          
+            Please share your preferred date and details. We will confirm
+            availability manually before requesting payment.
+          </p>
         </section>
 
         <section className={styles.experienceSummary}>
-          <h2>{experience.title}</h2>
-          <p>{experience.shortDescription}</p>
-
-          <ul>
+          <div className="wrapper">
+            <h2>{experience.title}</h2>
+            <p className="explanation">{experience.shortDescription}</p>
+          </div>
+          <ul className="explanation">
             <li>
               {experience.pricing.displayPrice} {experience.pricing.unit}
             </li>
             <li>{guestText}</li>
             <li>{durationText}</li>
             <li>
-              {experience.cancellation.summary}&nbsp;:&nbsp;{experience.cancellation.text}
+              {experience.cancellation.summary}&nbsp;:&nbsp;
+              {experience.cancellation.text}
             </li>
           </ul>
         </section>

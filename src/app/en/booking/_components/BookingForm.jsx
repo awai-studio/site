@@ -57,12 +57,28 @@ export default function BookingForm({ experience }) {
   const unavailableDates = availability.unavailableDates || [];
   // 利用時間の選択肢
   const timeSlots = availability.timeSlots || [];
+  // 催行最大人数から配列を作る
+  // const guestCounts = [...Array(experience.pricing.maxGuests).keys()].map((i) => i + 1);
+  
+  const maxGuestsNum = experience.pricing.maxGuests;
+  const minGuestsNum = experience.pricing.minGuests;
+  const guestsLength = maxGuestsNum - minGuestsNum + 1;
+  const guestCounts = Array.from({ length: guestsLength }, (_, idx) => {
+    return minGuestsNum + idx;
+  })
   // フォームに入力している日付を取得
   const today = startOfDay(new Date());
   // 今日から7日後以降を予約可能にするため、その基準日を取得。
   const minSelectableDate = startOfDay(addDays(today, 7));
   // 今日の日付から90日間予約受付を行う、その基準日を取得。
   const maxSelectableDate = startOfDay(addDays(today, 90));
+  // カレンダーに月めくりに必要な現在の時点からの月のデータ
+  const startMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+  const endMonth = new Date(
+    maxSelectableDate.getFullYear(),
+    maxSelectableDate.getMonth(),
+    1
+  );
   // 選択された日付は無効かどうか？
   // 全ての条件をクリアして真が変える。
   function isDateDisabled(date) {
@@ -171,7 +187,9 @@ export default function BookingForm({ experience }) {
 
       <form className={styles.bookingForm} onSubmit={handleSubmit}>
         <div className={styles.formField}>
-          <label className={styles.label} htmlFor="preferredDate">Preferred date</label>
+          <label className={styles.label} htmlFor="preferredDate">
+            Preferred date
+          </label>
           <div className={styles.calendarPanel}>
             <DayPicker
               id="preferredDate"
@@ -181,6 +199,9 @@ export default function BookingForm({ experience }) {
               disabled={isDateDisabled}
               timeZone="Asia/Tokyo"
               showOutsideDays
+              captionLayout="label"
+              startMonth={startMonth}
+              endMonth={endMonth}
             />
           </div>
           <input
@@ -209,13 +230,16 @@ export default function BookingForm({ experience }) {
 
         <label className={styles.label} htmlFor="numberOfGuests">
           Number of guests
-          <input
-            id="numberOfGuests"
-            type="number"
-            name="guestCount"
-            min={experience.pricing.minGuests}
-            max={experience.pricing.maxGuests}
-          />
+          <select name="guestCount" id="numberOfGuests" defaultValue="">
+            <option value="" disabled>
+              select guests
+            </option>
+            {
+              guestCounts.map((count) => (
+                <option value={count} key={count}>{count}</option>
+              ))
+            }
+          </select>
         </label>
         <label className={styles.label} htmlFor="name">
           Your name
@@ -232,7 +256,7 @@ export default function BookingForm({ experience }) {
 
         <div className="cta">
           <button
-            className="btn btn--regular"
+            className={`btn btn--regular ${styles.bookingFormInlineCta}`}
             type="submit"
             // 送信中はtrueのステートが来る、
             // だからこの属性によってボタンを押せない状態になる。

@@ -18,7 +18,7 @@ export default function Home() {
           className={`
             ${styles.topBackGroundImage} ${idx === 1 ? styles.secondOne : ""}
           `}
-          style={{ backgroundImage: `url(${path})`}}
+          style={{ backgroundImage: `url(${path})` }}
         ></div>
       ))}
       <div className={styles.topContent}>
@@ -40,7 +40,7 @@ export default function Home() {
           <br className="br-for-smartphone" />
           ひらく体験へ
         </p>
-        <div className="cta">
+        <div className={`cta ${styles.topCta}`}>
           <Link className="btn btn--regular" href="/en/experiences">
             View Experiences
           </Link>

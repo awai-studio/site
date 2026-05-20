@@ -55,6 +55,9 @@
 
 .detailMain {
   min-width: 0;
+  & section:first-child {
+    padding-top: 3rem;
+  }
 }
 
 .detailHero {
@@ -70,48 +73,21 @@
   }
 }
 
-.inlineCta {
+.ctaWrapper {
   & p {
     margin-bottom: 1rem;
     font-size: 1.75rem;
     line-height: 0.95;
     text-align: center;
   }
-  .expInlineCta {
+  & .expInlineCta {
     width: 100%;
   }
 }
 
-.detailSection {
-  &:first-child {
-    padding-top: 3rem;
-  }
-  &.explanation {
-    & p,
-    & li {
-      font-family: var(--ff-en-gothic);
-      font-size: 1rem;
-      letter-spacing: .03em;
-      color: rgba($color: $color-text, $alpha: .9);
-    }
-    & li {
-      padding-left: 1.2em;      
-      &::before {
-        position: absolute;
-        top: 0.15em;
-        left: 0;
-        width: 0.8em;
-        height: 0.8em;
-      }
-      &:not(:first-of-type) {
-        margin-top: .4em;
-      }
-    }
-  }
-  &.explanation.meetingPoint {
-    display: grid;
-    gap: 1rem;
-  }
+.meetingPoint {
+  display: grid;
+  gap: 1rem;
 }
 
 .galleryPlaceholder {

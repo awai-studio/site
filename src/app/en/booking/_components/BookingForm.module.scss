@@ -3,6 +3,8 @@
 @use '@/styles/shared/' as *;
 
 .bookingForm {
+  display: grid;
+  gap: 1.5rem;
 }
 
 .label {
@@ -13,31 +15,61 @@
   color: rgba($color: $color-text, $alpha: .8);
 }
 
-// input,
-// textarea {
-//   width: 100%;
-//   padding: .9rem 1rem;
-//   border: 1px solid rgba($color: $color-black, $alpha: 0.3);
-//   border-radius: 2px;
-//   background-color: rgba($color: $color-white, $alpha: 1.0);
-//   font-family: var(--ff-gothic);
-//   font-size: 1rem;
-//   line-height: 1.5;
-//   transition: border-color 0.3s ease,
-//               box-shadow 0.3s ease;
-//   &:focus {
-//     outline: none;
-//     border-color: rgba($color: $color-primary, $alpha: .8);
-//     box-shadow: 0 0 0 3px rgba($color: $color-primary, $alpha: .3);
-//   }
-// }
+.bookingFormInlineCta {
+  width: 100%;
+  margin-top: 1rem;
+}
 
-// textarea {
-//   resize: vertical;
-//   min-height: 10rem;
-// }
+.timezoneNote {
+  margin-top: 1rem;
+  font-family: var(--ff-en-gothic);
+  font-size: .9rem;
+  line-height: 1.2;
+  font-weight: 500;
+  text-align: center;
+  color: rgba($color: $color-text, $alpha: .7);
+}
 
-// button {
-//   justify-self: start;
-//   margin-top: 1rem;
-// }
+.label {
+  display: grid;
+  gap: .55rem;
+  font-family: var(--ff-en-gothic);
+  font-size: .95rem;
+  letter-spacing: 0.03em;
+  color: rgba($color: $color-text, $alpha: .8);
+}
+
+.label input,
+.label select,
+.label textarea {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: $color-text;
+  background-color: rgba($color: $color-white, $alpha: .4);
+  border: 1px solid rgba($color: $color-text, $alpha: .2);
+  border-radius: 10px;
+  transition: 
+    border-color .25s ease,
+    background-color .25s ease,
+    box-shadow .25s ease;
+}
+
+.label input,
+.label select {
+  min-height: 3rem;
+}
+
+.label textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.label input:focus,
+.label select:focus,
+.label textarea:focus {
+  outline: none;
+  border-color: rgba($color: $color-primary, $alpha: .65);
+  box-shadow: 0 0 0 3px rgba($color: $color-primary, $alpha: .08);
+}

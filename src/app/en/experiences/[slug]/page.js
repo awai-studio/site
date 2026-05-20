@@ -46,7 +46,7 @@ export default async function ExperienceDetailPage({ params }) {
           <div className={styles.detailMain}>
             {/* Highlights */}
             {experience.highlights.length > 0 && (
-              <section className={styles.detailSection}>
+              <section>
                 <h2>Highlights</h2>
                 <ul>
                   {experience.highlights.map((item) => (
@@ -58,7 +58,7 @@ export default async function ExperienceDetailPage({ params }) {
 
             {/* Full Description */}
             {experience.fullDescription.length > 0 && (
-              <section className={styles.detailSection}>
+              <section>
                 <h2>Full Description</h2>
                 {experience.fullDescription.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
@@ -67,7 +67,7 @@ export default async function ExperienceDetailPage({ params }) {
             )}
 
             {/* MID CTA */}
-            <section className={styles.inlineCta}>
+            <section className={styles.ctaWrapper}>
               <p>Interested in this experience?</p>
               <div className="cta">
                 <Link
@@ -81,11 +81,9 @@ export default async function ExperienceDetailPage({ params }) {
 
             {/* What's Included */}
             {experience.included.length > 0 && (
-              <section
-                className={`${styles.detailSection} ${styles.explanation}`}
-              >
+              <section>
                 <h2>What's Included</h2>
-                <ul>
+                <ul className="explanation">
                   {experience.included.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
@@ -96,14 +94,14 @@ export default async function ExperienceDetailPage({ params }) {
             {/* Meeting Point */}
             {experience.meetingPoint.description &&
               experience.meetingPoint.access.length > 0 && (
-                <section
-                  className={`${styles.detailSection} ${styles.explanation} ${styles.meetingPoint}`}
-                >
+                <section className={styles.meetingPoint}>
                   <div className="wrapper">
                     <h2>Meeting Point</h2>
-                    <p>{experience.meetingPoint.description}</p>
+                    <p className="explanation">
+                      {experience.meetingPoint.description}
+                    </p>
                   </div>
-                  <ul>
+                  <ul className="explanation">
                     {experience.meetingPoint.access.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
@@ -113,11 +111,9 @@ export default async function ExperienceDetailPage({ params }) {
 
             {/* Important Information */}
             {experience.importantInformation.length > 0 && (
-              <section
-                className={`${styles.detailSection} ${styles.explanation}`}
-              >
+              <section>
                 <h2>Important Information</h2>
-                <ul>
+                <ul className="explanation">
                   {experience.importantInformation.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
@@ -127,21 +123,17 @@ export default async function ExperienceDetailPage({ params }) {
 
             {/* Cancellation Policy */}
             {experience.cancellation.text && (
-              <section
-                className={`${styles.detailSection} ${styles.explanation}`}
-              >
+              <section>
                 <h2>Cancellation Policy</h2>
-                <p>{experience.cancellation.text}</p>
+                <p className="explanation">{experience.cancellation.text}</p>
               </section>
             )}
 
             {/* Not Allowed */}
             {experience.notAllowed.length > 0 && (
-              <section
-                className={`${styles.detailSection} ${styles.explanation}`}
-              >
+              <section>
                 <h2>Not Allowed</h2>
-                <ul>
+                <ul className="explanation">
                   {experience.notAllowed.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
