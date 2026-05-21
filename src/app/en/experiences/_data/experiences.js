@@ -53,12 +53,45 @@ export const experiences = [
       "Enjoy a private session designed for presence, attention, and small-group depth.",
     ],
     fullDescription: [
-      "This is not a setting for presenting a finished performance, but a private moment opened for sharing tea in a more attentive way.",
-      "In a quiet tea room in Kyoto, water is heated over real charcoal, and tea is prepared with care. From the gestures, the atmosphere, and the interplay of sound and stillness, conversation begins to unfold naturally.",
-      "Guided by a Kyoto-based tea practitioner rooted in the Urasenke tradition, this experience invites guests to encounter tea not as title or status, but as a practice deepened through daily repetition.",
-      "This is not a staged performance, nor a lesson built around formal explanation.",
-      "Guests are invited to take part directly: to observe, to listen, to make tea themselves, and to respond in their own words through thoughtful conversation.",
-      "The session is shaped through making tea, real charcoal, quiet attention, and dialogue. It is designed for guests who seek stillness, depth, and a cultural experience that goes beyond the surface.",
+      {
+        type: "image",
+        src: "/images/experiences/tea-experience-with-jack/description_01_260503_G9_7919.jpg",
+        alt: "",
+      },
+      {
+        type: "paragraph",
+        text: "This is not a setting for presenting a finished performance, but a private moment opened for sharing tea in a more attentive way.",
+      },
+      {
+        type: "paragraph",
+        text: "In a quiet tea room in Kyoto, water is heated over real charcoal, and tea is prepared with care. From the gestures, the atmosphere, and the interplay of sound and stillness, conversation begins to unfold naturally.",
+      },
+      {
+        type: "image",
+        src: "/images/experiences/tea-experience-with-jack/description_02_260517_G9_8030.jpg",
+        alt: "",
+      },
+      {
+        type: "paragraph",
+        text: "Guided by a Kyoto-based tea practitioner rooted in the Urasenke tradition, this experience invites guests to encounter tea not as title or status, but as a practice deepened through daily repetition.",
+      },
+      {
+        type: "paragraph",
+        text: "This is not a staged performance, nor a lesson built around formal explanation.",
+      },
+      {
+        type: "image",
+        src: "/images/experiences/tea-experience-with-jack/description_03_260517_G9_8054.jpg",
+        alt: "",
+      },
+      {
+        type: "paragraph",
+        text: "Guests are invited to take part directly: to observe, to listen, to make tea themselves, and to respond in their own words through thoughtful conversation.",
+      },
+      {
+        type: "paragraph",
+        text: "The session is shaped through making tea, real charcoal, quiet attention, and dialogue. It is designed for guests who seek stillness, depth, and a cultural experience that goes beyond the surface.",
+      },
     ],
     included: [
       "Private tea experience for up to 5 guests",
@@ -94,11 +127,6 @@ export const experiences = [
         "/images/experiences/tea-experience-with-jack/thumbnail_260426_G9_7826.jpg",
       booking:
         "/images/experiences/tea-experience-with-jack/booking_260510_G9_7969.jpg",
-      description: [
-        "/images/experiences/tea-experience-with-jack/description_01_260503_G9_7919.jpg",
-        "/images/experiences/tea-experience-with-jack/description_02_260517_G9_8030.jpg",
-        "/images/experiences/tea-experience-with-jack/description_03_260517_G9_8054.jpg",
-      ],
     },
     galleryImages: [
       {
@@ -210,7 +238,8 @@ export const experiences = [
       text: "Free cancellation up to 7 days before the experience. Cancellations made less than 7 days before the experience are non-refundable. Date changes may be possible depending on availability.",
     },
     highlights: [],
-    fullDescription: [],
+    fullDescription: [
+    ],
     included: [],
     meetingPoint: {
       description: "",
@@ -220,10 +249,8 @@ export const experiences = [
     notAllowed: ["Strong perfume or strong fragrances"],
     bookingHref: "/en/booking?experience=zen-experience-with-jirai",
     images: {
-      thumbnail:
-        "/images/experiences/zen-experience-with-jirai/thumbnail.jpg",
-      booking:
-        "/images/experiences/zen-experience-with-jirai/booking.jpg",
+      thumbnail: "/images/experiences/zen-experience-with-jirai/thumbnail.jpg",
+      booking: "/images/experiences/zen-experience-with-jirai/booking.jpg",
       description: [
         "/images/experiences/zen-experience-with-jirai/description_01.jpg",
         "/images/experiences/zen-experience-with-jirai/description_02.jpg",

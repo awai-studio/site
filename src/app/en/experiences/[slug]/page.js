@@ -6,6 +6,7 @@ import { experiences } from "../_data/experiences";
 import { reviews } from "../_data/reviews";
 import BookingCard from "../_components/BookingCard";
 import ReviewList from "../_components/ReviewList";
+import FullDescription from "../_components/FullDescription";
 import ExperienceSlider from "../_components/ExperienceSlider";
 import styles from "../experiences.module.scss";
 
@@ -57,14 +58,10 @@ export default async function ExperienceDetailPage({ params }) {
             )}
 
             {/* Full Description */}
-            {experience.fullDescription.length > 0 && (
-              <section>
-                <h2>Full Description</h2>
-                {experience.fullDescription.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </section>
-            )}
+            <section>
+              <h2>Full Description</h2>
+              <FullDescription blocks={experience.fullDescription} />
+            </section>
 
             {/* MID CTA */}
             <section className={styles.ctaWrapper}>
