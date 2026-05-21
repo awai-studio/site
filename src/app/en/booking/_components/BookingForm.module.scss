@@ -73,3 +73,18 @@
   border-color: rgba($color: $color-primary, $alpha: .65);
   box-shadow: 0 0 0 3px rgba($color: $color-primary, $alpha: .08);
 }
+
+.successMessage,
+.errorMessage {
+  font-family: var(--ff-en-gothic);
+  font-size: 1.05rem;
+  line-height: 1;
+  font-weight: 700;
+  text-align: center;
+}
+.successMessage {
+  color: $color-green-dull-dark;
+}
+.errorMessage {
+  color: $color-red-dull-dark;
+}

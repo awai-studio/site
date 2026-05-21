@@ -215,8 +215,8 @@ mail: info@awai-studio.jp
 └── public/
     └── images/  
         ├── experiences/
-        │   ├── TeaExJack/
-        │   └── ZenExJirai/
+        │   ├── tea-experience-with-jack/
+        │   └── zen-experience-with-jirai/
         └── top/
 ```
 

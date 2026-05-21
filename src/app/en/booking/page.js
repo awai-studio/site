@@ -29,7 +29,6 @@ export default async function BookingPage({ searchParams }) {
   return (
     <div className="container">
       <div className={styles.bookingPage}>
-        {/* <section className={styles.bookingHero}> */}
         <section>
           <p className="kicker">Awai Studio</p>
           <h1>Request Booking</h1>
@@ -40,6 +39,13 @@ export default async function BookingPage({ searchParams }) {
         </section>
 
         <section className={styles.experienceSummary}>
+          {
+            experience.images?.booking && (
+              <div className={styles.bookingImage}>
+                <img src={experience.images.booking} alt={experience.title} />
+              </div>
+            )
+          }
           <div className="wrapper">
             <h2>{experience.title}</h2>
             <p className="explanation">{experience.shortDescription}</p>

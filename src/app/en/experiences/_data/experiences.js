@@ -2,7 +2,7 @@
 
 export const experiences = [
   {
-    slug: "TeaExJack",
+    slug: "tea-experience-with-jack",
     title: "Kyoto: Private Tea Experience with a Kyoto Practitioner",
     cardTitle:
       "Beyond Performance — A Private Tea Gathering with a Kyoto Practitioner",
@@ -88,76 +88,87 @@ export const experiences = [
       "Video recording during the session",
       "Strong perfume or strong fragrances",
     ],
-    bookingHref: "/en/booking?experience=TeaExJack",
+    bookingHref: "/en/booking?experience=tea-experience-with-jack",
+    images: {
+      thumbnail:
+        "/images/experiences/tea-experience-with-jack/thumbnail_260426_G9_7826.jpg",
+      booking:
+        "/images/experiences/tea-experience-with-jack/booking_260510_G9_7969.jpg",
+      description: [
+        "/images/experiences/tea-experience-with-jack/description_01_260503_G9_7919.jpg",
+        "/images/experiences/tea-experience-with-jack/description_02_260517_G9_8030.jpg",
+        "/images/experiences/tea-experience-with-jack/description_03_260517_G9_8054.jpg",
+      ],
+    },
     galleryImages: [
       {
-        src: "/images/experiences/TeaExJack/00_G9_7976.jpg",
+        src: "/images/experiences/tea-experience-with-jack/00_G9_7976.jpg",
         alt: "Tea room with charcoal fire",
       },
       {
-        src: "/images/experiences/TeaExJack/01_1011542.jpg",
+        src: "/images/experiences/tea-experience-with-jack/01_1011542.jpg",
         alt: "Preparing tea in Kyoto",
       },
       {
-        src: "/images/experiences/TeaExJack/02_G9_7765.jpg",
+        src: "/images/experiences/tea-experience-with-jack/02_G9_7765.jpg",
         alt: "Traditional tea utensils",
       },
       {
-        src: "/images/experiences/TeaExJack/03_1011529.jpg",
+        src: "/images/experiences/tea-experience-with-jack/03_1011529.jpg",
         alt: "Tea room with charcoal fire",
       },
       {
-        src: "/images/experiences/TeaExJack/04_G9_7942.jpg",
+        src: "/images/experiences/tea-experience-with-jack/04_G9_7942.jpg",
         alt: "Preparing tea in Kyoto",
       },
       {
-        src: "/images/experiences/TeaExJack/05_G9_7936.jpg",
+        src: "/images/experiences/tea-experience-with-jack/05_G9_7936.jpg",
         alt: "Traditional tea utensils",
       },
       {
-        src: "/images/experiences/TeaExJack/06_G9_7952.jpg",
+        src: "/images/experiences/tea-experience-with-jack/06_G9_7952.jpg",
         alt: "Traditional tea utensils",
       },
       {
-        src: "/images/experiences/TeaExJack/07_G9_7970.jpg",
+        src: "/images/experiences/tea-experience-with-jack/07_G9_7970.jpg",
         alt: "Traditional tea utensils",
       },
       {
-        src: "/images/experiences/TeaExJack/08_G9_7792.jpg",
+        src: "/images/experiences/tea-experience-with-jack/08_G9_7792.jpg",
         alt: "Traditional tea utensils",
       },
       {
-        src: "/images/experiences/TeaExJack/09_G9_7944.jpg",
+        src: "/images/experiences/tea-experience-with-jack/09_G9_7944.jpg",
         alt: "Traditional tea utensils",
       },
       {
-        src: "/images/experiences/TeaExJack/10_G9_7802.jpg",
+        src: "/images/experiences/tea-experience-with-jack/10_G9_7802.jpg",
         alt: "Traditional tea utensils",
       },
       {
-        src: "/images/experiences/TeaExJack/11_G9_7782.jpg",
+        src: "/images/experiences/tea-experience-with-jack/11_G9_7782.jpg",
         alt: "Traditional tea utensils",
       },
       {
-        src: "/images/experiences/TeaExJack/12_1011514.jpg",
+        src: "/images/experiences/tea-experience-with-jack/12_1011514.jpg",
         alt: "Traditional tea utensils",
       },
       {
-        src: "/images/experiences/TeaExJack/13_1011475.jpg",
+        src: "/images/experiences/tea-experience-with-jack/13_1011475.jpg",
         alt: "Traditional tea utensils",
       },
       {
-        src: "/images/experiences/TeaExJack/14_G9_7800.jpg",
+        src: "/images/experiences/tea-experience-with-jack/14_G9_7800.jpg",
         alt: "Traditional tea utensils",
       },
       {
-        src: "/images/experiences/TeaExJack/15_1011457.jpg",
+        src: "/images/experiences/tea-experience-with-jack/15_1011457.jpg",
         alt: "Traditional tea utensils",
       },
     ],
   },
   {
-    slug: "ZenExJirai",
+    slug: "zen-experience-with-jirai",
     title: "Kyoto: Zen Experience with Jirai",
     cardTitle: "Zen Experience with Jirai",
     shortDescription:
@@ -207,30 +218,41 @@ export const experiences = [
     },
     importantInformation: [],
     notAllowed: ["Strong perfume or strong fragrances"],
-    bookingHref: "/en/booking?experience=ZenExJirai",
+    bookingHref: "/en/booking?experience=zen-experience-with-jirai",
+    images: {
+      thumbnail:
+        "/images/experiences/zen-experience-with-jirai/thumbnail.jpg",
+      booking:
+        "/images/experiences/zen-experience-with-jirai/booking.jpg",
+      description: [
+        "/images/experiences/zen-experience-with-jirai/description_01.jpg",
+        "/images/experiences/zen-experience-with-jirai/description_02.jpg",
+        "/images/experiences/zen-experience-with-jirai/description_03.jpg",
+      ],
+    },
     galleryImages: [
       {
-        src: "/images/experiences/ZenExJirai/",
+        src: "/images/experiences/zen-experience-with-jirai/",
         alt: "Zen monk speaking with guests",
       },
       {
-        src: "/images/experiences/ZenExJirai/",
+        src: "/images/experiences/zen-experience-with-jirai/",
         alt: "Zen monk speaking with guests",
       },
       {
-        src: "/images/experiences/ZenExJirai/",
+        src: "/images/experiences/zen-experience-with-jirai/",
         alt: "Zen monk speaking with guests",
       },
       {
-        src: "/images/experiences/ZenExJirai/",
+        src: "/images/experiences/zen-experience-with-jirai/",
         alt: "Zen monk speaking with guests",
       },
       {
-        src: "/images/experiences/ZenExJirai/",
+        src: "/images/experiences/zen-experience-with-jirai/",
         alt: "Zen monk speaking with guests",
       },
       {
-        src: "/images/experiences/ZenExJirai/",
+        src: "/images/experiences/zen-experience-with-jirai/",
         alt: "Traditional tea utensils",
       },
     ],
