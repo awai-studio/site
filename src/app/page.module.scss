@@ -3,20 +3,25 @@
 @use '@/styles/shared/' as *;
 
 .topPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   position: relative;
+  width: 100%;
+  min-height: 100svh;
   margin-top: unset;
   background-color: #000;
+  overflow: hidden;
   @include mq(md) {
+    justify-content: center;
     padding-top: 4.5rem;
   }
 }
 
 .topBackGroundImage {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  inset: 0; // top, bottom, left, right全て0の意味
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -74,60 +79,68 @@
 
 .topContent {
   position: relative;
+  width: 100%;
+  padding-bottom: 3rem;
   z-index: 1;
 }
 
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  @include mq(md) {
-    justify-content: center;
+.title {
+  position: relative;
+  margin: 18rem 0 7rem;
+  font-family: var(--ff-title-en);
+  text-align: center;
+  color: rgba($color: $color-white, $alpha: .7);
+  @include mq(lg) {
+    margin: 14rem 0 12rem;
   }
-
-  & .title {
-    position: relative;
-    margin: 18rem 0 7rem;
-    font-family: var(--ff-title-en);
-    text-align: center;
-    color: rgba($color: $color-white, $alpha: .7);
-    @include mq(lg) {
-      margin: 14rem 0 12rem;
-    }
-    &::after {
-      position: absolute;
-      content: "";
+  &::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    width: 100vw;
+    height: 45vh;
+    background-image: url("/images/logo-awai-portrait-gray.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: .2;
+    filter: blur(3px);
+    @include mq(md) {
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -55%);
-      width: 100vw;
-      height: 45vh;
-      background-image: url("/images/logo-awai-portrait-gray.png");
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
+      transform: translate(-50%, -65%);        
+      height: 26vh;
+      background-image: url("/images/logo-awai-white.png");
       opacity: .2;
-      filter: blur(3px);
-      @include mq(md) {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -65%);        
-        height: 26vh;
-        background-image: url("/images/logo-awai-white.png");
-        opacity: .2;
-      }
     }
   }
+}
 
-  & .wrapper {
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(1px);
-    padding: 2rem 0 3rem;
-    border-radius: 2px;   
+.wrapper {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1px);
+  padding: 2rem 0 3rem;
+  border-radius: 2px;   
+  -webkit-mask-image: 
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 25%,
+      black 75%,
+      transparent 100%
+    );
+  mask-image: 
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 25%,
+      black 75%,
+      transparent 100%
+    );   
+  @include mq(md) {
+    padding: 2rem 4rem;
     -webkit-mask-image: 
       linear-gradient(
         to bottom,
@@ -143,118 +156,99 @@
         black 25%,
         black 75%,
         transparent 100%
-      );   
-    @include mq(md) {
-      padding: 2rem 4rem;
-      -webkit-mask-image: 
-        linear-gradient(
-          to bottom,
-          transparent 0%,
-          black 25%,
-          black 75%,
-          transparent 100%
-        );
-      mask-image: 
-        linear-gradient(
-          to bottom,
-          transparent 0%,
-          black 25%,
-          black 75%,
-          transparent 100%
-        );    
-    }
+      );    
   }
-  
-  & .catchCopy {
-    position: relative;
-    width: fit-content;
-    margin: 0 auto;
-    text-align: center; 
-    font-size: 2rem;
-    line-height: 1.2;
-    font-family: var(--ff-title-en);
-    font-weight: 600;
-    letter-spacing: .2em;
-    opacity: .8;
-    color: rgba($color: $color-gold, $alpha: .8);
-    text-shadow: 
-      0 0 20px rgba(0, 0, 0, 0.9),
-      0 0 40px rgba(0, 0, 0, 0.8),
-      2px 2px 8px rgba(0, 0, 0, 1),
-      -2px -2px 8px rgba(0, 0, 0, 0.6);
-    @include mq(md) {
-      font-size: 2.75rem;
-      line-height: 1;
-      // color: rgba($color: $color-white, $alpha: 1);
-      // text-shadow: unset;
-    }
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 1px;      
-      background-color: rgba($color: $color-gold, $alpha: .7);
-      @include mq(md) {
-        left: unset;
-        transform: unset;        
-        width: 100px;
-        height: 1px;
-      }
-    }
-    &::before {
-      top: -40%;
-      @include mq(md) {
-        top: 50%;
-        left: calc(-100px - 1rem) ;
-      }
-    }
-    &::after {
-      top: -25%;
-      @include mq(md) {
-        top: 50%;
-        right: calc(-100px - 1rem) ;
-      }
-    }
-  }
+}
 
-  & .copyJp,
-  & .copyEn {
-    text-align: center;
-    font-size: 1.5rem;
-    font-family: var(--ff-mincho);
-    letter-spacing: 1px;
-    color: rgba($color: $color-white, $alpha: .8);
+.catchCopy {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center; 
+  font-size: 2rem;
+  line-height: 1.2;
+  font-family: var(--ff-title-en);
+  font-weight: 600;
+  letter-spacing: .2em;
+  opacity: .8;
+  color: rgba($color: $color-gold, $alpha: .8);
+  text-shadow: 
+    0 0 20px rgba(0, 0, 0, 0.9),
+    0 0 40px rgba(0, 0, 0, 0.8),
+    2px 2px 8px rgba(0, 0, 0, 1),
+    -2px -2px 8px rgba(0, 0, 0, 0.6);
+  @include mq(md) {
+    font-size: 2.75rem;
+    line-height: 1;
+    // color: rgba($color: $color-white, $alpha: 1);
+    // text-shadow: unset;
+  }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 1px;      
+    background-color: rgba($color: $color-gold, $alpha: .7);
     @include mq(md) {
-      letter-spacing: 2px;
+      left: unset;
+      transform: unset;        
+      width: 100px;
+      height: 1px;
     }
   }
-  & .copyEn {
-    margin-top: 1rem;
-    line-height: 1.3;
-    font-size: 1.35rem;
-    font-family: var(--ff-title-en);
-    font-weight: 600;
-    color: rgba($color: $color-gold, $alpha: .8);  
-    text-shadow: 
-      0 0 20px rgba(0, 0, 0, 0.9),
-      0 0 40px rgba(0, 0, 0, 0.8),
-      2px 2px 8px rgba(0, 0, 0, 1),
-      -2px -2px 8px rgba(0, 0, 0, 0.6);         
+  &::before {
+    top: -40%;
     @include mq(md) {
-      margin-top: .5rem;
-      font-size: 2rem;
+      top: 50%;
+      left: calc(-100px - 1rem) ;
     }
   }
-  & .copyJp {
-    line-height: 1.5;
+  &::after {
+    top: -25%;
     @include mq(md) {
-      font-size: 2rem;
-      line-height: 1;
-      color: rgba($color: $color-white, $alpha: .6);      
+      top: 50%;
+      right: calc(-100px - 1rem) ;
     }
+  }
+}
+
+.copyJp,
+.copyEn {
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: var(--ff-mincho);
+  letter-spacing: 1px;
+  color: rgba($color: $color-white, $alpha: .8);
+  @include mq(md) {
+    letter-spacing: 2px;
+  }
+}
+.copyEn {
+  margin-top: 1rem;
+  line-height: 1.3;
+  font-size: 1.35rem;
+  font-family: var(--ff-title-en);
+  font-weight: 600;
+  color: rgba($color: $color-gold, $alpha: .8);  
+  text-shadow: 
+    0 0 20px rgba(0, 0, 0, 0.9),
+    0 0 40px rgba(0, 0, 0, 0.8),
+    2px 2px 8px rgba(0, 0, 0, 1),
+    -2px -2px 8px rgba(0, 0, 0, 0.6);         
+  @include mq(md) {
+    margin-top: .5rem;
+    font-size: 2rem;
+  }
+}
+.copyJp {
+  line-height: 1.5;
+  @include mq(md) {
+    font-size: 2rem;
+    line-height: 1;
+    color: rgba($color: $color-white, $alpha: .6);      
   }
 }
 

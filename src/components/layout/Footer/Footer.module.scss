@@ -3,10 +3,12 @@
 @use '@/styles/shared' as *;
 
 .footer {
+  position: relative;
   width: 100%;
   margin-top: auto;
   padding: 1.5rem 0;
-  background-color: rgba($color:  $color-primary, $alpha: .8);  
+  background-color: rgba($color:  $color-primary, $alpha: 1);  
+  z-index: 5;
 }
 
 .copyright {

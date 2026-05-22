@@ -4,14 +4,13 @@ import Link from "next/link";
 import styles from "./page.module.scss";
 
 export default function Home() {
-
   const topBGImg = [
-    "images/top/hero-image-tea-room.jpg",
-    "images/top/hero-image-zen.jpg"
+    "/images/top/hero-image-tea-room.jpg",
+    "/images/top/hero-image-zen.jpg"
   ];
 
   return (
-    <div className={`${styles.topPage} ${styles.hero}`}>
+    <div className={styles.topPage}>
       {topBGImg.map((path, idx) => (
         <div
           key={path}
