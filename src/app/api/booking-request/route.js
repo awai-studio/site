@@ -1,4 +1,4 @@
-// @/app/api/booking-request/page.js
+// @/app/api/booking-request/route.js
 
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
@@ -16,8 +16,12 @@ export async function POST(request) {
       customerName,
       customerEmail,
       guestCount,
-      preferredDate,
-      preferredTime,
+      preferredDate1,
+      preferredTime1,
+      preferredDate2,
+      preferredTime2,
+      preferredDate3,
+      preferredTime3,
       message,
     } = body;
 
@@ -26,9 +30,8 @@ export async function POST(request) {
       !customerName ||
       !customerEmail ||
       !guestCount ||
-      !preferredDate ||
-      !preferredTime ||
-      !message
+      !preferredDate1 ||
+      !preferredTime1
     ) {
       return NextResponse.json(
         { error: "Required fields are missing." },
@@ -41,8 +44,12 @@ export async function POST(request) {
       customerName,
       customerEmail,
       guestCount,
-      preferredDate,
-      preferredTime,
+      preferredDate1,
+      preferredTime1,
+      preferredDate2,
+      preferredTime2,
+      preferredDate3,
+      preferredTime3,
       message
     });
 
@@ -51,6 +58,33 @@ export async function POST(request) {
 
     const fromEmail = process.env.BOOKING_FROM_EMAIL || "Awai Studio <hello@awai-studio.jp>";
     const notifyEmail = process.env.BOOKING_NOTIFY_EMAIL;
+
+    const preferredDateTimes = [
+      {
+        label: "1",
+        date: preferredDate1,
+        time: preferredTime1,
+      },
+      {
+        label: "2",
+        date: preferredDate2,
+        time: preferredTime2,
+      },
+      {
+        label: "3",
+        date: preferredDate3,
+        time: preferredTime3,
+      },
+    ];
+
+    const preferredDateTimeText = preferredDateTimes
+      .filter((item) => item.date && item.time)
+      .map((item) => {
+        return `${item.label})
+${item.date}
+${item.time} JST`;
+      })
+      .join("\n\n");
 
     await resend.emails.send({
       from: fromEmail,
@@ -62,11 +96,8 @@ A new booking request has been submitted.
 Experience:
 ${experienceTitle}
 
-Date:
-${preferredDate}
-
-Time:
-${preferredTime} JST
+Date, Time:
+${preferredDateTimeText}
 
 Guests:
 ${guestCount}
@@ -79,7 +110,7 @@ ${customerEmail}
 
 Message:
 ${message || "(No message)"}
-`
+`,
     });
 
     await resend.emails.send({
@@ -95,11 +126,8 @@ We have received the following request:
 Experience:
 ${experienceTitle}
 
-Preferred date:
-${preferredDate}
-
-Preferred time:
-${preferredTime} JST
+Preferred date & time:
+${preferredDateTimeText}
 
 Number of Guests:
 ${guestCount}

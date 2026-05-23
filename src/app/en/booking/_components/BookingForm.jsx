@@ -43,9 +43,10 @@ function isSameDate(date, dateString) {
 // フォームを返して、入力された値をDBに渡す。
 export default function BookingForm({ experience }) {
   // Stateを初期化する。
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDates, setSelectedDates] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [formError, setFormError] = useState("");
 
   // experiencesのキー
   // ここに、データの種類は何タイプ？　利用可能な希望の曜日は？　希望の開催時間はいつ？
@@ -66,6 +67,11 @@ export default function BookingForm({ experience }) {
   const guestCounts = Array.from({ length: guestsLength }, (_, idx) => {
     return minGuestsNum + idx;
   })
+  const preferenceLabels = [
+    "Preferred date",
+    "First alternative date",
+    "Second alternative date",
+  ];
   // フォームに入力している日付を取得
   const today = startOfDay(new Date());
   // 今日から7日後以降を予約可能にするため、その基準日を取得。
@@ -121,9 +127,58 @@ export default function BookingForm({ experience }) {
       // ここに来るまでの前の状態が、
       // true, false, nullのいずれかなのでこちらで一旦初期化する。
       setSubmitStatus(null);
+      // 前回のエラー表示を初期化する。
+      setFormError("");
       // FormDataクラスは、ブラウザが持っている Web API のクラス。
       // つまり、ブラウザが提供している機能を使ってインスタンスを作っている。
       const formData = new FormData(formElement);
+      // バリデーションのための変数定義
+      const customerName = formData.get("name");
+      const customerEmail = formData.get("email");
+      const guestCount = formData.get("guestCount");
+      const preferredDate1 = formData.get("preferredDate1");
+      const preferredTime1 = formData.get("preferredTime1");
+      const preferredDate2 = formData.get("preferredDate2");
+      const preferredTime2 = formData.get("preferredTime2");
+      const preferredDate3 = formData.get("preferredDate3");
+      const preferredTime3 = formData.get("preferredTime3");
+
+      if (!preferredDate1) {
+        setFormError("Please choose at least one preferred date.");
+        setIsSubmitting(false);
+        return;
+      }
+      if (!preferredTime1) {
+        setFormError("Please select a time for your preferred date.");
+        setIsSubmitting(false);
+        return;
+      }
+      if (preferredDate2 && !preferredTime2) {
+        setFormError("Please select a time for your first alternative date.");
+        setIsSubmitting(false);
+        return;
+      }
+      if (preferredDate3 && !preferredTime3) {
+        setFormError("Please select a time for your second alternative date.");
+        setIsSubmitting(false);
+        return;
+      }
+      if (!guestCount) {
+        setFormError("Please select the number of guests.");
+        setIsSubmitting(false);
+        return;
+      }
+      if (!customerName) {
+        setFormError("Please enter your name.");
+        setIsSubmitting(false);
+        return;
+      }
+      if (!customerEmail) {
+        setFormError("Please enter your email address.");
+        setIsSubmitting(false);
+        return;
+      }
+
       // // 入力フォームに入った属性の値を
       // // DB呼び出して、インサートする命令を出している。
       // await createBookingRequest({
@@ -154,11 +209,15 @@ export default function BookingForm({ experience }) {
         body: JSON.stringify({
           experienceSlug: experience.slug,
           experienceTitle: experience.title,
-          customerName: formData.get("name"),
-          customerEmail: formData.get("email"),
-          guestCount: Number(formData.get("guestCount")),
-          preferredDate: formData.get("preferredDate"),
-          preferredTime: formData.get("preferredTime"),
+          customerName: customerName,
+          customerEmail: customerEmail,
+          guestCount: Number(guestCount),
+          preferredDate1: preferredDate1,
+          preferredTime1: preferredTime1,
+          preferredDate2: formData.get("preferredDate2"),
+          preferredTime2: formData.get("preferredTime2"),
+          preferredDate3: formData.get("preferredDate3"),
+          preferredTime3: formData.get("preferredTime3"),
           message: formData.get("message"),
         }),
       });
@@ -169,7 +228,7 @@ export default function BookingForm({ experience }) {
       setSubmitStatus("success");
       // 使ったら戻すをやっている箇所。
       formElement.reset();
-      setSelectedDate(null);
+      setSelectedDates([]);
     } catch (error) {
       console.error(error);
       setSubmitStatus("error");
@@ -193,9 +252,10 @@ export default function BookingForm({ experience }) {
           <div className={styles.calendarPanel}>
             <DayPicker
               id="preferredDate"
-              mode="single"
-              selected={selectedDate}
-              onSelect={setSelectedDate}
+              mode="multiple"
+              max={3}
+              selected={selectedDates}
+              onSelect={setSelectedDates}
               disabled={isDateDisabled}
               timeZone="Asia/Tokyo"
               showOutsideDays
@@ -204,55 +264,97 @@ export default function BookingForm({ experience }) {
               endMonth={endMonth}
             />
           </div>
-          <input
-            type="hidden"
-            name="preferredDate"
-            value={selectedDate ? formatDateKey(selectedDate) : ""}
-          />
-          <p className={styles.timezoneNote}>
-            All dates and times are based on Kyoto local time (JST).
-          </p>
+          <ul className={`explanation ${styles.daySelectNote}`}>
+            <li className={styles.noteList}>
+              Please select your preferred date first. You may also choose up to
+              two alternative dates.
+            </li>
+            <li className={styles.noteList}>
+              All dates and times are based on Kyoto local time (JST).
+            </li>
+          </ul>
         </div>
 
-        <label className={styles.label} htmlFor="preferredTime">
-          Preferred time
-          <select id="preferredTime" name="preferredTime" defaultValue="">
+        <div className={styles.label}>
+          <span className={styles.itemName}>Select preferred dates</span>
+          {selectedDates.length === 0 ? (
+            <div className={styles.dayZero}>
+              Please choose at least one preferred date.
+            </div>
+          ) : (
+            <div className={styles.datePreferences}>
+              {selectedDates.map((date, idx) => (
+                <div
+                  className={styles.preferenceItem}
+                  key={formatDateKey(date)}
+                >
+                  <input
+                    type="hidden"
+                    name={`preferredDate${idx + 1}`}
+                    value={formatDateKey(date)}
+                  />
+                  <p className={styles.preferenceDate}>
+                    {`${idx + 1}. ${preferenceLabels[idx]}: ${formatDateKey(date)}`}
+                  </p>
+                  <label
+                    htmlFor={`preferred-time${idx + 1}`}
+                    className={styles.preferenceTimeLabel}
+                  >
+                    <div>Preferred time</div>
+                    <select
+                      id={`preferred-time${idx + 1}`}
+                      name={`preferredTime${idx + 1}`}
+                      defaultValue=""
+                    >
+                      <option value="" disabled>
+                        Select a time
+                      </option>
+                      {timeSlots.map((time) => (
+                        <option value={time} key={time}>
+                          {time}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <label className={styles.label} htmlFor="numberOfGuests">
+          <span className={styles.itemName}>Number of guests</span>
+          <select name="guestCount" id="numberOfGuests" defaultValue="">
             <option value="" disabled>
-              select a time
+              Select guests
             </option>
-            {timeSlots.map((time) => (
-              <option value={time} key={time}>
-                {time}
+            {guestCounts.map((count) => (
+              <option value={count} key={count}>
+                {count === 1 ? `${count} person` : `${count} persons`}
               </option>
             ))}
           </select>
         </label>
-
-        <label className={styles.label} htmlFor="numberOfGuests">
-          Number of guests
-          <select name="guestCount" id="numberOfGuests" defaultValue="">
-            <option value="" disabled>
-              select guests
-            </option>
-            {
-              guestCounts.map((count) => (
-                <option value={count} key={count}>{count}</option>
-              ))
-            }
-          </select>
-        </label>
         <label className={styles.label} htmlFor="name">
-          Your name
+          <span className={styles.itemName}>Your name</span>
           <input id="name" type="text" name="name" />
         </label>
         <label className={styles.label} htmlFor="email">
-          Email
+          <span className={styles.itemName}>Email</span>
           <input id="email" type="email" name="email" />
         </label>
         <label className={styles.label} htmlFor="message">
-          Message
+          <span className={styles.itemName}>Message</span>
           <textarea id="message" name="message" rows="5" />
         </label>
+
+        {
+          formError && (
+            <p className={styles.formErrorMessage}>
+              {formError}
+            </p>
+          )
+        }
 
         <div className="cta">
           <button
