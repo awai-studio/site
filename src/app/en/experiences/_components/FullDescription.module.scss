@@ -4,7 +4,7 @@
 
 .fullDescription {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.25rem;
   & > P {
     margin: 0;
   }
@@ -12,7 +12,7 @@
 
 .descriptionImage {
   width: 100%;
-  margin: 2rem 0;
+  margin: 2rem 0 0;
   overflow: hidden;
   & > img {
     display: block;
@@ -20,5 +20,18 @@
     height: 100%;
     aspect-ratio: 3 / 2;
     object-fit: cover;
+  }
+}
+
+.fullDescriptionH3 {
+  margin: 1.25rem 0 0;
+  padding: .15em 0 .25em 1rem;
+  font-size: 1.8rem;
+  line-height: 1.1;
+  border-left: 3px solid rgba($color: $color-primary, $alpha: .7);
+  border-bottom: 1px solid rgba($color: $color-text, $alpha: .5);
+  @include mq(md) {
+    font-size: 2.5rem;
+    line-height: .9;
   }
 }

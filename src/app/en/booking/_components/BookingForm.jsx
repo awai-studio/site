@@ -178,6 +178,15 @@ export default function BookingForm({ experience }) {
         setIsSubmitting(false);
         return;
       }
+      // 簡易的なEmailのバリデーション
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const isEmailValid = emailPattern.test(customerEmail);
+      if (!isEmailValid) {
+        setSubmitStatus(null);
+        setFormError("Please enter a valid email address.")
+        setIsSubmitting(false);
+        return;
+      }
 
       // // 入力フォームに入った属性の値を
       // // DB呼び出して、インサートする命令を出している。
@@ -214,10 +223,10 @@ export default function BookingForm({ experience }) {
           guestCount: Number(guestCount),
           preferredDate1: preferredDate1,
           preferredTime1: preferredTime1,
-          preferredDate2: formData.get("preferredDate2"),
-          preferredTime2: formData.get("preferredTime2"),
-          preferredDate3: formData.get("preferredDate3"),
-          preferredTime3: formData.get("preferredTime3"),
+          preferredDate2: preferredDate2,
+          preferredTime2: preferredTime2,
+          preferredDate3: preferredDate3,
+          preferredTime3: preferredTime3,
           message: formData.get("message"),
         }),
       });
@@ -341,7 +350,7 @@ export default function BookingForm({ experience }) {
         </label>
         <label className={styles.label} htmlFor="email">
           <span className={styles.itemName}>Email</span>
-          <input id="email" type="email" name="email" />
+          <input id="email" type="text" name="email" />
         </label>
         <label className={styles.label} htmlFor="message">
           <span className={styles.itemName}>Message</span>

@@ -6,6 +6,44 @@ import { createBookingRequest } from "@/lib/supabase/bookingRequests";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// // 入力必須項目が入力されているかのバリデーション
+// if (
+//   !experienceSlug ||
+//   !customerName ||
+//   !customerEmail ||
+//   !guestCount ||
+//   !preferredDate1 ||
+//   !preferredTime1
+// ) {
+//   return NextResponse.json(
+//     { error: "Required failds are missing."},
+//     { status: 400 }
+//   );
+// }
+// // 簡易的なEmailのバリデーション
+// const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// const isEmailValid = emailPattern.test(customerEmail);
+// if (!isEmailValid) {
+//   return NextResponse.json(
+//     { error: "Invalid email address."},
+//     { status: 400 }
+//   );
+// }
+// // 日時の第二第三候補の整合チェック
+// if (preferredDate2 && !preferredTime2) {
+//   return NextResponse.json(
+//     { error: "Preferred time 2 is missing."},
+//     { status: 400 }
+//   );
+// }
+// if (preferredDate3 && !preferredTime3) {
+//   return NextResponse.json(
+//     { error: "Preferred time 3 is missing."},
+//     { status: 400 }
+//   );
+// }
+
+
 export async function POST(request) {
   try {
     const body = await request.json();
@@ -25,6 +63,7 @@ export async function POST(request) {
       message,
     } = body;
 
+    // 入力必須項目が入力されているかのバリデーション
     if (
       !experienceSlug ||
       !customerName ||
@@ -35,6 +74,30 @@ export async function POST(request) {
     ) {
       return NextResponse.json(
         { error: "Required fields are missing." },
+        { status: 400 },
+      );
+    }
+  
+    // 簡易的なEmailのバリデーション
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isEmailValid = emailPattern.test(customerEmail);
+    if (!isEmailValid) {
+      return NextResponse.json(
+        { error: "Invalid email address." },
+        { status: 400 },
+      );
+    }
+
+    // 日時の第二第三候補の整合チェック
+    if (preferredDate2 && !preferredTime2) {
+      return NextResponse.json(
+        { error: "Preferred time 2 is missing." },
+        { status: 400 },
+      );
+    }
+    if (preferredDate3 && !preferredTime3) {
+      return NextResponse.json(
+        { error: "Preferred time 3 is missing." },
         { status: 400 },
       );
     }
@@ -50,13 +113,14 @@ export async function POST(request) {
       preferredTime2,
       preferredDate3,
       preferredTime3,
-      message
+      message,
     });
 
     // const fromEmail = process.env.BOOKING_FROM_EMAIL || "Awai Studio <dev@awai-studio.jp>";
     // const notifyEmail = process.env.BOOKING_FROM_EMAIL;
 
-    const fromEmail = process.env.BOOKING_FROM_EMAIL || "Awai Studio <hello@awai-studio.jp>";
+    const fromEmail =
+      process.env.BOOKING_FROM_EMAIL || "Awai Studio <hello@awai-studio.jp>";
     const notifyEmail = process.env.BOOKING_NOTIFY_EMAIL;
 
     const preferredDateTimes = [
@@ -144,7 +208,6 @@ Awai Studio
 `,
     });
     return NextResponse.json({ ok: true });
-
   } catch(error) {
     console.error(error);
     
