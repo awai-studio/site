@@ -122,7 +122,7 @@ export const experiences = [
       },
       {
         type: "image",
-        src: "/images/experiences/tea-experience-with-jack/00_G9_7976.jpg",
+        src: "/images/experiences/tea-experience-with-jack/description_01_260503_G9_7919.jpg",
         alt: "",
       },
       {
