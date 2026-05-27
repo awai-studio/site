@@ -196,47 +196,6 @@ export const experiences = [
         text: "We hope this small gathering will remain with you as a quiet and meaningful memory of your time in Kyoto.",
       },
     ],
-    fullDescriptionOld: [
-      {
-        type: "image",
-        src: "/images/experiences/tea-experience-with-jack/description_01_260503_G9_7919.jpg",
-        alt: "",
-      },
-      {
-        type: "paragraph",
-        text: "This is not a setting \nfor presenting a finished \nperformance, but a private moment opened for sharing tea in a more attentive way.",
-      },
-      {
-        type: "paragraph",
-        text: "In a quiet tea room in Kyoto, water is heated over real charcoal, and tea is prepared with care. From the gestures, the atmosphere, and the interplay of sound and stillness, conversation begins to unfold naturally.",
-      },
-      {
-        type: "image",
-        src: "/images/experiences/tea-experience-with-jack/description_02_260517_G9_8030.jpg",
-        alt: "",
-      },
-      {
-        type: "paragraph",
-        text: "Guided by a Kyoto-based tea practitioner rooted in the Urasenke tradition, this experience invites guests to encounter tea not as title or status, but as a practice deepened through daily repetition.",
-      },
-      {
-        type: "paragraph",
-        text: "This is not a staged performance, nor a lesson built around formal explanation.",
-      },
-      {
-        type: "image",
-        src: "/images/experiences/tea-experience-with-jack/description_03_260517_G9_8054.jpg",
-        alt: "",
-      },
-      {
-        type: "paragraph",
-        text: "Guests are invited to take part directly: to observe, to listen, to make tea themselves, and to respond in their own words through thoughtful conversation.",
-      },
-      {
-        type: "paragraph",
-        text: "The session is shaped through making tea, real charcoal, quiet attention, and dialogue. It is designed for guests who seek stillness, depth, and a cultural experience that goes beyond the surface.",
-      },
-    ],
     included: [
       "Private tea experience for up to 5 guests",
       "Guidance by an English-speaking tea practitioner",

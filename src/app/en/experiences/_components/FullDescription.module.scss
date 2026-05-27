@@ -5,8 +5,49 @@
 .fullDescription {
   display: grid;
   gap: 1.25rem;
+}
+
+.fullDescriptionMore {
+  display: grid;
+  gap: 1.25rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-0.75rem);
+  transition: 
+  max-height 2s ease,
+  opacity 1s ease,
+  transform 1s ease;
+  &.isOpen {
+    max-height: 5000px;
+    opacity: 1;
+    transform: translateY(0);
+  }
   & > P {
     margin: 0;
+  }
+}
+
+.readMoreCta {
+  & > .readMoreButton {
+    display: block;
+    padding: .75rem 2rem;
+    // font-family: var(--ff-en-gothic);
+    font-size: .95rem;
+    letter-spacing: .06em;
+    color: rgba($color: $color-text, $alpha: .8);
+    background-color: transparent;
+    border: 1px solid rgba($color: $color-text, $alpha: .25);
+    cursor: pointer;
+    transition: 
+      background-color .3s ease,
+      border-color .3s ease,
+      transform .3s ease;
+    &:hover {
+      background-color: rgba($color: $color-white, $alpha: .5);
+      border-color: rgba($color: $color-primary, $alpha: .45);
+      transform: translateY(-2px);
+    }
   }
 }
 
