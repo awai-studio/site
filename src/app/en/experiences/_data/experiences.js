@@ -18,9 +18,9 @@ export const experiences = [
     },
     pricing: {
       type: "privateGroup",
-      amount: 48000,
+      amount: 66000,
       currency: "JPY",
-      displayPrice: "¥48,000",
+      displayPrice: "¥66,000",
       unit: "per private group",
       minGuests: 1,
       maxGuests: 5,
