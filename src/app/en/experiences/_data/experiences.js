@@ -42,8 +42,18 @@ export const experiences = [
       unavailableDates: ["2026-05-26", "2026-05-29"],
     },
     cancellation: {
-      summary: "Free cancellation",
-      text: "Free cancellation up to 7 days before the experience. Cancellations made less than 7 days before the experience are non-refundable. Date changes may be possible depending on availability.",
+      summary: "Free cancellation up to 7 days before the experience",
+      bookingNotice:
+        "Booking requests must be submitted at least 10 days before your preferred date. After we confirm availability, we will send payment details by email. Your booking is confirmed only after payment has been completed.",
+      paymentNotice:
+        "Please complete payment within 48 hours after we send the payment link. If payment is not completed within this period, your booking request may be cancelled.",
+      details: [
+        "Cancellations made at least 7 days before the experience are eligible for a full refund.",
+        "If your payment is completed less than 7 days before the experience, you may still cancel for a full refund within 24 hours after payment.",
+        "After this 24-hour period, cancellations made less than 7 days before the experience are non-refundable.",
+        "All deadlines are based on Japan Standard Time.",
+        "If Awai Studio needs to cancel the experience for any reason, you will receive a full refund or the option to reschedule.",
+      ],
     },
     highlights: [
       "Experience private tea in a quiet Kyoto tea room, away from crowded tourist areas.",
@@ -337,8 +347,19 @@ export const experiences = [
       unavailableDates: ["2026-05-26", "2026-05-29"],
     },
     cancellation: {
-      summary: "Free cancellation",
-      text: "Free cancellation up to 7 days before the experience. Cancellations made less than 7 days before the experience are non-refundable. Date changes may be possible depending on availability.",
+      summary: 
+        "Free cancellation up to 7 days before the experience",
+      bookingNotice:
+        "Booking requests must be submitted at least 10 days before your preferred date. After we confirm availability, we will send payment details by email. Your booking is confirmed only after payment has been completed.",
+      paymentNotice:
+        "Please complete payment within 48 hours after we send the payment link. If payment is not completed within this period, your booking request may be cancelled.",
+      details: [
+        "Cancellations made at least 7 days before the experience are eligible for a full refund.",
+        "If your payment is completed less than 7 days before the experience, you may still cancel for a full refund within 24 hours after payment.",
+        "After this 24-hour period, cancellations made less than 7 days before the experience are non-refundable.",
+        "All deadlines are based on Japan Standard Time.",
+        "If Awai Studio needs to cancel the experience for any reason, you will receive a full refund or the option to reschedule.",
+      ],
     },
     highlights: [],
     fullDescription: [],

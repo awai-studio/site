@@ -119,10 +119,22 @@ export default async function ExperienceDetailPage({ params }) {
             )}
 
             {/* Cancellation Policy */}
-            {experience.cancellation.text && (
+            {experience.cancellation?.details?.length > 0 && (
               <section>
                 <h2>Cancellation Policy</h2>
-                <p className="explanation">{experience.cancellation.text}</p>
+                <div className={`wrapper ${styles.cancellationNotices}`}>
+                  <p className="explanation">
+                    {experience.cancellation.bookingNotice}
+                  </p>
+                  <p className="explanation">
+                    {experience.cancellation.paymentNotice}
+                  </p>
+                </div>
+                <ul className={`explanation ${styles.cancellationDetails}`}>
+                  {experience.cancellation.details.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </section>
             )}
 

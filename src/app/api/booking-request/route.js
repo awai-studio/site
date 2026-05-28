@@ -6,44 +6,6 @@ import { createBookingRequest } from "@/lib/supabase/bookingRequests";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// // 入力必須項目が入力されているかのバリデーション
-// if (
-//   !experienceSlug ||
-//   !customerName ||
-//   !customerEmail ||
-//   !guestCount ||
-//   !preferredDate1 ||
-//   !preferredTime1
-// ) {
-//   return NextResponse.json(
-//     { error: "Required failds are missing."},
-//     { status: 400 }
-//   );
-// }
-// // 簡易的なEmailのバリデーション
-// const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-// const isEmailValid = emailPattern.test(customerEmail);
-// if (!isEmailValid) {
-//   return NextResponse.json(
-//     { error: "Invalid email address."},
-//     { status: 400 }
-//   );
-// }
-// // 日時の第二第三候補の整合チェック
-// if (preferredDate2 && !preferredTime2) {
-//   return NextResponse.json(
-//     { error: "Preferred time 2 is missing."},
-//     { status: 400 }
-//   );
-// }
-// if (preferredDate3 && !preferredTime3) {
-//   return NextResponse.json(
-//     { error: "Preferred time 3 is missing."},
-//     { status: 400 }
-//   );
-// }
-
-
 export async function POST(request) {
   try {
     const body = await request.json();
@@ -202,9 +164,17 @@ ${customerName}
 Please note that this request is not yet confirmed.
 We will check availability and contact you by email.
 
-All dates and times are based on Kyoto local time (JST).
+After we confirm availability, we will send payment details by email.
+Your booking is confirmed only after payment has been completed.
+
+All dates, times, and deadlines are based on Japan Standard Time (JST).
+
+_/_/_/_/_/_/_/_/_/_/
 
 Awai Studio
+info@awai-studio.jp
+
+_/_/_/_/_/_/_/_/_/_/
 `,
     });
     return NextResponse.json({ ok: true });

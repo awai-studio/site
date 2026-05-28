@@ -39,13 +39,11 @@ export default async function BookingPage({ searchParams }) {
         </section>
 
         <section className={styles.experienceSummary}>
-          {
-            experience.images?.booking && (
-              <div className={styles.bookingImage}>
-                <img src={experience.images.booking} alt={experience.title} />
-              </div>
-            )
-          }
+          {experience.images?.booking && (
+            <div className={styles.bookingImage}>
+              <img src={experience.images.booking} alt={experience.title} />
+            </div>
+          )}
           <div className="wrapper">
             <h2>{experience.title}</h2>
             <p className="explanation">{experience.shortDescription}</p>
@@ -56,10 +54,8 @@ export default async function BookingPage({ searchParams }) {
             </li>
             <li>{guestText}</li>
             <li>{durationText}</li>
-            <li>
-              {experience.cancellation.summary}&nbsp;:&nbsp;
-              {experience.cancellation.text}
-            </li>
+            <li>{experience.cancellation.summary}</li>
+            <li>{experience.cancellation.bookingNotice}</li>
           </ul>
         </section>
 

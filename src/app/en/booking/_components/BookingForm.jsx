@@ -74,8 +74,8 @@ export default function BookingForm({ experience }) {
   ];
   // フォームに入力している日付を取得
   const today = startOfDay(new Date());
-  // 今日から7日後以降を予約可能にするため、その基準日を取得。
-  const minSelectableDate = startOfDay(addDays(today, 7));
+  // 今日から10日後以降を予約可能にするため、その基準日を取得。
+  const minSelectableDate = startOfDay(addDays(today, 10));
   // 今日の日付から90日間予約受付を行う、その基準日を取得。
   const maxSelectableDate = startOfDay(addDays(today, 90));
   // カレンダーに月めくりに必要な現在の時点からの月のデータ
@@ -288,6 +288,9 @@ export default function BookingForm({ experience }) {
               two alternative dates.
             </li>
             <li className={styles.noteList}>
+              Booking requests must be submitted at least 10 days before your preferred date.
+            </li>
+            <li className={styles.noteList}>
               All dates and times are based on Kyoto local time (JST).
             </li>
           </ul>
@@ -394,7 +397,7 @@ export default function BookingForm({ experience }) {
 
         {submitStatus === "error" && (
           <div className={styles.errorMessage}>
-            <p>Failed to send booking request. Please try again later or contact us by email.</p>
+            <p>Failed to send booking request.</p>
             <p>Please try again later or contact us by email.</p>
           </div>
         )}

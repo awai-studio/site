@@ -134,3 +134,12 @@
     top: calc(#{$navHeight} + 2rem);
   }
 }
+
+.cancellationNotices {
+  display: grid;
+  gap: .75rem;
+}
+
+.cancellationDetails {
+  margin-top: 1rem;
+}

@@ -7,7 +7,7 @@ import styles from "./BookingCard.module.scss";
 export default function BookingCard({ experience }) {
   const guestText = getGuestText(experience.pricing);
   const durationText = getDurationText(experience.duration);
-  const minimunGuestText = getMinimumGuestText(experience.pricing);
+  const minimumGuestText = getMinimumGuestText(experience.pricing);
 
   return (
     <aside className={styles.bookingCard}>
@@ -19,11 +19,11 @@ export default function BookingCard({ experience }) {
       <ul className={`${styles.bookingMeta} ${styles.explanation}`}>
         <li>{guestText}</li>
         <li>{durationText}</li>
-        <li>{experience.cancellation.text}</li>
+        <li>{experience.cancellation.summary}</li>
       </ul>
 
-      {minimunGuestText && (
-        <p className={styles.bookingNote}>{minimunGuestText}</p>
+      {minimumGuestText && (
+        <p className={styles.bookingNote}>{minimumGuestText}</p>
       )}
 
       <div className="cta">
