@@ -7,6 +7,9 @@ import styles from "./FullDescription.module.scss";
 
 export default function FullDescription({ blocks }) {
   const [isOpen, setIsOpen] = useState(false);
+  const handleIsOpen = () => {
+    setIsOpen((prev) => !prev);
+  }
 
   const firstBlocks = blocks.slice(0, 4);
   const restBlocks = blocks.slice(4);
@@ -46,7 +49,7 @@ export default function FullDescription({ blocks }) {
       <div className={`cta ${styles.readMoreCta}`}>
         <button 
           className={`btn btn--regular ${styles.readMoreButton}`}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={handleIsOpen}
           type="button"
         >
           {isOpen ? "Show less" : "Read more"}

@@ -144,36 +144,43 @@ export default function BookingForm({ experience }) {
       const preferredTime3 = formData.get("preferredTime3");
 
       if (!preferredDate1) {
+        setSubmitStatus(null);
         setFormError("Please choose at least one preferred date.");
         setIsSubmitting(false);
         return;
       }
       if (!preferredTime1) {
+        setSubmitStatus(null);
         setFormError("Please select a time for your preferred date.");
         setIsSubmitting(false);
         return;
       }
       if (preferredDate2 && !preferredTime2) {
+        setSubmitStatus(null);
         setFormError("Please select a time for your first alternative date.");
         setIsSubmitting(false);
         return;
       }
       if (preferredDate3 && !preferredTime3) {
+        setSubmitStatus(null);
         setFormError("Please select a time for your second alternative date.");
         setIsSubmitting(false);
         return;
       }
       if (!guestCount) {
+        setSubmitStatus(null);
         setFormError("Please select the number of guests.");
         setIsSubmitting(false);
         return;
       }
       if (!customerName) {
+        setSubmitStatus(null);
         setFormError("Please enter your name.");
         setIsSubmitting(false);
         return;
       }
       if (!customerEmail) {
+        setSubmitStatus(null);
         setFormError("Please enter your email address.");
         setIsSubmitting(false);
         return;
@@ -235,11 +242,13 @@ export default function BookingForm({ experience }) {
       }
 
       setSubmitStatus("success");
+      setFormError("");
       // 使ったら戻すをやっている箇所。
       formElement.reset();
       setSelectedDates([]);
     } catch (error) {
       console.error(error);
+      setFormError("");
       setSubmitStatus("error");
     // 処理が成功か否かに関わらず最後に実行する命令を書く場所。
     } finally {
@@ -358,11 +367,10 @@ export default function BookingForm({ experience }) {
         </label>
 
         {
-          formError && (
-            <p className={styles.formErrorMessage}>
-              {formError}
-            </p>
-          )
+          formError && 
+            <div className={styles.formErrorMessage}>
+              <p>{formError}</p>
+            </div>
         }
 
         <div className="cta">
@@ -378,13 +386,17 @@ export default function BookingForm({ experience }) {
         </div>
 
         {submitStatus === "success" && (
-          <p className={styles.successMessage}>
-            Your booking request has been sent.
-          </p>
+          <div className={styles.successMessage}>
+            <p>Your booking request has been sent.</p>
+            <p>We will check availability and contact you by email.</p>
+          </div>
         )}
 
         {submitStatus === "error" && (
-          <p className={styles.errorMessage}>Failed to send booking request.</p>
+          <div className={styles.errorMessage}>
+            <p>Failed to send booking request. Please try again later or contact us by email.</p>
+            <p>Please try again later or contact us by email.</p>
+          </div>
         )}
       </form>
     </>

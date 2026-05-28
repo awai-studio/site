@@ -74,21 +74,6 @@
   box-shadow: 0 0 0 3px rgba($color: $color-primary, $alpha: .08);
 }
 
-.successMessage,
-.errorMessage {
-  font-family: var(--ff-en-gothic);
-  font-size: 1.05rem;
-  line-height: 1;
-  font-weight: 700;
-  text-align: center;
-}
-.successMessage {
-  color: $color-green-dull-dark;
-}
-.errorMessage {
-  color: $color-red-dull-dark;
-}
-
 .dayZero {
   padding: 1rem;
   font-family: var(--ff-en-gothic);
@@ -177,16 +162,36 @@
   line-height: 1;
 }
 
-.formErrorMessage {
-  margin: 0;
-  padding: 1rem;
-  font-family: var(--ff-en-gothic);
-  font-size: .95rem;
-  line-height: 1.5;
-  font-weight: 700;
-  text-align: center;
-  color: $color-red-dull-dark;
+.formErrorMessage,
+.successMessage,
+.errorMessage {
+  padding: 1.25rem;
+  border-radius: 10px;
+  & > p {
+    font-family: var(--ff-en-gothic);
+    font-size: .95rem;
+    line-height: 1.4;
+    font-weight: 700;
+    text-align: center;
+    &:not(:first-child) {
+      margin-top: .35rem;
+    }
+  }
+}
+
+.successMessage {
+  border: 1px solid rgba($color: $color-green-dull-dark, $alpha: .25);
+  background-color: rgba($color: $color-green-dull-dark, $alpha: .1);
+  & > p {
+    color: $color-green-dull-dark;
+  }
+}
+
+.formErrorMessage,
+.errorMessage {
   border: 1px solid rgba($color: $color-red-dull-dark, $alpha: .25);
   background-color: rgba($color: $color-red-dull-dark, $alpha: .1);
-  border-radius: 10px;
+  & > p {
+    color: $color-red-dull-dark;
+  }
 }
