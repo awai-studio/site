@@ -1,4 +1,4 @@
-// @/app/api/booking-request/route.js
+// @/app/api/review-request/route.js
 
 import { NextResponse } from "next/server";
 import { Resend } from "resend";

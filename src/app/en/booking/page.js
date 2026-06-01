@@ -5,7 +5,11 @@ import { getGuestText, getDurationText } from "@/lib/formatExperiences";
 import BookingForm from "./_components/BookingForm";
 import styles from "./booking.module.scss";
 
-// export const dynamic = "force-dynamic";
+export const metadata = {
+  title: "Request Booking | Awai Studio",
+  description:
+    "Share your thoughts about your Awai Studio experience in Kyoto, Japan.",
+};
 
 export default async function BookingPage({ searchParams }) {
   const { experience: experienceSlug } = await searchParams;
@@ -56,6 +60,7 @@ export default async function BookingPage({ searchParams }) {
             <li>{durationText}</li>
             <li>{experience.cancellation.summary}</li>
             <li>{experience.cancellation.bookingNotice}</li>
+            <li>{experience.cancellation.paymentNotice}</li>
           </ul>
         </section>
 

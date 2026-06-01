@@ -154,13 +154,15 @@ mail: info@awai-studio.jp
 ```
 ├── src/
 │   ├── app/
-│   │   ├── favicon.ico
-│   │   ├── globals.scss
 │   │   ├── layout.jsx
+│   │   ├── globals.scss
 │   │   ├── page.js
 │   │   ├── page.module.scss
+│   │   ├── favicon.ico
 │   │   ├── api/
-│   │   │   └── booking-request/
+│   │   │   ├── booking-request/
+│   │   │   │   └── route.js
+│   │   │   └── review-request/
 │   │   │       └── route.js
 │   │   ├── en/
 │   │   │   ├── booking/
@@ -170,20 +172,28 @@ mail: info@awai-studio.jp
 │   │   │   │       ├── BookingForm.jsx
 │   │   │   │       └── BookingForm.module.scss
 │   │   │   └── experiences/
-│   │   │       ├── page.js
-│   │   │       ├── experiences.module.scss
-│   │   │       ├── _components/
-│   │   │       │   ├── BookingCard.jsx
-│   │   │       │   ├── BookingCard.module.scss
-│   │   │       │   ├── ExperienceSlider.jsx
-│   │   │       │   ├── ExperienceSlider.module.scss
-│   │   │       │   ├── ReviewList.jsx
-│   │   │       │   └── ReviewList.module.scss
-│   │   │       ├── _data/
-│   │   │       │   ├── experiences.js
-│   │   │       │   └── reviews.js
-│   │   │       └── [slug]/
-│   │   │           └── page.js
+│   │   │   │   ├── page.js
+│   │   │   │   ├── experiences.module.scss
+│   │   │   │   ├── _components/
+│   │   │   │   │   ├── BookingCard.jsx
+│   │   │   │   │   ├── BookingCard.module.scss
+│   │   │   │   │   ├── ExperienceSlider.jsx
+│   │   │   │   │   ├── ExperienceSlider.module.scss
+│   │   │   │   │   ├── FullDescription.jsx
+│   │   │   │   │   ├── FullDescription.module.scss
+│   │   │   │   │   ├── ReviewList.jsx
+│   │   │   │   │   └── ReviewList.module.scss
+│   │   │   │   ├── _data/
+│   │   │   │   │   ├── experiences.js
+│   │   │   │   │   └── reviews.js
+│   │   │   │   └── [slug]/
+│   │   │   │       └── page.js
+│   │   │   └── review/
+│   │   │   　   ├── page.js
+│   │   │   　   ├── review.module.scss
+│   │   │   　   └── _components/
+│   │   │   　       ├── ReviewForm.jsx
+│   │   │   　       └── ReviewForm.module.scss
 │   │   └── test-supabase/
 │   │       └── page.js
 │   ├── components/
@@ -202,11 +212,13 @@ mail: info@awai-studio.jp
 │   │   ├── config/
 │   │   │   └── site.js
 │   │   └── supabase/
-│   │       └── bookingRequests.js
-│   │       └── client.js
+│   │       ├── bookingRequests.js
+│   │       ├── client.js
+│   │       └── server.js
 │   └── styles/
 │       └── shared/
 │           ├── _daypicker.scss
+│           ├── _form.scss
 │           ├── _index.scss
 │           ├── _mixins.scss
 │           ├── _motion.scss
@@ -220,7 +232,7 @@ mail: info@awai-studio.jp
         └── top/
 ```
 
-_Last updated: 2026-05-19_
+_Last updated: 2026-06-01_
 
 ---
 

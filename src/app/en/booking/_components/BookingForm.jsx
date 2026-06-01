@@ -262,12 +262,12 @@ export default function BookingForm({ experience }) {
     <>
       <h2>Request Details</h2>
 
-      <form className={styles.bookingForm} onSubmit={handleSubmit}>
-        <div className={styles.formField}>
-          <label className={styles.label} htmlFor="preferredDate">
+      <form className="formBasic" onSubmit={handleSubmit}>
+        <div className="daySelector">
+          <label className="formLabel" htmlFor="preferredDate">
             Preferred date
           </label>
-          <div className={styles.calendarPanel}>
+          <div className="calendarPanel">
             <DayPicker
               id="preferredDate"
               mode="multiple"
@@ -283,21 +283,22 @@ export default function BookingForm({ experience }) {
             />
           </div>
           <ul className={`explanation ${styles.daySelectNote}`}>
-            <li className={styles.noteList}>
+            <li className="noteList">
               Please select your preferred date first. You may also choose up to
               two alternative dates.
             </li>
-            <li className={styles.noteList}>
-              Booking requests must be submitted at least 10 days before your preferred date.
+            <li className="noteList">
+              Booking requests must be submitted at least 10 days before your
+              preferred date.
             </li>
-            <li className={styles.noteList}>
-              All dates and times are based on Kyoto local time (JST).
+            <li className="noteList">
+              All dates and times are based on Japan Standard Time (JST).
             </li>
           </ul>
         </div>
 
-        <div className={styles.label}>
-          <span className={styles.itemName}>Select preferred dates</span>
+        <div className="formLabel">
+          <span className="formItemName">Select preferred dates</span>
           {selectedDates.length === 0 ? (
             <div className={styles.dayZero}>
               Please choose at least one preferred date.
@@ -343,8 +344,8 @@ export default function BookingForm({ experience }) {
           )}
         </div>
 
-        <label className={styles.label} htmlFor="numberOfGuests">
-          <span className={styles.itemName}>Number of guests</span>
+        <label className="formLabel" htmlFor="numberOfGuests">
+          <span className="formItemName">Number of guests</span>
           <select name="guestCount" id="numberOfGuests" defaultValue="">
             <option value="" disabled>
               Select guests
@@ -356,29 +357,28 @@ export default function BookingForm({ experience }) {
             ))}
           </select>
         </label>
-        <label className={styles.label} htmlFor="name">
-          <span className={styles.itemName}>Your name</span>
+        <label className="formLabel" htmlFor="name">
+          <span className="formItemName">Your name</span>
           <input id="name" type="text" name="name" />
         </label>
-        <label className={styles.label} htmlFor="email">
-          <span className={styles.itemName}>Email</span>
+        <label className="formLabel" htmlFor="email">
+          <span className="formItemName">Email</span>
           <input id="email" type="text" name="email" />
         </label>
-        <label className={styles.label} htmlFor="message">
-          <span className={styles.itemName}>Message</span>
+        <label className="formLabel" htmlFor="message">
+          <span className="formItemName">Message</span>
           <textarea id="message" name="message" rows="5" />
         </label>
 
-        {
-          formError && 
-            <div className={styles.formErrorMessage}>
-              <p>{formError}</p>
-            </div>
-        }
+        {formError && (
+          <div className="formErrorMessage">
+            <p>{formError}</p>
+          </div>
+        )}
 
         <div className="cta">
           <button
-            className={`btn btn--regular ${styles.bookingFormInlineCta}`}
+            className="btn btn--regular formInlineCta"
             type="submit"
             // 送信中はtrueのステートが来る、
             // だからこの属性によってボタンを押せない状態になる。
@@ -389,14 +389,15 @@ export default function BookingForm({ experience }) {
         </div>
 
         {submitStatus === "success" && (
-          <div className={styles.successMessage}>
+          <div className="formSuccessMessage">
             <p>Your booking request has been sent.</p>
             <p>We will check availability and contact you by email.</p>
+            <p>Your booking is not yet confirmed.</p>
           </div>
         )}
 
         {submitStatus === "error" && (
-          <div className={styles.errorMessage}>
+          <div className="formErrorMessage">
             <p>Failed to send booking request.</p>
             <p>Please try again later or contact us by email.</p>
           </div>

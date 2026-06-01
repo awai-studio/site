@@ -2,78 +2,6 @@
 
 @use '@/styles/shared/' as *;
 
-.bookingForm {
-  display: grid;
-  gap: 1.5rem;
-}
-
-.label {
-  display: grid;
-  font-family: var(--ff-en-gothic);
-  font-size: .95rem;
-  letter-spacing: 0.03em;
-  color: rgba($color: $color-text, $alpha: .8);
-}
-
-.bookingFormInlineCta {
-  width: 100%;
-  margin-top: 1rem;
-}
-
-// .timezoneNote {
-//   margin-top: 1rem;
-//   font-family: var(--ff-en-gothic);
-//   font-size: .9rem;
-//   line-height: 1.2;
-//   font-weight: 500;
-//   text-align: center;
-//   color: rgba($color: $color-text, $alpha: .7);
-// }
-
-.label {
-  display: grid;
-  gap: .55rem;
-  font-family: var(--ff-en-gothic);
-  font-size: .95rem;
-  letter-spacing: 0.03em;
-  color: rgba($color: $color-text, $alpha: .8);
-}
-
-.label input,
-.label select,
-.label textarea {
-  width: 100%;
-  padding: 1rem;
-  font-size: 1rem;
-  line-height: 1.4;
-  color: $color-text;
-  background-color: rgba($color: $color-white, $alpha: .4);
-  border: 1px solid rgba($color: $color-text, $alpha: .2);
-  border-radius: 10px;
-  transition: 
-    border-color .25s ease,
-    background-color .25s ease,
-    box-shadow .25s ease;
-}
-
-.label input,
-.label select {
-  min-height: 3rem;
-}
-
-.label textarea {
-  min-height: 8rem;
-  resize: vertical;
-}
-
-.label input:focus,
-.label select:focus,
-.label textarea:focus {
-  outline: none;
-  border-color: rgba($color: $color-primary, $alpha: .65);
-  box-shadow: 0 0 0 3px rgba($color: $color-primary, $alpha: .08);
-}
-
 .dayZero {
   padding: 1rem;
   font-family: var(--ff-en-gothic);
@@ -127,7 +55,6 @@
     font-size: 1rem;
     line-height: 1.4;
     color: rgba($color: $color-text, $alpha: .9);
-    // text-align: center;
     border: 1px solid rgba($color: $color-text, $alpha: .3);
     background-color: rgba($color: $color-white, $alpha: .5);
     transition: 
@@ -155,43 +82,5 @@
   }
   @include mq(md) {
     padding: 1.5rem 2rem;
-  }
-}
-.itemName {
-  padding-left: .5rem;
-  line-height: 1;
-}
-
-.formErrorMessage,
-.successMessage,
-.errorMessage {
-  padding: 1.25rem;
-  border-radius: 10px;
-  & > p {
-    font-family: var(--ff-en-gothic);
-    font-size: .95rem;
-    line-height: 1.4;
-    font-weight: 700;
-    text-align: center;
-    &:not(:first-child) {
-      margin-top: .35rem;
-    }
-  }
-}
-
-.successMessage {
-  border: 1px solid rgba($color: $color-green-dull-dark, $alpha: .25);
-  background-color: rgba($color: $color-green-dull-dark, $alpha: .1);
-  & > p {
-    color: $color-green-dull-dark;
-  }
-}
-
-.formErrorMessage,
-.errorMessage {
-  border: 1px solid rgba($color: $color-red-dull-dark, $alpha: .25);
-  background-color: rgba($color: $color-red-dull-dark, $alpha: .1);
-  & > p {
-    color: $color-red-dull-dark;
   }
 }

@@ -1,0 +1,67 @@
+// @/app/en/review/_components/review.module.scss
+
+@use '@/styles/shared/' as *;
+
+.reviewPage {
+  display: grid;
+  gap: 2rem;
+  & > section {
+    margin: unset;
+    padding: unset;
+    border: unset;
+  }
+  & .shortDescription {
+    margin-bottom: 4rem;
+  }
+  & .reviewIntro {
+    width: 100%;
+    background-color: rgba($color: $color-primary, $alpha: .6);
+    border-radius: 10px;
+    & .reviewExplanation {
+      width: 100%;
+      padding: 1.25rem;
+      font-size: 1.1rem;
+      line-height: 1.2;
+      font-weight: 900;
+      text-align:center;
+      color: $color-white;
+    }
+  }  
+}
+
+.experienceName {
+  & > h2 {
+    margin: 0;
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+}
+
+.experienceLabel {
+  position: relative;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0;
+  z-index: 5;
+  border-bottom: 1px solid rgba($color: $color-black, $alpha: .3);
+  & > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: .1em 1em;
+    font-family: var(--ff-en-gothic);
+    font-size: .8rem;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $color-white;
+    background-color: rgba($color: $color-primary, $alpha: .7);
+    z-index: 1;
+  }
+}
+
+.reviewPage {
+  & .reviewFormSection {
+    margin-top: .5rem;
+  }
+}

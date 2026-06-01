@@ -202,6 +202,7 @@ a {
   width: 100%;
   & > .btn {
     color: rgba($color: $color-white, $alpha: 1);
+    cursor: pointer;
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0px 2px 5px rgba($color: $color-black, $alpha: .2);

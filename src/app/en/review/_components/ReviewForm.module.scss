@@ -1,0 +1,55 @@
+// @/app/en/review/_components/ReviewForm.module.scss
+
+@use "@/styles/shared" as *;
+
+.ratingField {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  border: 1px solid rgba($color: $color-text, $alpha: .2);
+  background-color: rgba($color: $color-white, $alpha: .35);
+  border-radius: 10px;
+  & legend {
+    padding: 0 .5rem;
+    font-family: var(--ff-en-gothic);
+    font-size: .9rem;
+    color: rgba($color: $color-text, $alpha: .75);
+  }
+}
+
+.ratingOptions {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  & .ratingOption {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    font-family: var(--ff-en-gothic);
+    & input {
+      cursor: pointer;
+      accent-color: $color-primary;
+    }
+  }
+}
+
+.permissionLabel {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  font-size: .9rem;
+  line-height: 1.4;
+  cursor: pointer;
+  & input {
+    accent-color: $color-primary;
+  }
+}
+
+.reviewForm {
+  margin-top: 1rem;
+  & .cta {
+    & .reviewCta {
+      background-color: $color-primary;
+    }
+  }
+}

@@ -49,8 +49,8 @@ export const experiences = [
         "Please complete payment within 48 hours after we send the payment link. If payment is not completed within this period, your booking request may be cancelled.",
       details: [
         "Cancellations made at least 7 days before the experience are eligible for a full refund.",
-        "If your payment is completed less than 7 days before the experience, you may still cancel for a full refund within 24 hours after payment.",
-        "After this 24-hour period, cancellations made less than 7 days before the experience are non-refundable.",
+        "If your payment is completed less than 7 days before the experience, a full refund is available only for cancellations made within 24 hours after payment.",
+        "After this 24-hour period, cancellations made less than 7 days before the experience are non-refundable. Please review this policy carefully before completing your payment.",
         "All deadlines are based on Japan Standard Time.",
         "If Awai Studio needs to cancel the experience for any reason, you will receive a full refund or the option to reschedule.",
       ],
@@ -153,7 +153,7 @@ export const experiences = [
       },
       {
         type: "image",
-        src: "/images/experiences/tea-experience-with-jack/13_1011475.jpg",
+        src: "/images/experiences/tea-experience-with-jack/06_G9_7952.jpg",
         alt: "",
       },
       {
@@ -228,6 +228,7 @@ export const experiences = [
       "Seiza is traditional, but not required.",
       "Please wear comfortable clothing suitable for sitting.",
       "The experience is conducted in English.",
+      "All dates and times are based on Japan Standard Time (JST).",
     ],
     notAllowed: [
       "Photography during the session",
@@ -266,10 +267,10 @@ export const experiences = [
         src: "/images/experiences/tea-experience-with-jack/05_G9_7936.jpg",
         alt: "Traditional tea utensils",
       },
-      {
-        src: "/images/experiences/tea-experience-with-jack/06_G9_7952.jpg",
-        alt: "Traditional tea utensils",
-      },
+      // {
+      //   src: "/images/experiences/tea-experience-with-jack/06_G9_7952.jpg",
+      //   alt: "Traditional tea utensils",
+      // },
       {
         src: "/images/experiences/tea-experience-with-jack/07_G9_7970.jpg",
         alt: "Traditional tea utensils",
@@ -295,7 +296,7 @@ export const experiences = [
         alt: "Traditional tea utensils",
       },
       {
-        src: "/images/experiences/tea-experience-with-jack/13_1011475.jpg",
+        src: "/images/experiences/tea-experience-with-jack/06_G9_7952.jpg",
         alt: "Traditional tea utensils",
       },
       {
@@ -347,8 +348,7 @@ export const experiences = [
       unavailableDates: ["2026-05-26", "2026-05-29"],
     },
     cancellation: {
-      summary: 
-        "Free cancellation up to 7 days before the experience",
+      summary: "Free cancellation up to 7 days before the experience",
       bookingNotice:
         "Booking requests must be submitted at least 10 days before your preferred date. After we confirm availability, we will send payment details by email. Your booking is confirmed only after payment has been completed.",
       paymentNotice:
