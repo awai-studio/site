@@ -2,7 +2,6 @@
 
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { createBookingRequest } from "@/lib/supabase/bookingRequests";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -13,27 +12,23 @@ export async function POST(request) {
     const {
       experienceSlug,
       experienceTitle,
-      customerName,
-      customerEmail,
-      guestCount,
-      preferredDate1,
-      preferredTime1,
-      preferredDate2,
-      preferredTime2,
-      preferredDate3,
-      preferredTime3,
-      message,
+      rating,
+      firstName,
+      country,
+      reviewText,
+      permissionToPublish,
     } = body;
 
     // 入力必須項目が入力されているかのバリデーション
     if (
       !experienceSlug ||
-      !customerName ||
-      !customerEmail ||
-      !guestCount ||
-      !preferredDate1 ||
-      !preferredTime1
-    ) {
+      !experienceTitle ||
+      !rating ||
+      !firstName ||
+      !country ||
+      !reviewText ||
+      !permissionToPublish
+      ) {
       return NextResponse.json(
         { error: "Required fields are missing." },
         { status: 400 },
@@ -50,136 +45,74 @@ export async function POST(request) {
       );
     }
 
-    // 日時の第二第三候補の整合チェック
-    if (preferredDate2 && !preferredTime2) {
+    const ratingNumber = Number(rating);
+    if (Number.isNaN(ratingNumber) ||
+        ratingNumber < 1 ||
+        ratingNumber > 5) {
       return NextResponse.json(
-        { error: "Preferred time 2 is missing." },
-        { status: 400 },
+        { error: "Invalid rating."},
+        { status: 400 }
       );
     }
-    if (preferredDate3 && !preferredTime3) {
-      return NextResponse.json(
-        { error: "Preferred time 3 is missing." },
-        { status: 400 },
-      );
-    }
-
-    await createBookingRequest({
-      experienceSlug,
-      customerName,
-      customerEmail,
-      guestCount,
-      preferredDate1,
-      preferredTime1,
-      preferredDate2,
-      preferredTime2,
-      preferredDate3,
-      preferredTime3,
-      message,
-    });
 
     const fromEmail =
       process.env.BOOKING_FROM_EMAIL || "Awai Studio <hello@awai-studio.jp>";
-    const notifyEmail = process.env.BOOKING_NOTIFY_EMAIL;
-
-    const preferredDateTimes = [
-      {
-        label: "1",
-        date: preferredDate1,
-        time: preferredTime1,
-      },
-      {
-        label: "2",
-        date: preferredDate2,
-        time: preferredTime2,
-      },
-      {
-        label: "3",
-        date: preferredDate3,
-        time: preferredTime3,
-      },
-    ];
-
-    const preferredDateTimeText = preferredDateTimes
-      .filter((item) => item.date && item.time)
-      .map((item) => {
-        return `${item.label})
-${item.date}
-${item.time} JST`;
-      })
-      .join("\n\n");
+    const notifyEmail = 
+      process.env.REVIEW_NOTIFY_EMAIL ||
+      process.env.BOOKING_NOTIFY_EMAIL;
 
     await resend.emails.send({
       from: fromEmail,
       to: notifyEmail,
-      subject: `[Awai Studio] New booking request: ${experienceTitle}`,
+      subject: `[Awai Studio] New review submitted: ${experienceTitle}`,
       text: `
-A new booking request has been submitted.
+A new review has been submitted.
 
 Experience:
 ${experienceTitle}
 
-Preferred dates & times:
-${preferredDateTimeText}
+Experience slug:
+${experienceSlug}
 
-Guests:
-${guestCount}
+Rating:
+${ratingNumber}
 
-Customer:
-${customerName}
+First name:
+${firstName}
+
+Country:
+${country}
 
 Email:
-${customerEmail}
+${email || "(Not provided)"}
 
-Message:
-${message || "(No message)"}
+Permssion to publish:
+${permissionToPublish ? "Yes" : "No"}
+
+Review:
+${reviewText}
+
+Suggested reviews.js format:
+
+{
+  id: ",
+  experienceSlug: "${experienceSlug}",
+  rating: ${ratingNumber},
+  firstName: "${firstName}",
+  country: "${country}",
+  date: "",
+  text: \`${reviewText}\`,
+  isPublished: false,
+}
 `,
     });
 
-    await resend.emails.send({
-      from: fromEmail,
-      to: customerEmail,
-      subject: "We received your booking request | Awai Studio",
-      text: `
-Dear ${customerName},
-
-Thank you for your booking request.
-We have received the following request:
-
-Experience:
-${experienceTitle}
-
-Preferred dates & times:
-${preferredDateTimeText}
-
-Number of guests:
-${guestCount}
-
-Customer:
-${customerName}
-
-Please note that this request is not yet confirmed.
-We will check availability and contact you by email.
-
-After we confirm availability, we will send payment details by email.
-Your booking is confirmed only after payment has been completed.
-
-All dates, times, and deadlines are based on Japan Standard Time (JST).
-
-_/_/_/_/_/_/_/_/_/_/
-
-Awai Studio
-hello@awai-studio.jp
-
-_/_/_/_/_/_/_/_/_/_/
-`,
-    });
     return NextResponse.json({ ok: true });
   } catch(error) {
     console.error(error);
     
     return NextResponse.json(
-      { error: "Failed to send booking request."},
+      { error: "Failed to send review."},
       { status: 500 }
     );
   }
