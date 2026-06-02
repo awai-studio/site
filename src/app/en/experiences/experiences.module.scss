@@ -140,6 +140,14 @@
   gap: .75rem;
 }
 
-.cancellationDetails {
-  margin-top: 1rem;
+.experienceDetail {
+  & .cancellationDetails {
+    margin-top: 1rem;
+    & li {
+      line-height: 1.5;
+    }
+    & li + li {
+      margin-top: .7rem;
+    }
+  }
 }
