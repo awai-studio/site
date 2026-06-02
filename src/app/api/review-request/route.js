@@ -16,6 +16,7 @@ export async function POST(request) {
       firstName,
       country,
       reviewText,
+      email,
       permissionToPublish,
     } = body;
 
@@ -34,25 +35,28 @@ export async function POST(request) {
         { status: 400 },
       );
     }
-  
-    // 簡易的なEmailのバリデーション
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const isEmailValid = emailPattern.test(customerEmail);
-    if (!isEmailValid) {
-      return NextResponse.json(
-        { error: "Invalid email address." },
-        { status: 400 },
-      );
-    }
-
+    
     const ratingNumber = Number(rating);
     if (Number.isNaN(ratingNumber) ||
-        ratingNumber < 1 ||
-        ratingNumber > 5) {
+    ratingNumber < 1 ||
+    ratingNumber > 5) {
       return NextResponse.json(
         { error: "Invalid rating."},
         { status: 400 }
       );
+    }
+    
+    // 簡易的なEmailのバリデーション
+    if (email) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const isEmailValid = emailPattern.test(email);
+      if (!isEmailValid) {
+        return NextResponse.json(
+          { error: "Invalid email address." },
+          { status: 400 },
+        );
+      }
+
     }
 
     const fromEmail =
@@ -60,6 +64,13 @@ export async function POST(request) {
     const notifyEmail = 
       process.env.REVIEW_NOTIFY_EMAIL ||
       process.env.BOOKING_NOTIFY_EMAIL;
+
+    if (!notifyEmail) {
+      return NextResponse.json(
+        { error: "Notification email is not configured." },
+        { status: 500 }
+      );
+    }
 
     await resend.emails.send({
       from: fromEmail,
@@ -86,7 +97,7 @@ ${country}
 Email:
 ${email || "(Not provided)"}
 
-Permssion to publish:
+Permission to publish:
 ${permissionToPublish ? "Yes" : "No"}
 
 Review:
@@ -95,7 +106,7 @@ ${reviewText}
 Suggested reviews.js format:
 
 {
-  id: ",
+  id: "",
   experienceSlug: "${experienceSlug}",
   rating: ${ratingNumber},
   firstName: "${firstName}",

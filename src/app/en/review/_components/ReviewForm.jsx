@@ -105,7 +105,7 @@ export default function ReviewForm({ experience }) {
         <div className={styles.ratingOptions}>
           <span>Check rating :</span>
           {[...Array(5).keys()].map((idx) => {
-            const ratingValue = idx + 1;
+            const ratingValue = 5 - idx;
             return (
               <label
                 htmlFor={ratingValue}
