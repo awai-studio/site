@@ -113,6 +113,7 @@ Suggested reviews.js format:
   country: "${country}",
   date: "",
   text: \`${reviewText}\`,
+  permissionToPublish: ${permissionToPublish ? "true" : "false"},
   isPublished: false,
 }
 `,
