@@ -39,7 +39,7 @@ export const experiences = [
       type: "request",
       availableWeekdays: [1, 2, 4, 5, 6],
       timeSlots: ["13:00", "15:30"],
-      unavailableDates: ["2026-05-26", "2026-05-29"],
+      unavailableDates: ["2026-06-26", "2026-06-29"],
     },
     cancellation: {
       summary: "Free cancellation up to 7 days before the experience",
@@ -311,16 +311,17 @@ export const experiences = [
   },
   {
     slug: "zen-experience-with-jirai",
-    title: "Kyoto: Zen Experience with Jirai",
-    cardTitle: "Zen Experience with Jirai",
+    title: "Kyoto: Zen and Dialogue with a German-Born Zen Priest",
+    cardTitle: "Zen and Dialogue with a German-Born Zen Priest",
     shortDescription:
-      "A Zen-centered experience in Kyoto, where you explore your experience of Japan through dialogue with a Zen monk.",
+      "A zazen and dialogue experience at a quiet local temple in western Kyoto, guided by a German-born Zen priest.",
     cardShortDescription:
-      "A Zen-centered experience in Kyoto, where you explore your experience of Japan through dialogue with a Zen monk.",
+      "Sit in zazen and share dialogue with a German-born Zen priest at a quiet local temple in western Kyoto.",
     seo: {
-      title: "Kyoto Zen Experience with Jirai | Awai Studio",
+      title:
+        "Kyoto Zen and Dialogue with a German-Born Zen Priest | Awai Studio",
       description:
-        "A Zen-centered experience in Kyoto, where you explore your experience of Japan through dialogue with a Zen monk.",
+        "A zazen and dialogue experience at a quiet local temple in western Kyoto, guided by a German-born Zen priest. Reflect on your time in Japan through Zen practice and conversation.",
     },
     pricing: {
       type: "perPerson",
@@ -337,15 +338,15 @@ export const experiences = [
       display: "Approximately 90 minutes",
     },
     host: {
-      name: "Jirai Mehl",
-      role: "Kyoto-based zen monk",
+      name: "Mehl Jirai",
+      role: "Kyoto-based zen priest",
       languages: ["English", "German"],
     },
     availability: {
       type: "request",
       availableWeekdays: [0, 3, 4, 5, 6],
-      timeSlots: ["11:00", "15:00"],
-      unavailableDates: ["2026-05-26", "2026-05-29"],
+      timeSlots: ["9:00", "15:00"],
+      unavailableDates: ["2026-06-26", "2026-06-29"],
     },
     cancellation: {
       summary: "Free cancellation up to 7 days before the experience",
@@ -355,18 +356,159 @@ export const experiences = [
         "Please complete payment within 48 hours after we send the payment link. If payment is not completed within this period, your booking request may be cancelled.",
       details: [
         "Cancellations made at least 7 days before the experience are eligible for a full refund.",
-        "If your payment is completed less than 7 days before the experience, you may still cancel for a full refund within 24 hours after payment.",
-        "After this 24-hour period, cancellations made less than 7 days before the experience are non-refundable.",
+        "If your payment is completed less than 7 days before the experience, a full refund is available only for cancellations made within 24 hours after payment.",
+        "After this 24-hour period, cancellations made less than 7 days before the experience are non-refundable. Please review this policy carefully before completing your payment.",
         "All deadlines are based on Japan Standard Time.",
         "If Awai Studio needs to cancel the experience for any reason, you will receive a full refund or the option to reschedule.",
       ],
     },
-    highlights: [],
-    fullDescription: [],
+    highlights: [
+      "Practice zazen and share dialogue at a quiet local temple in western Kyoto.",
+      "Pair this quiet Zen experience at a local temple with a visit to Katsura Imperial Villa, one of Kyoto’s most refined cultural sites in the western part of the city.",
+      "Be guided by Jirai, a German-born Zen priest who speaks English, German, and Japanese.",
+      "Visit Fukujoji Temple, a quiet temple in western Kyoto with over 1,240 years of history.",
+      "Sit quietly, become aware of your breath, and shift your mind away from the pace of everyday life.",
+    ],
+    fullDescription: [
+      {
+        type: "image",
+        src: "/images/experiences/zen-experience-with-jirai/description_01.jpg",
+        alt: "",
+      },
+      {
+        type: "heading",
+        text: "Zazen and Dialogue at a Quiet Temple in Kyoto",
+      },
+      {
+        type: "paragraph",
+        text: "This experience is centered on zazen and dialogue at a quiet local temple in western Kyoto.",
+      },
+      {
+        type: "paragraph",
+        text: "It is not designed as a performance of Zen, nor as a mystical promise. Instead, it offers a simple and direct time to sit, breathe, and speak with a Zen priest in the setting of a local temple.",
+      },
+      {
+        type: "paragraph",
+        text: "The session begins with zazen. After sitting, guests are invited to share questions and reflections over tea in a relaxed conversation with Jirai.",
+      },
+      {
+        type: "image",
+        src: "/images/experiences/zen-experience-with-jirai/description_02.jpg",
+        alt: "",
+      },
+      {
+        type: "heading",
+        text: "Before or After Katsura Imperial Villa",
+      },
+      {
+        type: "paragraph",
+        text: "This experience is easy to pair with a reserved visit to Katsura Imperial Villa. Before or after your visit, you can spend time at a local temple, sitting quietly, becoming aware of your breath, and reflecting on what you have felt.",
+      },
+      {
+        type: "paragraph",
+        text: "Katsura Imperial Villa is one of Kyoto’s most refined cultural sites, known for its architecture, gardens, and Japanese aesthetics. Zazen and dialogue with the resident priest at Fukujoji Temple may offer time to receive more deeply what you have experienced there.",
+      },
+      {
+        type: "image",
+        src: "/images/experiences/zen-experience-with-jirai/description_03.jpg",
+        alt: "",
+      },
+      {
+        type: "heading",
+        text: "A Temple as a Place to Shift the Mind",
+      },
+      {
+        type: "paragraph",
+        text: "For Jirai, a temple is a place where people can shift their state of mind.",
+      },
+      {
+        type: "paragraph",
+        text: "You look at the garden. You notice the scenery. You sit in zazen. You speak with the priest. Each of these moments is part of what a temple can offer.",
+      },
+      {
+        type: "paragraph",
+        text: "Rather than approaching Zen first as an abstract idea, this experience begins with something more immediate: posture, breath, stillness, and the feeling of being present in a temple space.",
+      },
+      {
+        type: "image",
+        src: "/images/experiences/zen-experience-with-jirai/description_04.jpg",
+        alt: "",
+      },
+      {
+        type: "heading",
+        text: "Fukujoji Temple and Its Surroundings",
+      },
+      {
+        type: "paragraph",
+        text: "The experience takes place at Fukujoji Temple, a historic temple in western Kyoto with over 1,240 years of history.",
+      },
+      {
+        type: "paragraph",
+        text: "The temple grounds include a garden, temple halls, bamboo, and seasonal scenery. Depending on the season, guests may encounter flowers, autumn leaves, or the quiet atmosphere of the temple grounds.",
+      },
+      {
+        type: "paragraph",
+        text: "This is not a crowded sightseeing spot. It is a place where the surrounding space, the garden, and the quietness of the temple all become part of the experience.",
+      },
+      {
+        type: "image",
+        src: "/images/experiences/zen-experience-with-jirai/description_05.jpg",
+        alt: "",
+      },
+      {
+        type: "heading",
+        text: "Guided by Jirai, a German-Born Zen Priest",
+      },
+      {
+        type: "paragraph",
+        text: "The experience is guided by Jirai Mehl, a German-born Zen priest and the resident priest of Fukujoji Temple.",
+      },
+      {
+        type: "paragraph",
+        text: "Jirai came to Japan in 2001 and has been responsible for Fukujoji Temple since 2013. Today, he serves as the temple’s resident priest.",
+      },
+      {
+        type: "paragraph",
+        text: "Before coming to Japan, he worked in the medical field in Germany, studied psychology, and worked in psychiatric care as a therapist. This background shapes the way he listens and responds to guests during conversation.",
+      },
+      {
+        type: "paragraph",
+        text: "The session can be conducted in English or German.",
+      },
+      {
+        type: "image",
+        src: "/images/experiences/zen-experience-with-jirai/description_06.jpg",
+        alt: "",
+      },
+      {
+        type: "heading",
+        text: "Not Enlightenment, but Noticing Yourself",
+      },
+      {
+        type: "paragraph",
+        text: "This experience does not use Zen to promise enlightenment, healing, or a special spiritual awakening.",
+      },
+      {
+        type: "paragraph",
+        text: "For Jirai, the first step of zazen is much simpler: become aware of your breath, sit quietly, and begin to notice yourself.",
+      },
+      {
+        type: "paragraph",
+        text: "As the mind becomes quieter, there may be a small shift. You may notice your thoughts, your body, your breathing, or the way you have been moving through your days.",
+      },
+      {
+        type: "paragraph",
+        text: "Nothing dramatic needs to happen. The value of the experience lies in taking time to sit, breathe, and return to yourself in the quiet setting of a Kyoto temple.",
+      },
+    ],
     included: [],
     meetingPoint: {
-      description: "",
-      access: [],
+      description:
+        "The experience takes place at a quiet local temple in western Kyoto. The exact meeting point will be shared after booking.",
+      access: [
+        "About 7 minutes by taxi from Katsura Station, depending on traffic.",
+        "Katsura Station is served by the Hankyu Kyoto Line and Hankyu Arashiyama Line.",
+      ],
     },
     importantInformation: [],
     notAllowed: ["Strong perfume or strong fragrances"],
