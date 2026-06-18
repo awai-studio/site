@@ -120,7 +120,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "At the heart of the gathering is something very simple: \na host prepares one bowl of tea for a guest, and the guest receives it.",
+        text: "At the heart of the gathering is something very simple: \ntea is prepared with care, one bowl is shared, and each guest is invited to encounter the act of making tea directly.",
       },
       {
         type: "paragraph",
@@ -170,7 +170,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "It does not need to be dramatic. \nIt may be the sound of the kettle that remains with you. \nIt may be the feeling of receiving a tea bowl in your hands. \nIt may be the quiet awareness that someone has prepared tea for you with care.",
+        text: "It does not need to be dramatic. \nIt may be the sound of the kettle that remains with you. \nIt may be the feeling of holding a tea bowl in your hands. \nIt may be the quiet awareness of preparing tea with care, guided by someone who has practiced tea over many years.",
       },
       {
         type: "paragraph",
@@ -209,14 +209,14 @@ export const experiences = [
     included: [
       "Private tea experience for up to 5 guests",
       "Guidance by an English-speaking tea practitioner",
-      "Japanese sweets",
-      "Tea prepared and shared during the session",
+      "An assistant present to support the tea-making practice",
+      "Matcha tea and Japanese sweets",
       "Hands-on participation in making tea",
-      "Use of tea utensils during the session",
+      "Use of tea utensils provided for the experience",
     ],
     meetingPoint: {
       description:
-        "The experience takes place in a quiet tea room in Kyoto. The exact location will be shared after booking.",
+        "The experience takes place in a quiet tea room in Kyoto. The detailed location will be shared by email when we confirm availability for your requested date.",
       access: [
         "18 minutes on foot from Kinkaku-ji Temple, the Golden Pavilion",
         "13 minutes on foot from Daitokuji Temple",
@@ -339,13 +339,13 @@ export const experiences = [
     },
     host: {
       name: "Mehl Jirai",
-      role: "Kyoto-based zen priest",
+      role: "Kyoto-based Zen priest",
       languages: ["English", "German"],
     },
     availability: {
       type: "request",
       availableWeekdays: [0, 3, 4, 5, 6],
-      timeSlots: ["9:00", "15:00"],
+      timeSlots: ["09:00", "15:00"],
       unavailableDates: ["2026-06-26", "2026-06-29"],
     },
     cancellation: {
@@ -365,7 +365,7 @@ export const experiences = [
     highlights: [
       "Practice zazen and share dialogue at a quiet local temple in western Kyoto.",
       "Pair this quiet Zen experience at a local temple with a visit to Katsura Imperial Villa, one of Kyoto’s most refined cultural sites in the western part of the city.",
-      "Be guided by Jirai, a German-born Zen priest who speaks English, German, and Japanese.",
+      "Be guided by Jirai, a German-born Zen priest who speaks English and German.",
       "Visit Fukujoji Temple, a quiet temple in western Kyoto with over 1,240 years of history.",
       "Sit quietly, become aware of your breath, and shift your mind away from the pace of everyday life.",
     ],
@@ -389,7 +389,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "The session begins with zazen. After sitting, guests are invited to share questions and reflections over tea in a relaxed conversation with Jirai.",
+        text: "The session begins with zazen. After sitting, guests are invited to share questions and reflections over matcha in a relaxed conversation with Jirai.",
       },
       {
         type: "image",
@@ -406,7 +406,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "Katsura Imperial Villa is one of Kyoto’s most refined cultural sites, known for its architecture, gardens, and Japanese aesthetics. Zazen and dialogue with the resident priest at Fukujoji Temple may offer time to receive more deeply what you have experienced there.",
+        text: "Katsura Imperial Villa is one of Kyoto’s most refined cultural sites, known for its architecture, gardens, and Japanese aesthetics. Zazen and dialogue with the resident priest at Fukujoji Temple may offer a quiet time to take in more deeply what you felt there.",
       },
       {
         type: "image",
@@ -501,17 +501,35 @@ export const experiences = [
         text: "Nothing dramatic needs to happen. The value of the experience lies in taking time to sit, breathe, and return to yourself in the quiet setting of a Kyoto temple.",
       },
     ],
-    included: [],
+    included: [
+      "Small-group Zen experience at Fukujoji Temple",
+      "Guidance by an English- or German-speaking Zen priest",
+      "Zazen practice at a quiet local temple rooted in everyday Kyoto",
+      "Dialogue and questions with Jirai after zazen",
+      "Matcha prepared by Jirai during the conversation",
+    ],
     meetingPoint: {
       description:
-        "The experience takes place at a quiet local temple in western Kyoto. The exact meeting point will be shared after booking.",
+        "The meeting point is near the west exit of Hankyu Katsura Station. The detailed meeting point and temple address will be shared by email when we confirm availability for your requested date.",
       access: [
-        "About 7 minutes by taxi from Katsura Station, depending on traffic.",
-        "Katsura Station is served by the Hankyu Kyoto Line and Hankyu Arashiyama Line.",
+        "About 7 minutes by taxi from Hankyu Katsura Station, depending on traffic.",
+        "Hankyu Katsura Station is served by the Hankyu Kyoto Line and Hankyu Arashiyama Line.",
       ],
     },
-    importantInformation: [],
-    notAllowed: ["Strong perfume or strong fragrances"],
+    importantInformation: [
+      "No prior knowledge of Zen or zazen is required.",
+      "Please wear comfortable clothing suitable for sitting.",
+      "Photography is not allowed during zazen.",
+      "The matcha is offered as part of the conversation, not as a formal tea ceremony.",
+      "The experience is conducted in English or German.",
+      "The meeting point is near the west exit of Hankyu Katsura Station. The detailed meeting point and the temple address will be shared by email when we confirm availability for your requested date.",
+      "All dates and times are based on Japan Standard Time (JST).",
+    ],
+    notAllowed: [
+      "Photography during zazen",
+      "Video recording during zazen",
+      "Strong perfume or strong fragrances",
+    ],
     bookingHref: "/en/booking?experience=zen-experience-with-jirai",
     images: {
       thumbnail: "/images/experiences/zen-experience-with-jirai/thumbnail.jpg",
