@@ -1,5 +1,8 @@
 # Awai Studio
 
+![京都の紅葉](./README_SRC/resend-site-2026-07-10.png)
+![京都の紅葉](./README_SRC/resend-site02-2026-07-10.png)
+
 quite kyoto studioのデザインを調整する。
 全体の構成は、
 https://theshinmonzen.com/

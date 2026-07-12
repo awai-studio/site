@@ -3,7 +3,7 @@
 export const experiences = [
   {
     slug: "tea-experience-with-jack",
-    title: "Kyoto: Private Tea Experience with a Kyoto Practitioner",
+    title: "Private Tea Experience in Kyoto with a Chado Practitioner",
     cardTitle:
       "Beyond Performance — A Private Tea Gathering with a Kyoto Practitioner",
     shortDescription:
@@ -74,15 +74,15 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "This experience is not designed as a presentation of a finished tea performance. \nIt is a small, private gathering in a quiet tea room in Kyoto, where guests are invited to enter the time of tea itself and share one bowl with a practitioner.",
+        text: "This experience is not designed as a presentation of a finished tea performance, not something controlled by schedule or some fexedtime. \nIt is a small, private gathering in a quiet tea house in Kyoto, where guests are invited to enter into the very moment of tea itself and share one bowl with a practitioner.",
       },
       {
         type: "paragraph",
-        text: "What matters here is not theatrical display, nor a formal explanation of rules and procedures. \nIt is the act of entering the space, listening carefully, observing the gestures, and taking part in the time that unfolds there.",
+        text: "What matters here is not theatrical display, nor a formal explanation of rules and procedures. \nIt is the act of entering into the space, listening carefully, observing the gestures, and taking part in the time that unfolds there. And discovering that there is only space, and something moving in that space. Maybe even, something perfound, amazing, and magical happening in that primordially pure space of the four-and-a-half tatami room.",
       },
       {
         type: "paragraph",
-        text: "Tea is not only something to be explained. \nWater is heated, charcoal glows, tea is prepared, and one bowl is offered to a guest. \nWithin this quiet sequence, there are many things that cannot be fully put into words.",
+        text: "Tea is not only something to be explained. \nWater is heated, charcoal glows, tea is prepared, a bowl of tea is offered to a guest. \nWithin this quiet sequence, there are many things that cannot be fully put into words. There are many things that just might arise from the depths of the human heart.",
       },
       {
         type: "image",
@@ -91,19 +91,19 @@ export const experiences = [
       },
       {
         type: "heading",
-        text: "Charcoal, Water, and the Stillness of the Tea Room",
+        text: "Charcoal, Water, and the Stillness of the Tea House",
       },
       {
         type: "paragraph",
-        text: "The gathering takes place at Shotoku-an, near Funaokayama in Kyoto. \nThere is a garden, a path, a preparation room, a waiting space, a small entrance to the tea room, and a four-and-a-half tatami mat room where the session unfolds.",
+        text: "The gathering takes place at Shotoku-an, near Funaokayama in Kyoto. \nThere is a tea garden, a path, a preparation room, a waiting space, a small entrance to the tea house, and a four-and-a-half tatami mat room where time and space unfold spantaueously, naturally, freely.",
       },
       {
         type: "paragraph",
-        text: "Real charcoal is used in the hearth, and the water in the kettle begins to sound softly. \nIn tea, the sound of boiling water is sometimes called matsukaze — “the wind in the pines.” \nIt is not merely background sound. It is part of the atmosphere that shapes the time.",
+        text: "Real charcoal is used in the hearth, and the water in the kettle begins to sound softly. \nIn tea, the sound of boiling water is sometimes called matsukaze — “the wind in the pines.” \nIt is not merely background sound. It is part of the atmosphere that shapes our time together. It is the primordial sound of Ah! Arising from deep within the kettle, and deep within the human heart.",
       },
       {
         type: "paragraph",
-        text: "Before tea is served, guests are invited to observe the movements, listen to the sound, and feel the presence of the room. \nFrom that stillness, conversation begins naturally.",
+        text: "Before tea is served, guests are invited to observe the movements, listen to the sound, and feel the presence of the room. \nFrom that stillness, words and discoveries arise freely, unobstructed.",
       },
       {
         type: "image",
@@ -116,19 +116,19 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "Tea has many forms, gestures, and traditions. \nBut this experience is not centered on the complexity of form itself.",
+        text: "Chado practice has many forms, gestures, and traditions. \nBut this experience is not centered on the complexity of form itself, but rather on simplicity of feelings",
       },
       {
         type: "paragraph",
-        text: "At the heart of the gathering is something very simple: \ntea is prepared with care, one bowl is shared, and each guest is invited to encounter the act of making tea directly.",
+        text: "At the heart of the gathering is something very simple: \ntea is prepared with care, one bowl is shared, and each guest is invited to prepare directly.",
       },
       {
         type: "paragraph",
-        text: "Within that simple exchange are attention, care, movement, tools, relationship, and time shared between people.",
+        text: "Within that simple exchange we discover attention, care, movement, utensils, relationship, time and space shared between people.",
       },
       {
         type: "paragraph",
-        text: "In this experience, tea is not something to watch from a distance. \nGuests are invited to encounter it directly. \nYou may observe, listen, take part in making tea, and speak in your own words about what you notice.",
+        text: "In this experience, tea is not something to watch from a distance. \nGuests are invited to encounter it directly. \nYou may observe, listen, take part in making tea, and speak in your own words about what you notice. Or simply notice your eyes suddenly moist with tears, Or a soft smile on the lips. ",
       },
       {
         type: "image",
@@ -141,7 +141,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "The gathering is guided by Jack Convery, known in tea as SoKo, a Kyoto-based practitioner of Urasenke tea.",
+        text: "The gathering is guided by Jack Convery, also known in tea as SōKō, a Canadian practitioner of Urasenke tea.",
       },
       {
         type: "paragraph",
@@ -149,7 +149,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "His tea name and Urasenke background offer one way to understand the depth behind the session. \nBut what matters most in this room is not a title. \nIt is how one meets the bowl in front of them, and how that time is shared.",
+        text: "His tea name SōKō and his Urasenke background offer one way to understand the depth behind this time together. \n Sō: The ancient lineage of Chado. Kō: Good.\nBut what matters most in this room is not a title. \nIt is how one meets the bowl in front of them, and how that time is shared. Together with others.",
       },
       {
         type: "image",
@@ -162,7 +162,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "This is not a session built only around receiving explanations. \nThere may be conversation about the tea room, the utensils, the charcoal, or the gestures of making tea. \nBut the deeper value of the experience lies in what each guest notices for themselves.",
+        text: "This is not a session built only around receiving explanations, but of entering into spontaneous discussions about making tea, tea room, the utensils, the charcoal, the gestures, about this very moment of now-ness, of light and shadow, of sound and silence.\nBut the deeper value of the experience lies in what each guest notices for themselves.",
       },
       {
         type: "paragraph",
@@ -191,7 +191,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "It is an opportunity to sit in a Kyoto tea room and come into quiet contact with the practice of tea. \nCharcoal, water, a tea bowl, gestures, conversation — each element comes together as part of one shared time.",
+        text: "It is an opportunity to sit in a Kyoto tea house and come into quiet contact with the practice of tea. \nCharcoal, water, a tea bowl, gestures, conversation — each element comes together as part of one shared time.",
       },
       {
         type: "paragraph",
@@ -199,7 +199,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "Tea is not only a culture to be viewed from the outside. \nIt is also a time that arises between people.",
+        text: "Tea is not experienced a culture to be viewed from the outside. \nIt is also a time that arises between people.",
       },
       {
         type: "paragraph",
@@ -210,13 +210,13 @@ export const experiences = [
       "Private tea experience for up to 5 guests",
       "Guidance by an English-speaking tea practitioner",
       "An assistant present to support the tea-making practice",
-      "Matcha tea and Japanese sweets",
+      "Matcha tea and Japanese sweets and Hassun",
       "Hands-on participation in making tea",
       "Use of tea utensils provided for the experience",
     ],
     meetingPoint: {
       description:
-        "The experience takes place in a quiet tea room in Kyoto. The detailed location will be shared by email when we confirm availability for your requested date.",
+        "The experience takes place in a quiet tea house in Kyoto. Details will be shared by email when we confirm availability for your requested date.",
       access: [
         "18 minutes on foot from Kinkaku-ji Temple, the Golden Pavilion",
         "13 minutes on foot from Daitokuji Temple",
@@ -226,14 +226,15 @@ export const experiences = [
     importantInformation: [
       "No prior knowledge of tea is required.",
       "Seiza is traditional, but not required.",
-      "Please wear comfortable clothing suitable for sitting.",
+      "Please wear comfortable clothing suitable for sitting. This will be your offering of dignity and elegance to our time together.",
       "The experience is conducted in English.",
       "All dates and times are based on Japan Standard Time (JST).",
     ],
     notAllowed: [
-      "Photography during the session",
-      "Video recording during the session",
-      "Strong perfume or strong fragrances",
+      "No Photography.",
+      "No Video recording.",
+      "No Strong fragrances.",
+      "No Watch.",
     ],
     bookingHref: "/en/booking?experience=tea-experience-with-jack",
     images: {
