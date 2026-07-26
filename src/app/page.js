@@ -11,8 +11,8 @@ export default function Home() {
 
   return (
     <>
-      now printing...
-      {/* <div className={styles.topPage}>
+      {/* now printing... */}
+      <div className={styles.topPage}>
         {topBGImg.map((path, idx) => (
           <div
             key={path}
@@ -47,7 +47,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 }
