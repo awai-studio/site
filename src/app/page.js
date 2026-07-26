@@ -11,7 +11,6 @@ export default function Home() {
 
   return (
     <>
-      {/* now printing... */}
       <div className={styles.topPage}>
         {topBGImg.map((path, idx) => (
           <div
