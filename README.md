@@ -227,15 +227,17 @@ mail: info@awai-studio.jp
 │           ├── _motion.scss
 │           ├── _variables.scss
 │           └── reset.css
-└── public/
-    └── images/  
-        ├── experiences/
-        │   ├── tea-experience-with-jack/
-        │   └── zen-experience-with-jirai/
-        └── top/
+├── public/
+│   └── images/  
+│       ├── experiences/
+│       │   ├── tea-experience-with-jack/
+│       │   └── zen-experience-with-jirai/
+│       └── top/
+└── docs/
+    └── awai-studio-library/  
 ```
 
-_Last updated: 2026-06-01_
+_Last updated: 2026-08-04_
 
 ---
 

@@ -373,7 +373,7 @@ export const experiences = [
     fullDescription: [
       {
         type: "image",
-        src: "/images/experiences/zen-experience-with-jirai/description_01.jpg",
+        src: "/images/experiences/zen-experience-with-jirai/260531_G9_8268.jpg",
         alt: "",
       },
       {
@@ -394,9 +394,19 @@ export const experiences = [
       },
       {
         type: "image",
-        src: "/images/experiences/zen-experience-with-jirai/description_02.jpg",
+        src: "/images/experiences/zen-experience-with-jirai/260531_G9_8263.jpg",
         alt: "",
       },
+      // {
+      //   type: "image",
+      //   src: "/images/experiences/zen-experience-with-jirai/260711_G9_8868.jpg",
+      //   alt: "",
+      // },
+      // {
+      //   type: "image",
+      //   src: "/images/experiences/zen-experience-with-jirai/260531_G9_8258.jpg",
+      //   alt: "",
+      // },
       {
         type: "heading",
         text: "Before or After Katsura Imperial Villa",
@@ -411,9 +421,14 @@ export const experiences = [
       },
       {
         type: "image",
-        src: "/images/experiences/zen-experience-with-jirai/description_03.jpg",
+        src: "/images/experiences/zen-experience-with-jirai/260531_G9_8283.jpg",
         alt: "",
       },
+      // {
+      //   type: "image",
+      //   src: "/images/experiences/zen-experience-with-jirai/260711_G9_8918.jpg",
+      //   alt: "",
+      // },
       {
         type: "heading",
         text: "A Temple as a Place to Shift the Mind",
@@ -432,7 +447,7 @@ export const experiences = [
       },
       {
         type: "image",
-        src: "/images/experiences/zen-experience-with-jirai/description_04.jpg",
+        src: "/images/experiences/zen-experience-with-jirai/260531_G9_8273.jpg",
         alt: "",
       },
       {
@@ -453,9 +468,14 @@ export const experiences = [
       },
       {
         type: "image",
-        src: "/images/experiences/zen-experience-with-jirai/description_05.jpg",
+        src: "/images/experiences/zen-experience-with-jirai/260711_G9_8915.jpg",
         alt: "",
       },
+      // {
+      //   type: "image",
+      //   src: "/images/experiences/zen-experience-with-jirai/260711_G9_8936.jpg",
+      //   alt: "",
+      // },
       {
         type: "heading",
         text: "Guided by Jirai, a German-Born Zen Priest",
@@ -478,9 +498,14 @@ export const experiences = [
       },
       {
         type: "image",
-        src: "/images/experiences/zen-experience-with-jirai/description_06.jpg",
+        src: "/images/experiences/zen-experience-with-jirai/260711_G9_8903.jpg",
         alt: "",
       },
+      // {
+      //   type: "image",
+      //   src: "/images/experiences/zen-experience-with-jirai/260531_G9_8293.jpg",
+      //   alt: "",
+      // },
       {
         type: "heading",
         text: "Not Enlightenment, but Noticing Yourself",
@@ -533,7 +558,8 @@ export const experiences = [
     ],
     bookingHref: "/en/booking?experience=zen-experience-with-jirai",
     images: {
-      thumbnail: "/images/experiences/zen-experience-with-jirai/thumbnail.jpg",
+      thumbnail:
+        "/images/experiences/zen-experience-with-jirai/260711_G9_8984.jpg",
       booking: "/images/experiences/zen-experience-with-jirai/booking.jpg",
       description: [
         "/images/experiences/zen-experience-with-jirai/description_01.jpg",
@@ -543,28 +569,44 @@ export const experiences = [
     },
     galleryImages: [
       {
-        src: "/images/experiences/zen-experience-with-jirai/",
-        alt: "Zen monk speaking with guests",
+        src: "/images/experiences/zen-experience-with-jirai/260711_G9_8936.jpg",
+        alt: "座禅をする慈頼住職",
+      },
+      // {
+      //   src: "/images/experiences/zen-experience-with-jirai/260711_G9_8915.jpg",
+      //   alt: "座禅をする慈頼住職",
+      // },
+      {
+        src: "/images/experiences/zen-experience-with-jirai/260531_G9_8257.jpg",
+        alt: "竹林1",
+      },
+      // {
+      //   src: "/images/experiences/zen-experience-with-jirai/260531_G9_8263.jpg",
+      //   alt: "竹林2",
+      // },
+      {
+        src: "/images/experiences/zen-experience-with-jirai/260531_G9_8254.jpg",
+        alt: "門を引きで",
+      },
+      // {
+      //   src: "/images/experiences/zen-experience-with-jirai/260711_G9_8866.jpg",
+      //   alt: "本堂から見た門",
+      // },
+      {
+        src: "/images/experiences/zen-experience-with-jirai/260711_G9_8868.jpg",
+        alt: "窓越しの本堂内",
       },
       {
-        src: "/images/experiences/zen-experience-with-jirai/",
-        alt: "Zen monk speaking with guests",
+        src: "/images/experiences/zen-experience-with-jirai/260711_G9_8958.jpg",
+        alt: "読経をする慈頼住職",
       },
       {
-        src: "/images/experiences/zen-experience-with-jirai/",
-        alt: "Zen monk speaking with guests",
+        src: "/images/experiences/zen-experience-with-jirai/260531_G9_8282.jpg",
+        alt: "仏像の手",
       },
       {
-        src: "/images/experiences/zen-experience-with-jirai/",
-        alt: "Zen monk speaking with guests",
-      },
-      {
-        src: "/images/experiences/zen-experience-with-jirai/",
-        alt: "Zen monk speaking with guests",
-      },
-      {
-        src: "/images/experiences/zen-experience-with-jirai/",
-        alt: "Traditional tea utensils",
+        src: "/images/experiences/zen-experience-with-jirai/260531_G9_8253.jpg",
+        alt: "全景",
       },
     ],
   },

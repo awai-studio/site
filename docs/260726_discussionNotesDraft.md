@@ -13,8 +13,14 @@ I would appreciate your confirmation on the following points.
 
 ### **Duration**
 
+**org**
 - 120 minutes
+  
+**jack's check**
+- 120 minutes ( About 2 hours but may be longer )
 
+**proposal**
+- approximately 2 hours, with time allowed as needed for the experience
 ### **Group Size**
 
 - Maximum of 5 guests per private group
@@ -25,8 +31,16 @@ I would appreciate your confirmation on the following points.
 
 ### **Experience**
 
+**org**
 - Tea at Shotoku-an
 - Conversation through tea
+
+**jack's check**
+- The Way of Tea at Shotoku-an
+- Study and Discussion through tea
+
+**proposal**
+- Learning and dialogue through tea
 
 # **2. Operation**
 
@@ -37,7 +51,19 @@ For the initial stage of operation, Awai Studio is considering a payment of **¥
 This payment would include:
 
 - Hosting the experience at Shotoku-an
+
+**org**
 - Providing tea and conversation
+
+**jack's check**
+- Providing tea, sweets, hassun, electric, chacole, kimono dry clead, water
+- Study and Discussion
+
+**proposal**
+- Making tea, sweets, and seasonal hassun (a small seasonal dish inspired by kaiseki)  
+- Use of traditional utensils and charcoal  
+- Preparation of the tea house environment, including traditional attire (kimono) 
+- Learning and dialogue through tea
 
 I hope we can begin with this arrangement and, as we gain experience, review it together if adjustments become necessary.
 
