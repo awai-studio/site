@@ -2,7 +2,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
 import styles from "./BookingForm.module.scss";
@@ -47,6 +47,7 @@ export default function BookingForm({ experience }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [formError, setFormError] = useState("");
+  const formStartedAtRef = useRef(Date.now());
 
   // experiencesのキー
   // ここに、データの種類は何タイプ？　利用可能な希望の曜日は？　希望の開催時間はいつ？
@@ -224,7 +225,6 @@ export default function BookingForm({ experience }) {
         },
         body: JSON.stringify({
           experienceSlug: experience.slug,
-          experienceTitle: experience.title,
           customerName: customerName,
           customerEmail: customerEmail,
           guestCount: Number(guestCount),
@@ -235,10 +235,15 @@ export default function BookingForm({ experience }) {
           preferredDate3: preferredDate3,
           preferredTime3: preferredTime3,
           message: formData.get("message"),
+          companyWebsite: formData.get("companyWebsite"),
+          formStartedAt: formStartedAtRef.current,
         }),
       });
       if (!response.ok) {
-        throw new Error("Failed to send booking request.")
+        const result = await response.json().catch(() => null);
+        throw new Error(
+          result?.message || "Failed to send booking request.",
+        );
       }
 
       setSubmitStatus("success");
@@ -246,9 +251,13 @@ export default function BookingForm({ experience }) {
       // 使ったら戻すをやっている箇所。
       formElement.reset();
       setSelectedDates([]);
+      formStartedAtRef.current = Date.now();
     } catch (error) {
-      console.error(error);
-      setFormError("");
+      setFormError(
+        error instanceof Error
+          ? error.message
+          : "Failed to send booking request.",
+      );
       setSubmitStatus("error");
     // 処理が成功か否かに関わらず最後に実行する命令を書く場所。
     } finally {
@@ -263,6 +272,16 @@ export default function BookingForm({ experience }) {
       <h2>Request Details</h2>
 
       <form className="formBasic" onSubmit={handleSubmit}>
+        <div className={styles.honeypot} aria-hidden="true">
+          <label htmlFor="companyWebsite">Company website</label>
+          <input
+            id="companyWebsite"
+            name="companyWebsite"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
         <div className="daySelector">
           <label className="formLabel" htmlFor="preferredDate">
             Preferred date
@@ -359,15 +378,15 @@ export default function BookingForm({ experience }) {
         </label>
         <label className="formLabel" htmlFor="name">
           <span className="formItemName">Your name</span>
-          <input id="name" type="text" name="name" />
+          <input id="name" type="text" name="name" maxLength={100} autoComplete="name" required />
         </label>
         <label className="formLabel" htmlFor="email">
           <span className="formItemName">Email</span>
-          <input id="email" type="text" name="email" />
+          <input id="email" type="email" name="email" maxLength={254} autoComplete="email" required />
         </label>
         <label className="formLabel" htmlFor="message">
           <span className="formItemName">Message</span>
-          <textarea id="message" name="message" rows="5" />
+          <textarea id="message" name="message" rows="5" maxLength={2000} />
         </label>
 
         {formError && (
@@ -398,7 +417,6 @@ export default function BookingForm({ experience }) {
 
         {submitStatus === "error" && (
           <div className="formErrorMessage">
-            <p>Failed to send booking request.</p>
             <p>Please try again later or contact us by email.</p>
           </div>
         )}

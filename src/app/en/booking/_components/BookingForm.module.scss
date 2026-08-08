@@ -2,6 +2,14 @@
 
 @use '@/styles/shared/' as *;
 
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .dayZero {
   padding: 1rem;
   font-family: var(--ff-en-gothic);

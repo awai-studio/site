@@ -1,186 +1,100 @@
-// @/app/api/booking-request/route.js
-
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { experiences } from "@/app/en/experiences/_data/experiences";
+import {
+  isLikelyBotBooking,
+  validateBookingInput,
+  validateBookingRequest,
+} from "@/lib/booking/bookingValidation";
 import { createBookingRequest } from "@/lib/supabase/bookingRequests";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
 
 export async function POST(request) {
   try {
+    const requestValidation = validateBookingRequest(request);
+    if (!requestValidation.isValid) {
+      return NextResponse.json(
+        { message: requestValidation.message },
+        { status: requestValidation.status },
+      );
+    }
+
     const body = await request.json();
 
-    const {
-      experienceSlug,
-      experienceTitle,
-      customerName,
-      customerEmail,
-      guestCount,
-      preferredDate1,
-      preferredTime1,
-      preferredDate2,
-      preferredTime2,
-      preferredDate3,
-      preferredTime3,
-      message,
-    } = body;
-
-    // 入力必須項目が入力されているかのバリデーション
-    if (
-      !experienceSlug ||
-      !customerName ||
-      !customerEmail ||
-      !guestCount ||
-      !preferredDate1 ||
-      !preferredTime1
-    ) {
-      return NextResponse.json(
-        { error: "Required fields are missing." },
-        { status: 400 },
-      );
+    if (isLikelyBotBooking(body)) {
+      return NextResponse.json({ ok: true }, { status: 201 });
     }
-  
-    // 簡易的なEmailのバリデーション
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const isEmailValid = emailPattern.test(customerEmail);
-    if (!isEmailValid) {
+
+    const experience = experiences.find(
+      (item) => item.slug === String(body?.experienceSlug || "").trim(),
+    );
+    const validation = validateBookingInput(body, experience);
+
+    if (!validation.isValid) {
       return NextResponse.json(
-        { error: "Invalid email address." },
+        {
+          message: validation.firstError || "Please check your request.",
+          errors: validation.errors,
+        },
         { status: 400 },
       );
     }
 
-    // 日時の第二第三候補の整合チェック
-    if (preferredDate2 && !preferredTime2) {
-      return NextResponse.json(
-        { error: "Preferred time 2 is missing." },
-        { status: 400 },
-      );
-    }
-    if (preferredDate3 && !preferredTime3) {
-      return NextResponse.json(
-        { error: "Preferred time 3 is missing." },
-        { status: 400 },
-      );
-    }
-
-    await createBookingRequest({
-      experienceSlug,
-      customerName,
-      customerEmail,
-      guestCount,
-      preferredDate1,
-      preferredTime1,
-      preferredDate2,
-      preferredTime2,
-      preferredDate3,
-      preferredTime3,
-      message,
-    });
-
+    const values = validation.values;
+    const bookingRequest = await createBookingRequest(values);
     const fromEmail =
       process.env.BOOKING_FROM_EMAIL || "Awai Studio <hello@awai-studio.jp>";
     const notifyEmail = process.env.BOOKING_NOTIFY_EMAIL;
-
-    const preferredDateTimes = [
-      {
-        label: "1",
-        date: preferredDate1,
-        time: preferredTime1,
-      },
-      {
-        label: "2",
-        date: preferredDate2,
-        time: preferredTime2,
-      },
-      {
-        label: "3",
-        date: preferredDate3,
-        time: preferredTime3,
-      },
-    ];
-
-    const preferredDateTimeText = preferredDateTimes
+    const preferredDateTimeText = [
+      { label: "1", date: values.preferredDate1, time: values.preferredTime1 },
+      { label: "2", date: values.preferredDate2, time: values.preferredTime2 },
+      { label: "3", date: values.preferredDate3, time: values.preferredTime3 },
+    ]
       .filter((item) => item.date && item.time)
-      .map((item) => {
-        return `${item.label})
-${item.date}
-${item.time} JST`;
-      })
+      .map((item) => `${item.label})\n${item.date}\n${item.time} JST`)
       .join("\n\n");
 
-    await resend.emails.send({
-      from: fromEmail,
-      to: notifyEmail,
-      subject: `[Awai Studio] New booking request: ${experienceTitle}`,
-      text: `
-A new booking request has been submitted.
+    try {
+      if (resend && notifyEmail) {
+        await resend.emails.send({
+          from: fromEmail,
+          to: notifyEmail,
+          subject: `[Awai Studio] New booking request: ${experience.title}`,
+          text: `A new booking request has been submitted.\n\nExperience:\n${experience.title}\n\nPreferred dates & times:\n${preferredDateTimeText}\n\nGuests:\n${values.guestCount}\n\nCustomer:\n${values.customerName}\n\nEmail:\n${values.customerEmail}\n\nMessage:\n${values.message || "(No message)"}`,
+        });
+      }
 
-Experience:
-${experienceTitle}
+      if (resend) {
+        await resend.emails.send({
+          from: fromEmail,
+          to: values.customerEmail,
+          subject: "We received your booking request | Awai Studio",
+          text: `Dear ${values.customerName},\n\nThank you for your booking request.\nWe have received the following request:\n\nExperience:\n${experience.title}\n\nPreferred dates & times:\n${preferredDateTimeText}\n\nNumber of guests:\n${values.guestCount}\n\nPlease note that this request is not yet confirmed.\nWe will check availability and contact you by email.\n\nAfter we confirm availability, we will send payment details by email.\nYour booking is confirmed only after payment has been completed.\n\nAll dates, times, and deadlines are based on Japan Standard Time (JST).\n\n_/_/_/_/_/_/_/_/_/_/\n\nAwai Studio\nhello@awai-studio.jp\n\n_/_/_/_/_/_/_/_/_/_/`,
+        });
+      }
+    } catch (error) {
+      console.error(
+        "Booking email delivery failed:",
+        error instanceof Error ? error.message : "Unknown error",
+      );
+    }
 
-Preferred dates & times:
-${preferredDateTimeText}
-
-Guests:
-${guestCount}
-
-Customer:
-${customerName}
-
-Email:
-${customerEmail}
-
-Message:
-${message || "(No message)"}
-`,
-    });
-
-    await resend.emails.send({
-      from: fromEmail,
-      to: customerEmail,
-      subject: "We received your booking request | Awai Studio",
-      text: `
-Dear ${customerName},
-
-Thank you for your booking request.
-We have received the following request:
-
-Experience:
-${experienceTitle}
-
-Preferred dates & times:
-${preferredDateTimeText}
-
-Number of guests:
-${guestCount}
-
-Customer:
-${customerName}
-
-Please note that this request is not yet confirmed.
-We will check availability and contact you by email.
-
-After we confirm availability, we will send payment details by email.
-Your booking is confirmed only after payment has been completed.
-
-All dates, times, and deadlines are based on Japan Standard Time (JST).
-
-_/_/_/_/_/_/_/_/_/_/
-
-Awai Studio
-hello@awai-studio.jp
-
-_/_/_/_/_/_/_/_/_/_/
-`,
-    });
-    return NextResponse.json({ ok: true });
-  } catch(error) {
-    console.error(error);
-    
     return NextResponse.json(
-      { error: "Failed to send booking request."},
-      { status: 500 }
+      { ok: true, bookingRequestId: bookingRequest.id },
+      { status: 201 },
+    );
+  } catch (error) {
+    console.error(
+      "Booking request failed:",
+      error instanceof Error ? error.message : "Unknown error",
+    );
+
+    return NextResponse.json(
+      { message: "Failed to send booking request. Please try again later." },
+      { status: 500 },
     );
   }
 }
