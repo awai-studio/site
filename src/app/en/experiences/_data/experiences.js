@@ -65,7 +65,7 @@ export const experiences = [
     fullDescription: [
       {
         type: "image",
-        src: "/images/experiences/tea-experience-with-jack/description_02_260517_G9_8030.jpg",
+        src: "/images/experiences/tea-experience-with-jack/260807_G9_7969.jpg",
         alt: "",
       },
       {
@@ -132,7 +132,7 @@ export const experiences = [
       },
       {
         type: "image",
-        src: "/images/experiences/tea-experience-with-jack/description_01_260503_G9_7919.jpg",
+        src: "/images/experiences/tea-experience-with-jack/260807_G9_7905.jpg",
         alt: "",
       },
       {
@@ -246,67 +246,51 @@ export const experiences = [
     galleryImages: [
       {
         src: "/images/experiences/tea-experience-with-jack/00_G9_7976.jpg",
-        alt: "Tea room with charcoal fire",
+        alt: "ジャックさん",
       },
       {
-        src: "/images/experiences/tea-experience-with-jack/01_1011542.jpg",
-        alt: "Preparing tea in Kyoto",
+        src: "/images/experiences/tea-experience-with-jack/260531_G9_8309.jpg",
+        alt: "外観",
+      },
+      {
+        src: "/images/experiences/tea-experience-with-jack/260531_G9_8311.jpg",
+        alt: "門1",
       },
       {
         src: "/images/experiences/tea-experience-with-jack/02_G9_7765.jpg",
-        alt: "Traditional tea utensils",
+        alt: "茶室から見た庭",
       },
       {
-        src: "/images/experiences/tea-experience-with-jack/03_1011529.jpg",
-        alt: "Tea room with charcoal fire",
-      },
-      {
-        src: "/images/experiences/tea-experience-with-jack/04_G9_7942.jpg",
-        alt: "Preparing tea in Kyoto",
-      },
-      {
-        src: "/images/experiences/tea-experience-with-jack/05_G9_7936.jpg",
-        alt: "Traditional tea utensils",
-      },
-      // {
-      //   src: "/images/experiences/tea-experience-with-jack/06_G9_7952.jpg",
-      //   alt: "Traditional tea utensils",
-      // },
-      {
-        src: "/images/experiences/tea-experience-with-jack/07_G9_7970.jpg",
-        alt: "Traditional tea utensils",
-      },
-      {
-        src: "/images/experiences/tea-experience-with-jack/08_G9_7792.jpg",
-        alt: "Traditional tea utensils",
-      },
-      {
-        src: "/images/experiences/tea-experience-with-jack/09_G9_7944.jpg",
-        alt: "Traditional tea utensils",
-      },
-      {
-        src: "/images/experiences/tea-experience-with-jack/10_G9_7802.jpg",
-        alt: "Traditional tea utensils",
-      },
-      {
-        src: "/images/experiences/tea-experience-with-jack/11_G9_7782.jpg",
-        alt: "Traditional tea utensils",
-      },
-      {
-        src: "/images/experiences/tea-experience-with-jack/12_1011514.jpg",
-        alt: "Traditional tea utensils",
+        src: "/images/experiences/tea-experience-with-jack/260524_G9_8112.jpg",
+        alt: "庭と獅子落としと柄杓",
       },
       {
         src: "/images/experiences/tea-experience-with-jack/06_G9_7952.jpg",
-        alt: "Traditional tea utensils",
+        alt: "庭から見た床間",
       },
       {
-        src: "/images/experiences/tea-experience-with-jack/14_G9_7800.jpg",
-        alt: "Traditional tea utensils",
+        src: "/images/experiences/tea-experience-with-jack/260807_G9_7792.jpg",
+        alt: "炉に炭を足す手",
+      },
+      {
+        src: "/images/experiences/tea-experience-with-jack/11_G9_7782.jpg",
+        alt: "柄杓",
+      },
+      {
+        src: "/images/experiences/tea-experience-with-jack/260807_G9_7802.jpg",
+        alt: "茶釜と湯気",
+      },
+      {
+        src: "/images/experiences/tea-experience-with-jack/260524_G9_8092.jpg",
+        alt: "床間と蝋燭",
+      },
+      {
+        src: "/images/experiences/tea-experience-with-jack/260524_G9_8229.jpg",
+        alt: "鳴り物を叩く手",
       },
       {
         src: "/images/experiences/tea-experience-with-jack/15_1011457.jpg",
-        alt: "Traditional tea utensils",
+        alt: "茶釜と炭、炉",
       },
     ],
   },
@@ -397,16 +381,6 @@ export const experiences = [
         src: "/images/experiences/zen-experience-with-jirai/260531_G9_8263.jpg",
         alt: "",
       },
-      // {
-      //   type: "image",
-      //   src: "/images/experiences/zen-experience-with-jirai/260711_G9_8868.jpg",
-      //   alt: "",
-      // },
-      // {
-      //   type: "image",
-      //   src: "/images/experiences/zen-experience-with-jirai/260531_G9_8258.jpg",
-      //   alt: "",
-      // },
       {
         type: "heading",
         text: "Before or After Katsura Imperial Villa",
@@ -424,11 +398,6 @@ export const experiences = [
         src: "/images/experiences/zen-experience-with-jirai/260531_G9_8283.jpg",
         alt: "",
       },
-      // {
-      //   type: "image",
-      //   src: "/images/experiences/zen-experience-with-jirai/260711_G9_8918.jpg",
-      //   alt: "",
-      // },
       {
         type: "heading",
         text: "A Temple as a Place to Shift the Mind",
@@ -471,11 +440,6 @@ export const experiences = [
         src: "/images/experiences/zen-experience-with-jirai/260711_G9_8915.jpg",
         alt: "",
       },
-      // {
-      //   type: "image",
-      //   src: "/images/experiences/zen-experience-with-jirai/260711_G9_8936.jpg",
-      //   alt: "",
-      // },
       {
         type: "heading",
         text: "Guided by Jirai, a German-Born Zen Priest",
@@ -501,11 +465,6 @@ export const experiences = [
         src: "/images/experiences/zen-experience-with-jirai/260711_G9_8903.jpg",
         alt: "",
       },
-      // {
-      //   type: "image",
-      //   src: "/images/experiences/zen-experience-with-jirai/260531_G9_8293.jpg",
-      //   alt: "",
-      // },
       {
         type: "heading",
         text: "Not Enlightenment, but Noticing Yourself",
@@ -572,26 +531,14 @@ export const experiences = [
         src: "/images/experiences/zen-experience-with-jirai/260711_G9_8936.jpg",
         alt: "座禅をする慈頼住職",
       },
-      // {
-      //   src: "/images/experiences/zen-experience-with-jirai/260711_G9_8915.jpg",
-      //   alt: "座禅をする慈頼住職",
-      // },
       {
         src: "/images/experiences/zen-experience-with-jirai/260531_G9_8257.jpg",
         alt: "竹林1",
       },
-      // {
-      //   src: "/images/experiences/zen-experience-with-jirai/260531_G9_8263.jpg",
-      //   alt: "竹林2",
-      // },
       {
         src: "/images/experiences/zen-experience-with-jirai/260531_G9_8254.jpg",
         alt: "門を引きで",
       },
-      // {
-      //   src: "/images/experiences/zen-experience-with-jirai/260711_G9_8866.jpg",
-      //   alt: "本堂から見た門",
-      // },
       {
         src: "/images/experiences/zen-experience-with-jirai/260711_G9_8868.jpg",
         alt: "窓越しの本堂内",
