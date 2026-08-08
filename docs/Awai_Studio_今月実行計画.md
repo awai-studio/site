@@ -35,7 +35,7 @@
 
 現時点で、上田プロジェクトの会話記録から、移植対象となる計測イベント、セキュリティ対策、テスト内容まで確認できている。したがって「以前の内容を参照できず、もう一度ゼロから説明し直す」状態ではない。
 
-Awai StudioのNext.jsプロジェクト本体は、`/Users/tk-mba/書類/_work/awai-studio/`にあることを確認済みである。実装時は、この実サイトを対象に現状機能と未完成部分を確認しながら進める。
+Awai StudioのNext.jsプロジェクト本体は、/Users/tk-mba/書類/_work/awai-studio/にあることを確認済みである。実装時は、この実サイトを対象に現状機能と未完成部分を確認しながら進める。
 
 ## **2. 上田プロジェクトから確認できた移植元**
 
@@ -45,19 +45,19 @@ Awai StudioのNext.jsプロジェクト本体は、`/Users/tk-mba/書類/_work/a
 
 | 利用者の行動 | GA4イベント | 主な用途 |
 |---|---|---|
-| LPを表示 | `page_view` | 訪問数の確認 |
-| CTAをクリック | `cta_click` | どの導線が機能したか確認 |
-| フォームを表示 | `form_view` | フォーム到達数の確認 |
-| 送信を完了 | `form_submit` | 応募・問い合わせ完了数の確認 |
+| LPを表示 | page_view | 訪問数の確認 |
+| CTAをクリック | cta_click | どの導線が機能したか確認 |
+| フォームを表示 | form_view | フォーム到達数の確認 |
+| 送信を完了 | form_submit | 応募・問い合わせ完了数の確認 |
 
-`cta_click`には`cta_location`を付け、どの場所のCTAが押されたかをGA4で分析できるようにしている。
+cta_clickにはcta_locationを付け、どの場所のCTAが押されたかをGA4で分析できるようにしている。
 
 広告URLからは、少なくとも次の値を引き継ぐ設計になっている。
 
-- `utm_source`
-- `utm_medium`
-- `utm_campaign`
-- `utm_content`
+- utm_source
+- utm_medium
+- utm_campaign
+- utm_content
 - 最初にアクセスしたURL
 
 ### **2-2. 上田プロジェクトで実施した安全対策**
@@ -70,7 +70,7 @@ Awai StudioのNext.jsプロジェクト本体は、`/Users/tk-mba/書類/_work/a
 - PDFの拡張子、MIMEタイプ、ファイル内容を確認
 - ファイルを非公開Storageへ保存し、期限付きURLで閲覧
 - SupabaseのRLSで外部からの直接取得・登録・更新・削除を制限
-- 管理者を`viewer`と`editor`に分け、更新権限を限定
+- 管理者をviewerとeditorに分け、更新権限を限定
 - ハニーポット、入力時間判定、二重送信防止、接続元ごとの回数制限
 - 接続元情報を直接保存せず、回数制限に必要な形へ変換
 - 処理途中で失敗した場合、孤立したファイルを削除
@@ -88,8 +88,8 @@ Awai StudioのNext.jsプロジェクト本体は、`/Users/tk-mba/書類/_work/a
 
 各記事は、**英語本文を先に掲載し、その後に同じ内容の日本語本文を追記する**。英語版と日本語版を別URLへ分けず、一つの記事の中で英語から日本語へ続く構成を基本とする。
 
-- `/blog`：記事一覧
-- `/blog/[slug]`：記事詳細
+- /blog：記事一覧
+- /blog/[slug]：記事詳細
 - タイトル、概要、公開日、更新日、カテゴリー、本文、OG画像
 - 記事ごとのSEOタイトルと説明文
 - OGP、Xカード、サイトマップ、RSS
@@ -132,7 +132,7 @@ Awai Notesは、開発者がMarkdownファイルを直接追加するだけの�
 - 英語本文と、その後に続く日本語本文を一つの記事として編集・公開できるようにする
 - 写真は端末からアップロードできるようにし、本文には保存先URLをMarkdown画像として記録する
 
-編集部品には、既製のReact用WYSIWYG Markdownエディターである`@mdxeditor/editor`を第一候補として採用する。この部品は、編集内容をMarkdown文字列として受け渡しでき、見出し、本文、リスト、リンク、画像、ツールバー、リッチテキストとMarkdown原文の切替を備えている。Next.js App Routerでは編集画面だけをブラウザ側で読み込む構成にする。
+編集部品には、既製のReact用WYSIWYG Markdownエディターである@mdxeditor/editorを第一候補として採用する。この部品は、編集内容をMarkdown文字列として受け渡しでき、見出し、本文、リスト、リンク、画像、ツールバー、リッチテキストとMarkdown原文の切替を備えている。Next.js App Routerでは編集画面だけをブラウザ側で読み込む構成にする。
 
 ただし、ライブラリ名にMDXと付いていても、一般執筆者の記事内でReact部品やJavaScriptを実行できるようにはしない。Awai Studioでは許可したMarkdown要素だけを保存・表示し、HTML、スクリプト、危険なURLを無条件に実行しない。
 
@@ -154,14 +154,14 @@ Awai Notesは、開発者がMarkdownファイルを直接追加するだけの�
 
 | 行動 | イベント | 主な付加情報 |
 |---|---|---|
-| ページ表示 | `page_view` | ページURL、タイトル |
-| ブログ記事表示 | `article_view` | 記事ID、カテゴリー、記事名 |
-| CTAクリック | `cta_click` | `cta_location`、`cta_label` |
-| Instagram・Xへの外部リンク | `social_click` | `social_platform`、`link_location` |
-| 予約フォーム到達 | `form_view` | `form_type` |
-| 予約送信完了 | `form_submit` | `form_type`、重複しない受付ID |
+| ページ表示 | page_view | ページURL、タイトル |
+| ブログ記事表示 | article_view | 記事ID、カテゴリー、記事名 |
+| CTAクリック | cta_click | cta_location`、cta_label |
+| Instagram・Xへの外部リンク | social_click | social_platform、link_location |
+| 予約フォーム到達 | form_view | form_type |
+| 予約送信完了 | form_submit | form_type、重複しない受付ID |
 
-`form_submit`をGA4の重要イベントとして扱い、Meta広告とX広告でも同じ完了地点をコンバージョンとして計測する。
+form_submitをGA4の重要イベントとして扱い、Meta広告とX広告でも同じ完了地点をコンバージョンとして計測する。
 
 ### **3-3. Instagram・X広告との連動**
 
@@ -179,10 +179,10 @@ UTM命名例：
 
 | 項目 | Instagram広告 | X広告 |
 |---|---|---|
-| `utm_source` | `instagram` | `x` |
-| `utm_medium` | `paid_social` | `paid_social` |
-| `utm_campaign` | キャンペーン共通名 | キャンペーン共通名 |
-| `utm_content` | 広告クリエイティブ識別名 | 投稿・広告識別名 |
+| utm_source | instagram | x |
+| utm_medium | paid_social | paid_social |
+| utm_campaign | キャンペーン共通名 | キャンペーン共通名 |
+| utm_content | 広告クリエイティブ識別名 | 投稿・広告識別名 |
 
 ### **3-4. Awai Studioへ適用する安全対策**
 
@@ -205,7 +205,7 @@ UTM命名例：
 該当機能がある場合のみ移植：
 
 - Supabase RLS
-- 管理者の`viewer`・`editor`権限
+- 管理者のviewer・editor権限
 - 非公開Storageと期限付きURL
 - PDFの三重確認
 - 処理失敗時のファイル削除
@@ -255,7 +255,7 @@ UTM命名例：
 
 ## **6. 実装開始に必要なもの**
 
-- Awai StudioのNext.jsプロジェクト本体（確認済み：`/Users/tk-mba/書類/_work/awai-studio/`）
+- Awai StudioのNext.jsプロジェクト本体（確認済み：/Users/tk-mba/書類/_work/awai-studio/）
 - 現在の本番URLとVercelプロジェクト
 - GA4測定IDまたは対象プロパティ
 - GTMコンテナIDまたは対象コンテナ
