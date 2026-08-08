@@ -6,7 +6,14 @@ import {
   validateBookingInput,
   validateBookingRequest,
 } from "@/lib/booking/bookingValidation";
-import { createBookingRequest } from "@/lib/supabase/bookingRequests";
+import {
+  BOOKING_RATE_LIMIT,
+  checkBookingRateLimit,
+} from "@/lib/booking/bookingRateLimit";
+import {
+  createBookingRequest,
+  isDuplicateBookingRequestError,
+} from "@/lib/supabase/bookingRequests";
 
 const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
@@ -28,6 +35,33 @@ export async function POST(request) {
       return NextResponse.json({ ok: true }, { status: 201 });
     }
 
+    const rateLimitResult = await checkBookingRateLimit(request);
+
+    if (rateLimitResult.hasError) {
+      return NextResponse.json(
+        {
+          message:
+            "We cannot accept your request right now. Please try again later.",
+        },
+        { status: 503 },
+      );
+    }
+
+    if (!rateLimitResult.isAllowed) {
+      return NextResponse.json(
+        {
+          message:
+            "Too many requests were sent in a short time. Please try again later.",
+        },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(BOOKING_RATE_LIMIT.windowSeconds),
+          },
+        },
+      );
+    }
+
     const experience = experiences.find(
       (item) => item.slug === String(body?.experienceSlug || "").trim(),
     );
@@ -44,7 +78,17 @@ export async function POST(request) {
     }
 
     const values = validation.values;
-    const bookingRequest = await createBookingRequest(values);
+    let bookingRequest;
+
+    try {
+      bookingRequest = await createBookingRequest(values);
+    } catch (error) {
+      if (isDuplicateBookingRequestError(error)) {
+        return NextResponse.json({ ok: true }, { status: 201 });
+      }
+
+      throw error;
+    }
     const fromEmail =
       process.env.BOOKING_FROM_EMAIL || "Awai Studio <hello@awai-studio.jp>";
     const notifyEmail = process.env.BOOKING_NOTIFY_EMAIL;

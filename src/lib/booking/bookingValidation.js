@@ -1,6 +1,8 @@
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const DATE_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
 const CONTROL_PATTERN = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/u;
+const UUID_V4_PATTERN =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 export const BOOKING_LIMITS = {
   requestBytes: 32 * 1024,
@@ -72,8 +74,13 @@ export function isLikelyBotBooking(input) {
   return !Number.isFinite(startedAt) || startedAt <= 0 || Date.now() - startedAt < 2000;
 }
 
+export function isValidSubmissionToken(value) {
+  return UUID_V4_PATTERN.test(text(value));
+}
+
 export function validateBookingInput(input, experience) {
   const values = {
+    submissionToken: text(input?.submissionToken),
     experienceSlug: text(input?.experienceSlug),
     customerName: text(input?.customerName),
     customerEmail: text(input?.customerEmail).toLowerCase(),
@@ -88,6 +95,9 @@ export function validateBookingInput(input, experience) {
   };
   const errors = {};
 
+  if (!isValidSubmissionToken(values.submissionToken)) {
+    errors.submissionToken = "Please check your request.";
+  }
   if (!experience || values.experienceSlug !== experience.slug) {
     errors.experienceSlug = "Please select a valid experience.";
   }

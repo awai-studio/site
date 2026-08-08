@@ -4,6 +4,7 @@ import { supabaseServer } from "@/lib/supabase/server";
 
 // createBookingRequest関数の引数
 export async function createBookingRequest({
+  submissionToken,
   experienceSlug,
   customerName,
   customerEmail,
@@ -22,6 +23,7 @@ export async function createBookingRequest({
     .from("booking_requests")
     .insert([
       {
+        submission_token: submissionToken,
         experience_slug: experienceSlug,
         customer_name: customerName,
         customer_email: customerEmail,
@@ -44,4 +46,11 @@ export async function createBookingRequest({
 
   // insert結果としてSupabaseから返されたdataを返す。
   return data;
+}
+
+export function isDuplicateBookingRequestError(error) {
+  if (error?.code !== "23505") return false;
+
+  const databaseMessage = `${error?.message || ""} ${error?.details || ""}`;
+  return databaseMessage.includes("submission_token");
 }

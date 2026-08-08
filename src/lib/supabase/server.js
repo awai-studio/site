@@ -1,5 +1,6 @@
 // @/lib/supabase/server.js
 
+import "server-only";
 import { createClient } from "@supabase/supabase-js";
 
 export const supabaseServer = createClient(

@@ -48,6 +48,7 @@ export default function BookingForm({ experience }) {
   const [submitStatus, setSubmitStatus] = useState(null);
   const [formError, setFormError] = useState("");
   const formStartedAtRef = useRef(Date.now());
+  const submissionTokenRef = useRef("");
 
   // experiencesのキー
   // ここに、データの種類は何タイプ？　利用可能な希望の曜日は？　希望の開催時間はいつ？
@@ -144,6 +145,10 @@ export default function BookingForm({ experience }) {
       const preferredDate3 = formData.get("preferredDate3");
       const preferredTime3 = formData.get("preferredTime3");
 
+      if (!submissionTokenRef.current) {
+        submissionTokenRef.current = crypto.randomUUID();
+      }
+
       if (!preferredDate1) {
         setSubmitStatus(null);
         setFormError("Please choose at least one preferred date.");
@@ -224,6 +229,7 @@ export default function BookingForm({ experience }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          submissionToken: submissionTokenRef.current,
           experienceSlug: experience.slug,
           customerName: customerName,
           customerEmail: customerEmail,
@@ -252,6 +258,7 @@ export default function BookingForm({ experience }) {
       formElement.reset();
       setSelectedDates([]);
       formStartedAtRef.current = Date.now();
+      submissionTokenRef.current = "";
     } catch (error) {
       setFormError(
         error instanceof Error
