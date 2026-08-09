@@ -17,7 +17,7 @@ export default async function AdminLayout({ children }) {
         </div>
         <nav aria-label="管理画面">
           <Link href="/admin">予約管理</Link>
-          <span aria-disabled="true">Awai Notes（次工程）</span>
+          <Link href="/admin/articles">Awai Notes</Link>
         </nav>
         <form action={logoutAdmin}>
           <button type="submit">ログアウト</button>

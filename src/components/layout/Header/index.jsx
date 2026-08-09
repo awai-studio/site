@@ -19,6 +19,7 @@ const navItems = [
     activePrefix: "/en/booking",
     isCta: true,
   },
+  { href: "/blog", label: "Notes", activePrefix: "/blog" },
 ];
 
 function isCurrentPath(pathname, item) {

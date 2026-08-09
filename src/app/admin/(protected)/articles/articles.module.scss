@@ -1,0 +1,402 @@
+@use "@/styles/shared" as *;
+
+.pageHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    overflow-wrap: anywhere;
+  }
+}
+
+.eyebrow {
+  margin-bottom: 0.35rem;
+  font-family: var(--ff-en-gothic);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $color-primary;
+}
+
+.newButton,
+.formActions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.8rem;
+  padding: 0.7rem 1rem;
+  font-family: var(--ff-gothic);
+  font-size: 0.78rem;
+  color: $color-white;
+  background: $color-primary;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.articleList {
+  display: grid;
+  gap: 1rem;
+
+  @include mq(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.articleCard,
+.empty,
+.articleForm {
+  padding: 1.25rem;
+  background: $color-white;
+  border: 1px solid rgba($color: $color-text, $alpha: 0.1);
+  box-shadow: 0 0.75rem 2rem rgba($color: $color-black, $alpha: 0.04);
+}
+
+.articleCard {
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  time,
+  p,
+  a {
+    font-family: var(--ff-gothic);
+    font-size: 0.72rem;
+  }
+
+  time,
+  p {
+    color: rgba($color: $color-text, $alpha: 0.58);
+  }
+
+  h2 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.75rem;
+  }
+
+  p {
+    overflow-wrap: anywhere;
+  }
+
+  a {
+    display: inline-flex;
+    margin-top: 1rem;
+    color: $color-primary-dark;
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+  }
+}
+
+.status {
+  display: inline-flex;
+  padding: 0.35rem 0.65rem;
+  font-family: var(--ff-gothic);
+  font-size: 0.68rem;
+  background: rgba($color: $color-text, $alpha: 0.08);
+  border-radius: 999px;
+
+  &[data-status="published"] {
+    color: $color-green-dull-dark;
+    background: rgba($color: $color-green-dull-dark, $alpha: 0.12);
+  }
+}
+
+.empty {
+  p,
+  a {
+    font-family: var(--ff-gothic);
+    font-size: 0.9rem;
+  }
+
+  a {
+    display: inline-flex;
+    margin-top: 0.75rem;
+    color: $color-primary-dark;
+    text-decoration: underline;
+  }
+}
+
+.backLink {
+  display: inline-flex;
+  margin-bottom: 1.5rem;
+  font-family: var(--ff-gothic);
+  font-size: 0.78rem;
+  color: $color-primary-dark;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+.articleForm {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.formGrid {
+  display: grid;
+  gap: 1rem;
+
+  @include mq(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.fullField {
+  @include mq(md) {
+    grid-column: 1 / -1;
+  }
+}
+
+.articleForm label,
+.editorField > div:first-child {
+  display: grid;
+  gap: 0.45rem;
+
+  > span {
+    font-family: var(--ff-gothic);
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: $color-text;
+  }
+}
+
+.articleForm input,
+.articleForm textarea {
+  width: 100%;
+  padding: 0.8rem;
+  font-family: var(--ff-gothic);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: $color-text;
+  background: #fff;
+  border: 1px solid rgba($color: $color-text, $alpha: 0.22);
+  border-radius: 4px;
+}
+
+.editorField {
+  display: grid;
+  gap: 0.5rem;
+
+  small {
+    font-family: var(--ff-gothic);
+    font-size: 0.68rem;
+    line-height: 1.5;
+    color: rgba($color: $color-text, $alpha: 0.58);
+  }
+}
+
+.imageManager {
+  padding: 1rem;
+  border: 1px solid rgba($color: $color-text, $alpha: 0.15);
+}
+
+.sectionHeading {
+  display: grid;
+  gap: 0.35rem;
+
+  span {
+    font-family: var(--ff-gothic);
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  small {
+    font-family: var(--ff-gothic);
+    font-size: 0.68rem;
+    color: rgba($color: $color-text, $alpha: 0.58);
+  }
+}
+
+.imageUploadRow {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+
+  @include mq(md) {
+    grid-template-columns: 1fr 1.5fr auto;
+    align-items: end;
+  }
+
+  button {
+    min-height: 2.8rem;
+    padding: 0.7rem 1rem;
+    color: $color-white;
+    background: $color-primary;
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.55;
+      cursor: wait;
+    }
+  }
+}
+
+.imageMessage {
+  margin-top: 0.75rem;
+  font-family: var(--ff-gothic);
+  font-size: 0.74rem;
+  line-height: 1.5;
+  color: rgba($color: $color-text, $alpha: 0.72);
+}
+
+.imageLibrary {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.imageCard {
+  display: grid;
+  align-content: start;
+  gap: 0.65rem;
+  padding: 0.65rem;
+  border: 1px solid rgba($color: $color-text, $alpha: 0.12);
+
+  img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  p {
+    font-family: var(--ff-gothic);
+    font-size: 0.7rem;
+    line-height: 1.45;
+  }
+
+  > button {
+    min-height: 2.4rem;
+    padding: 0.55rem;
+    font-family: var(--ff-gothic);
+    font-size: 0.72rem;
+    color: $color-primary-dark;
+    background: transparent;
+    border: 1px solid rgba($color: $color-primary, $alpha: 0.35);
+    cursor: pointer;
+  }
+}
+
+.thumbnailChoice {
+  display: flex !important;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.5rem !important;
+
+  input {
+    width: auto;
+  }
+
+  span {
+    font-size: 0.7rem !important;
+    font-weight: 400 !important;
+  }
+}
+
+.seoFields {
+  padding: 1rem;
+  border: 1px solid rgba($color: $color-text, $alpha: 0.15);
+
+  summary {
+    font-family: var(--ff-gothic);
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+
+  .formGrid {
+    margin-top: 1rem;
+  }
+}
+
+.formActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.75rem;
+
+  button {
+    color: $color-text;
+    background: rgba($color: $color-text, $alpha: 0.08);
+    border: 1px solid rgba($color: $color-text, $alpha: 0.12);
+  }
+
+  .publishButton {
+    color: $color-white;
+    background: $color-primary;
+  }
+}
+
+.success,
+.error {
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+  font-family: var(--ff-gothic);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  background: $color-white;
+  border: 1px solid rgba($color: $color-text, $alpha: 0.12);
+}
+
+.success {
+  color: $color-green-dull-dark;
+  border-color: rgba($color: $color-green-dull-dark, $alpha: 0.3);
+}
+
+.error {
+  color: $color-red-dull-dark;
+  border-color: rgba($color: $color-red-dull-dark, $alpha: 0.3);
+}
+
+:global(.awai-article-editor) {
+  --accentBase: #f6f1e8;
+  --accentText: #624923;
+  min-height: 26rem;
+  color: $color-text;
+  background: #fff;
+  border: 1px solid rgba($color: $color-text, $alpha: 0.22);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+:global(.awai-article-editor-content) {
+  min-height: 22rem;
+  padding: 1rem 1.1rem;
+  font-family: var(--ff-en);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+:global(.awai-article-editor-content img) {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+:global(.awai-article-editor [role="toolbar"]) {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+:global(.article-editor-loading) {
+  min-height: 26rem;
+  padding: 1rem;
+  font-family: var(--ff-gothic);
+  font-size: 0.8rem;
+  background: #fff;
+  border: 1px solid rgba($color: $color-text, $alpha: 0.22);
+}
