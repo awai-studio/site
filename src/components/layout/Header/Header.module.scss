@@ -3,16 +3,57 @@
 @use '@/styles/shared' as *;
 
 .header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 200;
   width: 100%;
-  margin-top: auto;
-  padding: 1rem 0;
-  font-family: var(--ff-title-en);
-  font-size: 2rem;
+  height: $navHeight;
+  padding: 0 2rem;
   text-align: center;
   color: $color-white;
   background-color: rgba($color:  $color-primary, $alpha: .6);
+  border-bottom: 1px solid rgba($color: $color-white, $alpha: .2);
+  backdrop-filter: blur(.1rem);
+  -webkit-backdrop-filter: blur(.1rem);  
+  @include mq(lg) {
+    padding: 0 clamp(2rem, 5vw, 5rem);
+  }
+}
+
+.logo,
+.pcNav > a {
+  font-family: var(--ff-title-en);
+  color: $color-white;
+  font-weight: 400;
+  @include mq(lg) {
+    font-size: 1.5rem;
+  }
+}
+
+.logo {
+  font-size: 1.5rem;
+  line-height: 1;
+  @include mq(lg) {
+    font-size: 2rem;
+  }
+}
+
+.pcNav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: .5rem;
+  & > a {
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+}
+
+.navCta {
+  padding: .5rem 1.5rem;
+  border: 1px solid $color-gold;
+  border-radius: 999px;
 }
