@@ -1,7 +1,7 @@
-// @/src/styles/shared/_daypicker.scss
+// @/src/styles/global/_daypicker.scss
 
-@use './variables' as *;
-@use './mixins' as *;
+@use '../shared/variables' as *;
+@use '../shared/mixins' as *;
 
 // react-day-picker styles
 // DayPickerが生成する .rdp-* クラス専用

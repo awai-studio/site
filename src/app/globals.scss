@@ -1,6 +1,9 @@
 // @/app/globals.scss
 
 @use '@/styles/shared/' as *;
+@use "@/styles/global/daypicker";
+@use "@/styles/global/motion";
+@use "@/styles/global/form";
 
 :root {
   font-size: 93.75%; // 15px ÷ 16px ＝ 0.9375

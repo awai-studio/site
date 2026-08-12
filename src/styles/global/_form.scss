@@ -1,7 +1,7 @@
-// @/src/styles/shared/_form.scss
+// @/src/styles/global/_form.scss
 
-@use './variables' as *;
-@use './mixins' as *;
+@use '../shared/variables' as *;
+@use '../shared/mixins' as *;
 
 
 .formBasic {

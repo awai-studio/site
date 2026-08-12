@@ -1,7 +1,7 @@
-// @/src/styles/shared/_motion.scss
+// @/src/styles/global/_motion.scss
 
-@use './variables' as *;
-@use './mixins' as *;
+@use '../shared/variables' as *;
+@use '../shared/mixins' as *;
 
 // 基本の出現アニメ
 .reveal {
