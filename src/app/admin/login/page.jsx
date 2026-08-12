@@ -1,26 +1,74 @@
 // @/app/admin/login/page.jsx
 
-import LoginForm from "./_components/LoginForm";
+"use client";
 
-export const metadata = {
-  title: "Admin Login | Awai Studio",
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { supabase } from "@/lib/supabase/client";
 
-export default async function AdminLoginPage({ searchParams }) {
-  const query = await searchParams;
+export default function AdminLoginPage() {
+  const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState("");
+
+  async function handleLogin(event) {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setMessage("");
+
+    const formData = new FormData(event.currentTarget);
+    const email = String(formData.get("email") || "").trim();
+    const password = String(formData.get("password") || "");
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      setMessage("メールアドレスまたはパスワードを確認してください。");
+      setIsSubmitting(false);
+      return;
+    }
+
+    router.replace("/admin");
+  }
 
   return (
     <main className="adminPage">
       <div className="adminCard">
         <h1>Admin Login</h1>
-
         <p className="adminDescription">Awai Studioの管理者専用画面です。</p>
 
-        <LoginForm unauthorized={query?.error === "unauthorized"} />
+        <form className="adminForm" onSubmit={handleLogin}>
+          <label>
+            <span>Email</span>
+            <input
+              type="email"
+              name="email"
+              autoComplete="username"
+              required
+              disabled={isSubmitting}
+            />
+          </label>
+
+          <label>
+            <span>Password</span>
+            <input
+              type="password"
+              name="password"
+              autoComplete="current-password"
+              required
+              disabled={isSubmitting}
+            />
+          </label>
+
+          <button className="adminButton" type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "ログイン中…" : "ログイン"}
+          </button>
+
+          {message && <p className="adminMessage">{message}</p>}
+        </form>
       </div>
     </main>
   );
