@@ -5,6 +5,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
+import styles from "./Admin.module.scss";
 
 export default function AdminPage() {
   const router = useRouter();
@@ -32,21 +33,23 @@ export default function AdminPage() {
 
   if (isChecking) {
     return (
-      <main className="adminPage">
-        <p className="adminDescription">ログイン状態を確認しています…</p>
+      <main className={styles.page}>
+        <p className={styles.description}>ログイン状態を確認しています…</p>
       </main>
     );
   }
 
   return (
-    <main className="adminPage">
-      <div className="adminCard">
-        <h1>Awai Studio Admin</h1>
-        <p className="adminDescription">ログインしました。</p>
+    <main className={styles.page}>
+      <div className={styles.card}>
+        <h1 className={styles.title}>Awai Studio Admin</h1>
+        <p className={styles.description}>ログインしました。</p>
 
-        <button className="adminButton" type="button" onClick={handleLogout}>
-          ログアウト
-        </button>
+        <div className="formInlineCta cta">
+          <button className="btn btn--regular" type="button" onClick={handleLogout}>
+            ログアウト
+          </button>
+        </div>
       </div>
     </main>
   );

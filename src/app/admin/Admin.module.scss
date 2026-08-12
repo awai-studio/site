@@ -1,0 +1,39 @@
+// @/app/admin/Admin.module.scss
+
+@use "@/styles/shared" as *;
+
+// /adminと/admin/loginだけで使う配置・外観。
+.page {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: calc(#{$navHeight} + 3rem) 1rem 3rem;
+  background-color: rgba($color: $color-primary, $alpha: .06);
+}
+
+.card {
+  width: min(100%, 30rem);
+  padding: 2rem;
+  background-color: $color-white;
+  border: 1px solid rgba($color: $color-text, $alpha: .15);
+  border-radius: 1rem;
+  box-shadow: 0 1rem 3rem rgba($color: $color-black, $alpha: .08);
+
+  @include mq(md) {
+    padding: 3rem;
+  }
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  text-align: center;
+}
+
+.description {
+  margin-bottom: 2rem;
+  font-family: var(--ff-gothic);
+  font-size: 1rem;
+  text-align: center;
+  color: rgba($color: $color-text, $alpha: .7);
+}

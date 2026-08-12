@@ -5,6 +5,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
+import styles from "../Admin.module.scss";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -35,14 +36,14 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <main className="adminPage">
-      <div className="adminCard">
-        <h1>Admin Login</h1>
-        <p className="adminDescription">Awai Studioの管理者専用画面です。</p>
+    <main className={styles.page}>
+      <div className={styles.card}>
+        <h1 className={styles.title}>Admin Login</h1>
+        <p className={styles.description}>Awai Studioの管理者専用画面です。</p>
 
-        <form className="adminForm" onSubmit={handleLogin}>
-          <label>
-            <span>Email</span>
+        <form className="formBasic" onSubmit={handleLogin}>
+          <label className="formLabel">
+            <span className="formItemName">Email</span>
             <input
               type="email"
               name="email"
@@ -52,8 +53,8 @@ export default function AdminLoginPage() {
             />
           </label>
 
-          <label>
-            <span>Password</span>
+          <label className="formLabel">
+            <span className="formItemName">Password</span>
             <input
               type="password"
               name="password"
@@ -63,11 +64,17 @@ export default function AdminLoginPage() {
             />
           </label>
 
-          <button className="adminButton" type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "ログイン中…" : "ログイン"}
-          </button>
+          <div className="formInlineCta cta">
+            <button className="btn btn--regular" type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "ログイン中…" : "ログイン"}
+            </button>
+          </div>
 
-          {message && <p className="adminMessage">{message}</p>}
+          {message && (
+            <div className="formErrorMessage">
+              <p>{message}</p>
+            </div>
+          )}
         </form>
       </div>
     </main>
