@@ -1,6 +1,10 @@
 // @/components/layout/Header/index.jsx
 
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import MobileMenu from "@/components/layout/MobileMenu";
 import styles from "./Header.module.scss";
 
 const navItems = [
@@ -11,9 +15,19 @@ const navItems = [
 ]
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <header className={styles.header}>
-      <Link className={styles.logo} href="/">
+      <Link className={styles.logo} href="/" onClick={handleClose}>
         Awai Studio
       </Link>
 
@@ -30,6 +44,26 @@ export default function Header() {
           ))
         }
       </nav>
+
+      <button
+        className={`${styles.menuBtn} ${isOpen ? styles.isOpen : ""}`}
+        type="button"
+        onClick={handleToggle}
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+        aria-expanded={isOpen}
+        // このボタンに対応している要素に同じ名称のIDをつける。
+        aria-controls="mobile-menu"
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      <MobileMenu 
+        isOpen={isOpen}
+        onClose={handleClose}
+        navItems={navItems}
+      />
     </header>
   );
 }
