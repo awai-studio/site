@@ -59,7 +59,7 @@ export default function LoginForm({ unauthorized = false }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="adminForm" onSubmit={handleSubmit}>
       <label>
         <span>Email</span>
         <input
@@ -82,11 +82,11 @@ export default function LoginForm({ unauthorized = false }) {
         />
       </label>
 
-      <button type="submit" disabled={isSubmitting}>
+      <button className="adminButton" type="submit" disabled={isSubmitting}>
         {isSubmitting ? "ログイン中…" : "ログイン"}
       </button>
 
-      {message && <p>{message}</p>}
+      {message && <p className="adminMessage">{message}</p>}
     </form>
   );
 }

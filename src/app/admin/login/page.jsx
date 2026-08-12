@@ -14,12 +14,14 @@ export default async function AdminLoginPage({ searchParams }) {
   const query = await searchParams;
 
   return (
-    <main>
-      <h1>Admin Login</h1>
+    <main className="adminPage">
+      <div className="adminCard">
+        <h1>Admin Login</h1>
 
-      <p>Awai Studioの管理者専用画面です。</p>
+        <p className="adminDescription">Awai Studioの管理者専用画面です。</p>
 
-      <LoginForm unauthorized={query?.error === "unauthorized"} />
+        <LoginForm unauthorized={query?.error === "unauthorized"} />
+      </div>
     </main>
   );
 }

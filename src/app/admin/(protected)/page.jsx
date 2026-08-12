@@ -4,13 +4,18 @@ import { logoutAdmin } from "@/app/admin/actions";
 
 export default function AdminPage() {
   return (
-    <main>
-      <h1>Awai Studio Admin</h1>
-      <p>ログインしました。</p>
+    <main className="adminPage">
+      <div className="adminCard">
+        <h1>Awai Studio Admin</h1>
 
-      <form action={logoutAdmin}>
-        <button type="submit">ログアウト</button>
-      </form>
+        <p className="adminDescription">ログインしました。</p>
+
+        <form action={logoutAdmin}>
+          <button className="adminButton" type="submit">
+            ログアウト
+          </button>
+        </form>
+      </div>
     </main>
   );
 }

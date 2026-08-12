@@ -1,0 +1,105 @@
+// @/styles/global/_admin.scss
+
+@use "../shared/variables" as *;
+@use "../shared/mixins" as *;
+
+// 管理画面・ログイン画面共通
+.adminPage {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: calc(#{$navHeight} + 3rem) 1rem 3rem;
+  background-color: rgba($color: $color-primary, $alpha: 0.06);
+}
+
+.adminCard {
+  width: min(100%, 30rem);
+  padding: 2rem;
+  background-color: $color-white;
+  border: 1px solid rgba($color: $color-text, $alpha: 0.15);
+  border-radius: 1rem;
+  box-shadow: 0 1rem 3rem rgba($color: $color-black, $alpha: 0.08);
+
+  @include mq(md) {
+    padding: 3rem;
+  }
+}
+
+.adminCard h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  text-align: center;
+}
+
+.adminDescription {
+  margin-bottom: 2rem;
+  font-family: var(--ff-gothic);
+  font-size: 1rem;
+  text-align: center;
+  color: rgba($color: $color-text, $alpha: 0.7);
+}
+
+.adminForm {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.adminForm label {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.adminForm label > span {
+  font-family: var(--ff-gothic);
+  font-size: 0.9rem;
+  color: rgba($color: $color-text, $alpha: 0.8);
+}
+
+.adminForm input {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  color: $color-text;
+  background-color: $color-white;
+  border: 1px solid rgba($color: $color-text, $alpha: 0.25);
+  border-radius: 0.5rem;
+}
+
+.adminForm input:focus {
+  outline: none;
+  border-color: $color-primary;
+  box-shadow: 0 0 0 3px rgba($color: $color-primary, $alpha: 0.12);
+}
+
+.adminButton {
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: $color-white;
+  cursor: pointer;
+  background-color: $color-primary;
+  border: 1px solid $color-primary;
+  border-radius: 999px;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.adminButton:hover {
+  transform: translateY(-1px);
+}
+
+.adminButton:disabled {
+  cursor: wait;
+  opacity: 0.55;
+  transform: none;
+}
+
+.adminMessage {
+  font-family: var(--ff-gothic);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: center;
+  color: $color-red-dull-dark;
+}
