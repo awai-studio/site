@@ -28,18 +28,19 @@ export const experiences = [
     },
     duration: {
       minutes: 120,
-      display: "Approximately 120 minutes",
+      display:
+        "Approximately 2 hours, with time allowed as needed for the experience",
     },
     host: {
       name: "Soko",
-      role: "Kyoto-based tea practitioner",
+      role: "Canadian-born, Kyoto-based practitioner of Urasenke tea",
       languages: ["English"],
     },
     availability: {
       type: "request",
-      availableWeekdays: [1, 2, 4, 5, 6],
-      timeSlots: ["13:00", "15:30"],
-      unavailableDates: ["2026-06-26", "2026-06-29"],
+      availableWeekdays: [3, 4, 5, 6],
+      timeSlots: ["10:00", "15:00"],
+      unavailableDates: [],
     },
     cancellation: {
       summary: "Free cancellation up to 7 days before the experience",
@@ -74,11 +75,11 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "This experience is not designed as a presentation of a finished tea performance, not something controlled by schedule or some fexedtime. \nIt is a small, private gathering in a quiet tea house in Kyoto, where guests are invited to enter into the very moment of tea itself and share one bowl with a practitioner.",
+        text: "This experience is not designed as a presentation of a finished tea performance, not something controlled by schedule or some fixed time. \nIt is a small, private gathering in a quiet tea house in Kyoto, where guests are invited to enter into the very moment of tea itself and share one bowl with a practitioner.",
       },
       {
         type: "paragraph",
-        text: "What matters here is not theatrical display, nor a formal explanation of rules and procedures. \nIt is the act of entering into the space, listening carefully, observing the gestures, and taking part in the time that unfolds there. And discovering that there is only space, and something moving in that space. Maybe even, something perfound, amazing, and magical happening in that primordially pure space of the four-and-a-half tatami room.",
+        text: "What matters here is not theatrical display, nor a formal explanation of rules and procedures. \nIt is the act of entering into the space, listening carefully, observing the gestures, and taking part in the time that unfolds there. And discovering that there is only space, and something moving in that space. Maybe even, something profound, amazing, and magical happening in that primordially pure space of the four-and-a-half tatami room.",
       },
       {
         type: "paragraph",
@@ -95,7 +96,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "The gathering takes place at Shotoku-an, near Funaokayama in Kyoto. \nThere is a tea garden, a path, a preparation room, a waiting space, a small entrance to the tea house, and a four-and-a-half tatami mat room where time and space unfold spantaueously, naturally, freely.",
+        text: "The gathering takes place at Shotoku-an, near Funaokayama in Kyoto. \nThere is a tea garden, a path, a preparation room, a waiting space, a small entrance to the tea house, and a four-and-a-half tatami mat room where time and space unfold spontaneously, naturally, freely.",
       },
       {
         type: "paragraph",
@@ -120,7 +121,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "At the heart of the gathering is something very simple: \ntea is prepared with care, one bowl is shared, and each guest is invited to prepare directly.",
+        text: "At the heart of the gathering is something very simple: \ntea is prepared with care, one bowl is shared, and each guest is invited to prepare tea directly.",
       },
       {
         type: "paragraph",
@@ -149,7 +150,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "His tea name SōKō and his Urasenke background offer one way to understand the depth behind this time together. \n Sō: The ancient lineage of Chado. Kō: Good.\nBut what matters most in this room is not a title. \nIt is how one meets the bowl in front of them, and how that time is shared. Together with others.",
+        text: "His tea name SōKō (宗好) and his Urasenke background offer one way to understand the depth behind this time together. \nSō (宗): The ancient lineage of Chado. Kō (好): Good.\nBut what matters most in this room is not a title. \nIt is how one meets the bowl in front of them, and how that time is shared. Together with others.",
       },
       {
         type: "image",
@@ -199,7 +200,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "Tea is not experienced a culture to be viewed from the outside. \nIt is also a time that arises between people.",
+        text: "Tea is not experienced as a culture to be viewed from the outside. \nIt is also a time that arises between people.",
       },
       {
         type: "paragraph",
@@ -214,13 +215,21 @@ export const experiences = [
       "Hands-on participation in making tea",
       "Use of tea utensils provided for the experience",
     ],
+    // meetingPoint: {
+    //   description:
+    //     "The experience takes place in a quiet tea house in Kyoto. The exact address and access details will be shared by email after the booking has been confirmed.",
+    //   access: [
+    //     "18 minutes on foot from Kinkaku-ji Temple, the Golden Pavilion",
+    //     "13 minutes on foot from Daitokuji Temple",
+    //     "8 minutes on foot from Kenkun Shrine",
+    //   ],
+    // },
     meetingPoint: {
       description:
-        "The experience takes place in a quiet tea house in Kyoto. Details will be shared by email when we confirm availability for your requested date.",
+        "The experience takes place in a private tea house in northern Kyoto. The exact address and access details will be shared by email after the booking has been confirmed.",
       access: [
-        "18 minutes on foot from Kinkaku-ji Temple, the Golden Pavilion",
-        "13 minutes on foot from Daitokuji Temple",
-        "8 minutes on foot from Kenkun Shrine",
+        "Approximately 20 minutes on foot from Kinkaku-ji Temple, the Golden Pavilion",
+        "Approximately 15 minutes on foot from Daitokuji Temple",
       ],
     },
     importantInformation: [

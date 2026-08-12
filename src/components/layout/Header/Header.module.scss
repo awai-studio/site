@@ -16,8 +16,7 @@
   color: $color-white;
   background-color: rgba($color:  $color-primary, $alpha: .6);
   border-bottom: 1px solid rgba($color: $color-white, $alpha: .2);
-  backdrop-filter: blur(.1rem);
-  -webkit-backdrop-filter: blur(.1rem);  
+  backdrop-filter: blur(.25rem);
   @include mq(lg) {
     padding: 0 clamp(2rem, 5vw, 5rem);
   }

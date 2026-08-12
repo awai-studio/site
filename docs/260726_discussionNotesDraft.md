@@ -92,15 +92,41 @@ In particular, if there is already insurance covering accidents arising from the
 
 Because the experience uses a charcoal fire and the hearth, I also believe it is important for us to clarify our respective responsibilities, including any risks that may not be covered by insurance.
 
-# **4. Cancellation**
+# **4. Cancellation and Rescheduling**
 
-As a general rule, Awai Studio does not intend to cancel confirmed experiences.
+## **Cancellation by a Guest**
 
-However, if it becomes necessary to cancel a confirmed booking due to circumstances on the Shotoku-an side, costs such as payment processing fees or refund fees may arise.
+Guest cancellations will be handled in accordance with the cancellation policy published on the Awai Studio website.
 
-In such a situation, I hope we can discuss how to handle any actual expenses incurred by Awai Studio.
+If a guest cancels at least seven days before the experience and receives a full refund, no compensation will be payable to Jack for that booking.
 
-Of course, circumstances beyond anyone's control—such as illness, natural disasters, severe weather warnings, or suspension of public transportation—should be handled through discussion and mutual understanding.
+If a guest cancels less than seven days before the experience and the guest’s payment is non-refundable, the agreed compensation of ¥30,000 will remain payable.
+
+If a guest is entitled to a full refund under the published cancellation policy, including the applicable 24-hour period following payment, no compensation will be payable to Jack.
+
+## **Cancellation Due to Jack’s Unavailability**
+
+If Jack is unable to host the experience because of illness, a medical situation, or another unavoidable personal emergency, Awai Studio will offer the guest a full refund or the option to reschedule.
+
+No compensation will be payable for an experience that does not take place for these reasons. Neither party will be required to reimburse the other for additional costs arising from the cancellation.
+
+## **Cancellation for Other Reasons on the Shotoku-an Side**
+
+If a confirmed experience is cancelled for a reason within the reasonable control of the Shotoku-an side, no compensation will be payable for the cancelled experience.
+
+The Shotoku-an side will reimburse Awai Studio only for documented and non-recoverable payment processing or refund fees directly resulting from the cancellation. No indirect costs or loss of anticipated profit will be claimed.
+
+## **Cancellation by Awai Studio**
+
+If Awai Studio cancels a confirmed experience for reasons within its reasonable control less than seven days before the scheduled date, the agreed compensation of ¥30,000 will remain payable.
+
+No compensation will be payable if Awai Studio cancels at least seven days before the scheduled date.
+
+## **Circumstances Beyond Either Party’s Control**
+
+If the experience cannot take place because of a natural disaster, severe weather warning, suspension of public transportation, government restriction, or another circumstance beyond either party’s reasonable control, the parties will first seek to reschedule the experience.
+
+If rescheduling is not possible, Awai Studio will refund the guest. No compensation or reimbursement of expenses will be payable between Awai Studio and the Shotoku-an side.
 
 # **5. Website Publication**
 
