@@ -1,9 +1,10 @@
-// @/app/admin/Admin.module.scss
+// @/app/admin/AdminPage.module.scss
 
 @use "@/styles/shared" as *;
 
 // /adminと/admin/loginだけで使う配置・外観。
-.page {
+.adminPage,
+.adminLoginPage {
   display: grid;
   place-items: center;
   min-height: 100vh;

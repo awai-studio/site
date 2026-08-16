@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Noto_Sans_JP, Noto_Serif_JP, Cormorant_Garamond, Crimson_Text, Zen_Old_Mincho, Roboto } from 'next/font/google';
 import "@/styles/shared/reset.css";
+import "@mdxeditor/editor/style.css";
 import "./globals.scss";
 
 

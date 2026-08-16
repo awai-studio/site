@@ -1,0 +1,21 @@
+// @/src/styles/global/_blog.scss
+
+@use '../shared/variables' as *;
+@use '../shared/mixins' as *;
+
+.blog {
+  padding: calc(#{$navHeight} + 3rem) 0 5rem;
+  & header {
+    margin-bottom: 3rem;
+    & .title-eye-catch-en {
+      font-family: var(--ff-en-gothic);
+    }
+    & h1 {
+      font-size: clamp(2.5rem, 7vw, 4rem);
+    }
+  }
+  & .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+}

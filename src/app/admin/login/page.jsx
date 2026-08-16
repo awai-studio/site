@@ -5,7 +5,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
-import styles from "../Admin.module.scss";
+import styles from "../AdminPage.module.scss";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -36,47 +36,53 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <main className={styles.page}>
-      <div className={styles.card}>
-        <h1 className={styles.title}>Admin Login</h1>
-        <p className={styles.description}>Awai Studioの管理者専用画面です。</p>
+    <div className="container">
+      <div className={styles.adminLoginPage}>
+        <div className={styles.card}>
+          <h1 className={styles.title}>Admin Login</h1>
+          <p className={styles.description}>Awai Studioの管理者専用画面です。</p>
 
-        <form className="formBasic" onSubmit={handleLogin}>
-          <label className="formLabel">
-            <span className="formItemName">Email</span>
-            <input
-              type="email"
-              name="email"
-              autoComplete="username"
-              required
-              disabled={isSubmitting}
-            />
-          </label>
+          <form className="formBasic" onSubmit={handleLogin}>
+            <label className="formLabel">
+              <span className="formItemName">Email</span>
+              <input
+                type="email"
+                name="email"
+                autoComplete="username"
+                required
+                disabled={isSubmitting}
+              />
+            </label>
 
-          <label className="formLabel">
-            <span className="formItemName">Password</span>
-            <input
-              type="password"
-              name="password"
-              autoComplete="current-password"
-              required
-              disabled={isSubmitting}
-            />
-          </label>
+            <label className="formLabel">
+              <span className="formItemName">Password</span>
+              <input
+                type="password"
+                name="password"
+                autoComplete="current-password"
+                required
+                disabled={isSubmitting}
+              />
+            </label>
 
-          <div className="formInlineCta cta">
-            <button className="btn btn--regular" type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "ログイン中…" : "ログイン"}
-            </button>
-          </div>
-
-          {message && (
-            <div className="formErrorMessage">
-              <p>{message}</p>
+            <div className="formInlineCta cta">
+              <button
+                className="btn btn--regular"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "ログイン中…" : "ログイン"}
+              </button>
             </div>
-          )}
-        </form>
+
+            {message && (
+              <div className="formErrorMessage">
+                <p>{message}</p>
+              </div>
+            )}
+          </form>
+        </div>
       </div>
-    </main>
+    </div>
   );
 }
