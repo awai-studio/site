@@ -33,7 +33,7 @@ export default function MobileMenu({
           aria-label="Moble navigation"
         >
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} onClick={onClose}>
+            <Link key={item.label} href={item.href} onClick={onClose}>
               {item.label}
             </Link>
           ))}

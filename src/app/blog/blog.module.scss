@@ -1,3 +1,98 @@
 // @/app/blog/blog.module.scss
 
 @use '@/styles/shared/' as *;
+
+.blogIndex {
+  width: 100%;
+}
+
+.articleGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.5rem 2rem;
+  }
+}
+
+.articleCard {
+  & > a {
+    display: grid;
+    gap: 1rem;
+  }
+  & img,
+  & .imagePlaceholder {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background-color: rgba($color: $color-black, $alpha: .05);
+  }
+  & time {
+    font-family: var(--ff-en-gothic);
+    font-size: .75rem;
+    letter-spacing: .08em;
+    color: rgba($color: $color-text, $alpha: .6);
+  }
+  & p {
+    line-height: 1.6;
+  }
+}
+
+// =========================
+// Individual article
+// =========================
+
+.articlePage {
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+  & time {
+    font-family: var(--ff-en-gothic);
+    font-size: .75rem;
+    letter-spacing: .08em;
+    color: rgba($color: $color-text, $alpha: .6);
+  }
+}
+
+.articleBody {
+  display: grid;
+  gap: 1.25rem;
+  & h2,
+  & h3 {
+    margin-top: 2rem;
+  }
+  & p,
+  & li,
+  & blockquote {
+    font-size: 1.2rem;
+    line-height: 1.7;
+  }
+  & ul,
+  & ol {
+    display: grid;
+    gap: .65rem;
+  }
+  & img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  & hr {
+    width: 100%;
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid rgba($color: $color-text, $alpha: .2);
+  }
+  & blockquote {
+    padding-left: 1.25rem;
+    border-left: 2px solid $color-primary;
+  }
+  & a {
+    color: $color-primary-dark;
+    text-decoration: underline;
+    text-underline-offset: .2rem;
+  }
+}
