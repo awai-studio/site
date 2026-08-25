@@ -289,7 +289,7 @@ export default function BookingForm({ experience }) {
             </li>
             <li className="noteList">
               Booking requests must be submitted at least 10 days before your
-              preferred date.
+              preferred date. 
             </li>
             <li className="noteList">
               All dates and times are based on Japan Standard Time (JST).

@@ -15,5 +15,5 @@ export function getMinimumGuestText(pricing) {
   if (pricing.type !== "prePerson") {
     return null;
   }
-  return `Mimimun ${pricing.minGuests} guests required`;
+  return `Minimum ${pricing.minGuests} guests required`;
 }

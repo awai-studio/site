@@ -138,10 +138,10 @@ export default async function ExperienceDetailPage({ params }) {
               </section>
             )}
 
-            {/* Not Allowed */}
+            {/* Please Note */}
             {experience.notAllowed.length > 0 && (
               <section>
-                <h2>Not Allowed</h2>
+                <h2>Please Note</h2>
                 <ul className="explanation">
                   {experience.notAllowed.map((item) => (
                     <li key={item}>{item}</li>
