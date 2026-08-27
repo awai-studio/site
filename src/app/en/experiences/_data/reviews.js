@@ -7,7 +7,7 @@ export const reviews = [
     firstName: "Yoko",
     country: "Japan",
     date: "April 2026",
-    experienceSlug: "tea-experience-with-jack",
+    experienceSlug: "tea-experience-with-soko",
     isPublished: true,
   },
   {
@@ -16,7 +16,7 @@ export const reviews = [
     firstName: "John",
     country: "England",
     date: "April 2026",
-    experienceSlug: "tea-experience-with-jack",
+    experienceSlug: "tea-experience-with-soko",
     isPublished: true,
   },
   {
@@ -25,7 +25,7 @@ export const reviews = [
     firstName: "Rinda",
     country: "United States",
     date: "April 2026",
-    experienceSlug: "tea-experience-with-jack",
+    experienceSlug: "tea-experience-with-soko",
     isPublished: true,
   },
   {
@@ -34,7 +34,7 @@ export const reviews = [
     firstName: "Paul",
     country: "England",
     date: "April 2026",
-    experienceSlug: "tea-experience-with-jack",
+    experienceSlug: "tea-experience-with-soko",
     isPublished: true,
   },
   {
@@ -43,7 +43,7 @@ export const reviews = [
     firstName: "Jimy",
     country: "United States",
     date: "April 2026",
-    experienceSlug: "tea-experience-with-jack",
+    experienceSlug: "tea-experience-with-soko",
     isPublished: true,
   },
   {

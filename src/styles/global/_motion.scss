@@ -1,0 +1,142 @@
+// @/src/styles/global/_motion.scss
+
+@use '../shared/variables' as *;
+@use '../shared/mixins' as *;
+
+// 基本の出現アニメ
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: 
+    opacity 700ms ease, 
+    transform 700ms ease;
+  will-change: opacity, transform;
+  &:not(:first-of-type) {
+    margin-top: 3rem;
+  }
+  // 方向指定
+  &[data-dir="bottom"] {
+    transform: translate3d(0, 24px, 0);
+  }
+  &[data-dir="top"]{
+    transform: translate3d(0, -24px, 0);
+  }
+  &[data-dir="left"] {
+    transform: translate3d(-24px, 0, 0);
+  }
+  &[data-dir="right"] {
+    transform: translate3d(24px, 0, 0);
+  }
+  // 少し大きめに動かす
+  &[data-distance="lg"][data-dir="bottom"] {
+    transform: translate3d(0, 40px, 0);
+  }
+  &[data-distance="lg"][data-dir="top"] {
+    transform: translate3d(0, -40px, 0);
+  }
+  &[data-distance="lg"][data-dir="left"] {
+    transform: translate3d(-40px, 0, 0);
+  }
+  &[data-distance="lg"][data-dir="right"] {
+    transform: translate3d(40px, 0, 0);
+  }
+  
+  // フワッと拡大で出現する
+  &[data-effect="zoom"] {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  &[data-effect="zoom"].is-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  // ほんの少し遅らせたい時
+  &[data-delay="1"] {
+    transition-delay: 120ms;
+  }
+  &[data-delay="2"] {
+    transition-delay: 220ms;
+  }
+  &[data-delay="3"] {
+    transition-delay: 320ms;
+  }
+  &[data-delay="4"] {
+    transition-delay: 420ms;
+  }
+  // 表示後
+  &.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }  
+}
+
+// panel内で複数要素を順に出すときに便利
+.reveal-group > .reveal:nth-child(1) {
+  transition-delay: 80ms;
+}
+.reveal-group > .reveal:nth-child(2) {
+  transition-delay: 160ms;
+}
+.reveal-group > .reveal:nth-child(3) {
+  transition-delay: 240ms;
+}
+.reveal-group > .reveal:nth-child(4) {
+  transition-delay: 320ms;
+}
+.reveal-group > .reveal:nth-child(5) {
+  transition-delay: 400ms;
+}
+
+// Paralax like gap image
+.gap-image {
+  position: relative;
+  z-index: 1;
+  height: 20rem;
+  overflow: hidden;
+  @include mq(lg) {
+    height: 30vh;
+  }
+  &__layer {
+    position: absolute;
+    inset: -70% 0 -20% 0;
+    background-image: var(--panel-bg);
+    background-size: cover;
+    background-position: center 35%;
+    background-repeat: no-repeat;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba($color: $color-black, $alpha: 0.25);
+    }
+    @include mq(lg) {
+      inset: -80% 0 -20% 0;
+      background-position: center 70%;
+    }
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible,
+  .reveal[data-dir="bottom"],
+  .reveal[data-dir="top"],
+  .reveal[data-dir="left"],
+  .reveal[data-dir="right"],
+  .reveal[data-effect="zoom"] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+
+  .gap-image__layer {
+    transform: none !important;
+    will-change: auto;
+  }
+}
+

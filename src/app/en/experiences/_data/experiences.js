@@ -2,19 +2,19 @@
 
 export const experiences = [
   {
-    slug: "tea-experience-with-jack",
+    slug: "tea-experience-with-soko",
     title: "Private Tea Experience in Kyoto with a Chado Practitioner",
     cardTitle:
-      "Beyond Performance — A Private Tea Gathering with a Kyoto Practitioner",
+      "Beyond Performance — Private Tea Experience in Kyoto with a Chado Practitioner",
     shortDescription:
-      "A quiet, small-group experience with a Kyoto practitioner, centered on making tea, real charcoal, and thoughtful conversation.",
+      "Cultural experiences in Kyoto for small groups, shaped through practice, study, thoughtful discussion, and reflection.",
     cardShortDescription:
-      "Cultural experiences in Kyoto for small groups, shaped through practice, dialogue, and reflection.",
+      "Cultural experiences in Kyoto for small groups, shaped through practice, study, thoughtful discussion, and reflection.",
     seo: {
       title:
-        "Kyoto Private Tea Experience with a Kyoto Practitioner | Awai Studio",
+        "Private Tea Experience in Kyoto with a Chado Practitioner | Awai Studio",
       description:
-        "A quiet private tea experience in Kyoto centered on tea making, real charcoal, thoughtful conversation, and small-group cultural depth.",
+        "A quiet private tea experience in Kyoto centered on tea making, real charcoal, shared study and discussion, and small-group cultural depth.",
     },
     pricing: {
       type: "privateGroup",
@@ -28,23 +28,24 @@ export const experiences = [
     },
     duration: {
       minutes: 120,
-      display: "Approximately 120 minutes",
+      display:
+        "Approximately 2 hours, with time allowed as needed for the experience",
     },
     host: {
       name: "Soko",
-      role: "Kyoto-based tea practitioner",
+      role: "Canadian-born, Kyoto-based practitioner of Urasenke tea",
       languages: ["English"],
     },
     availability: {
       type: "request",
-      availableWeekdays: [1, 2, 4, 5, 6],
-      timeSlots: ["13:00", "15:30"],
-      unavailableDates: ["2026-06-26", "2026-06-29"],
+      availableWeekdays: [3, 4, 5, 6],
+      timeSlots: ["10:00", "15:00"],
+      unavailableDates: [],
     },
     cancellation: {
       summary: "Free cancellation up to 7 days before the experience",
       bookingNotice:
-        "Booking requests must be submitted at least 10 days before your preferred date. After we confirm availability, we will send payment details by email. Your booking is confirmed only after payment has been completed.",
+        "Please submit your booking request at least 10 days before your preferred date. After we confirm availability, we will send payment details by email. Your booking is confirmed only after payment has been completed.",
       paymentNotice:
         "Please complete payment within 48 hours after we send the payment link. If payment is not completed within this period, your booking request may be cancelled.",
       details: [
@@ -74,11 +75,11 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "This experience is not designed as a presentation of a finished tea performance, not something controlled by schedule or some fexedtime. \nIt is a small, private gathering in a quiet tea house in Kyoto, where guests are invited to enter into the very moment of tea itself and share one bowl with a practitioner.",
+        text: "This experience is not designed as a presentation of a finished tea performance, not something controlled by schedule or some fixed time. \nIt is a small, private gathering in a quiet tea house in Kyoto, where guests are invited to enter into the very moment of tea itself and share one bowl with a practitioner.",
       },
       {
         type: "paragraph",
-        text: "What matters here is not theatrical display, nor a formal explanation of rules and procedures. \nIt is the act of entering into the space, listening carefully, observing the gestures, and taking part in the time that unfolds there. And discovering that there is only space, and something moving in that space. Maybe even, something perfound, amazing, and magical happening in that primordially pure space of the four-and-a-half tatami room.",
+        text: "What matters here is not theatrical display, nor a formal explanation of rules and procedures. \nIt is the act of entering into the space, listening carefully, observing the gestures, and taking part in the time that unfolds there. And discovering that there is only space, and something moving in that space. Maybe even, something profound, amazing, and magical happening in that primordially pure space of the four-and-a-half tatami room.",
       },
       {
         type: "paragraph",
@@ -95,7 +96,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "The gathering takes place at Shotoku-an, near Funaokayama in Kyoto. \nThere is a tea garden, a path, a preparation room, a waiting space, a small entrance to the tea house, and a four-and-a-half tatami mat room where time and space unfold spantaueously, naturally, freely.",
+        text: "The gathering takes place in a private tea house in northern Kyoto. \nIt includes a tea garden, a roji path, a preparation room, a waiting area, and a small nijiriguchi entrance leading into a four-and-a-half-tatami tea room. Here, time and space unfold without artifice, naturally and freely.",
       },
       {
         type: "paragraph",
@@ -120,7 +121,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "At the heart of the gathering is something very simple: \ntea is prepared with care, one bowl is shared, and each guest is invited to prepare directly.",
+        text: "At the heart of the gathering is something very simple: \ntea is prepared with care, one bowl is shared, and each guest is invited to prepare tea directly.",
       },
       {
         type: "paragraph",
@@ -141,7 +142,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "The gathering is guided by Jack Convery, also known in tea as SōKō, a Canadian practitioner of Urasenke tea.",
+        text: "The gathering is guided by a Canadian practitioner of Urasenke tea whose tea name is SōKō (宗好).",
       },
       {
         type: "paragraph",
@@ -149,7 +150,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "His tea name SōKō and his Urasenke background offer one way to understand the depth behind this time together. \n Sō: The ancient lineage of Chado. Kō: Good.\nBut what matters most in this room is not a title. \nIt is how one meets the bowl in front of them, and how that time is shared. Together with others.",
+        text: "His tea name SōKō (宗好) and his Urasenke background offer one way to understand the depth behind this time together. \nSō (宗): The ancient lineage of Chado. Kō (好): Good.\nBut what matters most in this room is not a title. \nIt is how one meets the bowl in front of them, and how that time is shared. Together with others.",
       },
       {
         type: "image",
@@ -162,7 +163,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "This is not a session built only around receiving explanations, but of entering into spontaneous discussions about making tea, tea room, the utensils, the charcoal, the gestures, about this very moment of now-ness, of light and shadow, of sound and silence.\nBut the deeper value of the experience lies in what each guest notices for themselves.",
+        text: "This is not a session built only around receiving explanations, but of entering into spontaneous discussions about making tea, the tea room, the utensils, the charcoal, the gestures, about this very moment of now-ness, of light and shadow, of sound and silence.\nBut the deeper value of the experience lies in what each guest notices for themselves.",
       },
       {
         type: "paragraph",
@@ -199,7 +200,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "Tea is not experienced a culture to be viewed from the outside. \nIt is also a time that arises between people.",
+        text: "Tea is not experienced as a culture to be viewed from the outside. \nIt is also a time that arises between people.",
       },
       {
         type: "paragraph",
@@ -214,13 +215,21 @@ export const experiences = [
       "Hands-on participation in making tea",
       "Use of tea utensils provided for the experience",
     ],
+    // meetingPoint: {
+    //   description:
+    //     "The experience takes place in a quiet tea house in Kyoto. The exact address and access details will be shared by email after the booking has been confirmed.",
+    //   access: [
+    //     "18 minutes on foot from Kinkaku-ji Temple, the Golden Pavilion",
+    //     "13 minutes on foot from Daitokuji Temple",
+    //     "8 minutes on foot from Kenkun Shrine",
+    //   ],
+    // },
     meetingPoint: {
       description:
-        "The experience takes place in a quiet tea house in Kyoto. Details will be shared by email when we confirm availability for your requested date.",
+        "The experience takes place in a private tea house in northern Kyoto. The exact address and access details will be shared by email after the booking has been confirmed.",
       access: [
-        "18 minutes on foot from Kinkaku-ji Temple, the Golden Pavilion",
-        "13 minutes on foot from Daitokuji Temple",
-        "8 minutes on foot from Kenkun Shrine",
+        "Approximately 20 minutes on foot from Kinkaku-ji Temple, the Golden Pavilion",
+        "Approximately 15 minutes on foot from Daitokuji Temple",
       ],
     },
     importantInformation: [
@@ -231,12 +240,12 @@ export const experiences = [
       "All dates and times are based on Japan Standard Time (JST).",
     ],
     notAllowed: [
-      "No Photography.",
-      "No Video recording.",
-      "No Strong fragrances.",
-      "No Watch.",
+      "Please refrain from taking photographs during the experience.",
+      "Please refrain from video recording during the experience.",
+      "We kindly ask guests to avoid wearing strong fragrances.",
+      "We kindly ask guests to remove wristwatches, rings, and other hand accessories during the experience.",
     ],
-    bookingHref: "/en/booking?experience=tea-experience-with-jack",
+    bookingHref: "/en/booking?experience=tea-experience-with-soko",
     images: {
       thumbnail:
         "/images/experiences/tea-experience-with-jack/thumbnail_260426_G9_7826.jpg",
@@ -336,7 +345,7 @@ export const experiences = [
     cancellation: {
       summary: "Free cancellation up to 7 days before the experience",
       bookingNotice:
-        "Booking requests must be submitted at least 10 days before your preferred date. After we confirm availability, we will send payment details by email. Your booking is confirmed only after payment has been completed.",
+        "Please submit your booking request at least 10 days before your preferred date. After we confirm availability, we will send payment details by email. Your booking is confirmed only after payment has been completed.",
       paymentNotice:
         "Please complete payment within 48 hours after we send the payment link. If payment is not completed within this period, your booking request may be cancelled.",
       details: [
@@ -395,7 +404,7 @@ export const experiences = [
       },
       {
         type: "image",
-        src: "/images/experiences/zen-experience-with-jirai/260531_G9_8283.jpg",
+        src: "/images/experiences/zen-experience-with-jirai/260531_G9_8293.jpg",
         alt: "",
       },
       {
@@ -504,16 +513,16 @@ export const experiences = [
     importantInformation: [
       "No prior knowledge of Zen or zazen is required.",
       "Please wear comfortable clothing suitable for sitting.",
-      "Photography is not allowed during zazen.",
+      "Please refrain from taking photographs during zazen.",
       "The matcha is offered as part of the conversation, not as a formal tea ceremony.",
       "The experience is conducted in English or German.",
       "The meeting point is near the west exit of Hankyu Katsura Station. The detailed meeting point and the temple address will be shared by email when we confirm availability for your requested date.",
       "All dates and times are based on Japan Standard Time (JST).",
     ],
     notAllowed: [
-      "Photography during zazen",
-      "Video recording during zazen",
-      "Strong perfume or strong fragrances",
+      "Please refrain from taking photographs during zazen.",
+      "Please refrain from video recording during zazen.",
+      "We kindly ask guests to avoid wearing strong perfumes or fragrances.",
     ],
     bookingHref: "/en/booking?experience=zen-experience-with-jirai",
     images: {
@@ -528,17 +537,25 @@ export const experiences = [
     },
     galleryImages: [
       {
-        src: "/images/experiences/zen-experience-with-jirai/260711_G9_8936.jpg",
+        src: "/images/experiences/zen-experience-with-jirai/this_G9_8921.jpg",
         alt: "座禅をする慈頼住職",
       },
+      // {
+      //   src: "/images/experiences/zen-experience-with-jirai/260711_G9_8936.jpg",
+      //   alt: "座禅をする慈頼住職",
+      // },
       {
         src: "/images/experiences/zen-experience-with-jirai/260531_G9_8257.jpg",
         alt: "竹林1",
       },
       {
-        src: "/images/experiences/zen-experience-with-jirai/260531_G9_8254.jpg",
-        alt: "門を引きで",
+        src: "/images/experiences/zen-experience-with-jirai/this_G9_8854.jpg",
+        alt: "蓮",
       },
+      // {
+      //   src: "/images/experiences/zen-experience-with-jirai/260531_G9_8254.jpg",
+      //   alt: "門を引きで",
+      // },
       {
         src: "/images/experiences/zen-experience-with-jirai/260711_G9_8868.jpg",
         alt: "窓越しの本堂内",
@@ -548,7 +565,7 @@ export const experiences = [
         alt: "読経をする慈頼住職",
       },
       {
-        src: "/images/experiences/zen-experience-with-jirai/260531_G9_8282.jpg",
+        src: "/images/experiences/zen-experience-with-jirai/260531_G9_8283.jpg",
         alt: "仏像の手",
       },
       {

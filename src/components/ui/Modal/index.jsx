@@ -1,3 +1,5 @@
+// @/components/ui/Modal/index.jsx
+
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -16,14 +18,12 @@ const FOCUSABLE_SELECTOR = [
 export default function Modal({
   isOpen,
   onClose,
-  animation = "fadeScale",
+  animation = "slideRight",
   size = "lg",
-  placement = "center",
+  placement= "center",
   closeOnBackdrop = true,
   closeOnEsc = true,
-  ariaLabel = "Dialog",
-  initialFocusRef,
-  returnFocusRef,
+  ariaLabel = "ダイアログ",
   children,
 }) {
   const [isReady, setIsReady] = useState(false);
@@ -35,29 +35,34 @@ export default function Modal({
   }, []);
 
   useEffect(() => {
-    if (!isOpen) return undefined;
+    if (!isOpen) {
+      return;
+    }
 
     previousFocusRef.current = document.activeElement;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     const focusFrame = window.requestAnimationFrame(() => {
-      const preferredTarget = initialFocusRef?.current;
       const firstTarget = panelRef.current?.querySelector(FOCUSABLE_SELECTOR);
-      (preferredTarget || firstTarget || panelRef.current)?.focus();
+      (firstTarget || panelRef.current)?.focus();
     });
 
     return () => {
       window.cancelAnimationFrame(focusFrame);
       document.body.style.overflow = previousOverflow;
 
-      const returnTarget = returnFocusRef?.current || previousFocusRef.current;
-      if (returnTarget instanceof HTMLElement) returnTarget.focus();
+      if (previousFocusRef.current instanceof HTMLElement) {
+        previousFocusRef.current.focus();
+      }
     };
-  }, [initialFocusRef, isOpen, returnFocusRef]);
+  }, [isOpen]);
+
 
   useEffect(() => {
-    if (!isOpen) return undefined;
+    if (!isOpen) {
+      return;
+    }
 
     const handleKeyDown = (event) => {
       if (event.key === "Escape" && closeOnEsc) {
@@ -91,32 +96,50 @@ export default function Modal({
     };
 
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [closeOnEsc, isOpen, onClose]);
 
-  if (!isReady) return null;
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, closeOnEsc, onClose]);
 
-  return createPortal(
+  const handleBackdropClick = (event) => {
+    if (!closeOnBackdrop) {
+      return;
+    }
+
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
+
+  if (!isReady) {
+    return null;
+  }
+
+  const modal = (
     <div
-      className={`${styles.backdrop} ${styles[placement]} ${
-        isOpen ? styles.isOpen : ""
-      }`}
-      onMouseDown={(event) => {
-        if (closeOnBackdrop && event.target === event.currentTarget) onClose();
-      }}
+      className={`
+        ${styles.backdrop}
+        ${styles[placement]}
+        ${isOpen ? styles.isOpen : ""}
+      `}
+      onClick={handleBackdropClick}
       aria-hidden={!isOpen}
     >
-      <div
-        ref={panelRef}
-        className={`${styles.panel} ${styles[animation]} ${styles[size]}`}
-        role={isOpen ? "dialog" : undefined}
-        aria-modal={isOpen ? "true" : undefined}
-        aria-label={isOpen ? ariaLabel : undefined}
-        tabIndex={-1}
+      <div ref={panelRef} className={`
+        ${styles.panel}
+        ${styles[animation]}
+        ${styles[size]}
+      `}
+      role={isOpen ? "dialog" : undefined}
+      aria-modal={isOpen ? "true" : undefined}
+      aria-label={isOpen ? ariaLabel : undefined}
+      tabIndex={-1}
       >
         {children}
       </div>
-    </div>,
-    document.body,
-  );
+    </div>
+  )
+
+  return createPortal(modal, document.body);
 }

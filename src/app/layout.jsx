@@ -1,5 +1,6 @@
 // @/app/layout.jsx
 
+import { GoogleTagManager } from '@next/third-parties/google';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Noto_Sans_JP, Noto_Serif_JP, Cormorant_Garamond, Crimson_Text, Zen_Old_Mincho, Roboto } from 'next/font/google';
@@ -82,6 +83,8 @@ export default function RootLayout({ children }) {
         <Header />
         <main>{children}</main>
         <Footer />
+
+        <GoogleTagManager gtmId="GTM-5CRV88VW" />
       </body>
     </html>
   );

@@ -1,168 +1,102 @@
-@use "@/styles/shared" as *;
+// @/components/layout/Header.module.scss
+
+@use '@/styles/shared' as *;
 
 .header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   position: fixed;
   inset: 0 0 auto;
   z-index: 200;
   width: 100%;
   height: $navHeight;
-  padding: 0 1.25rem;
-  background: rgba(31, 28, 25, 0.82);
-  border-bottom: 1px solid rgba($color: $color-white, $alpha: 0.18);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
+  padding: 0 2rem;
+  text-align: center;
+  color: $color-white;
+  background-color: rgba($color:  $color-primary, $alpha: .6);
+  border-bottom: 1px solid rgba($color: $color-white, $alpha: .2);
+  backdrop-filter: blur(.25rem);
   @include mq(lg) {
     padding: 0 clamp(2rem, 5vw, 5rem);
   }
 }
 
-.logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  position: relative;
-  z-index: 202;
-  height: 100%;
+.logo,
+.pcNav > a {
+  font-family: var(--ff-title-en);
   color: $color-white;
-
-  img {
-    width: 4.5rem;
-    height: auto;
+  font-weight: 400;
+  @include mq(lg) {
+    font-size: 1.5rem;
   }
+}
 
-  span {
-    padding-top: 0.15rem;
-    font-family: var(--ff-title-en);
-    font-size: 1.25rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+.logo {
+  font-size: 1.5rem;
+  line-height: 1;
+  @include mq(lg) {
+    font-size: 2rem;
   }
 }
 
 .pcNav {
   display: none;
-
   @include mq(lg) {
     display: flex;
     align-items: center;
-    gap: clamp(1.5rem, 3vw, 3.25rem);
+    gap: 1rem;
+    padding-top: .5rem;
   }
-
-  a {
-    position: relative;
-    padding: 0.7rem 0;
-    font-family: var(--ff-en-gothic);
-    font-size: 0.82rem;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba($color: $color-white, $alpha: 0.82);
-    transition: color 180ms ease;
-
-    &::after {
-      position: absolute;
-      right: 0;
-      bottom: 0.35rem;
-      left: 0;
-      height: 1px;
-      content: "";
-      background: $color-gold;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 220ms ease;
-    }
-
-    &:hover,
-    &:focus-visible,
-    &[aria-current="page"] {
-      color: $color-white;
-
-      &::after {
-        transform: scaleX(1);
-        transform-origin: left;
-      }
-    }
-
-    &:focus-visible {
-      outline: 2px solid $color-gold;
-      outline-offset: 4px;
-    }
-  }
-
-  .navCta {
-    padding: 0.7rem 1.2rem;
-    color: $color-white;
-    border: 1px solid rgba($color: $color-gold, $alpha: 0.75);
-    border-radius: 999px;
-
-    &::after {
-      display: none;
-    }
-
-    &:hover,
-    &:focus-visible,
-    &[aria-current="page"] {
-      color: #231f1a;
-      background: $color-gold;
-    }
+  & > a {
+    font-size: 1.4rem;
+    line-height: 1;
   }
 }
 
-.menuButton {
+.navCta {
+  padding: .5rem 1.5rem;
+  border: 1px solid $color-gold;
+  border-radius: 999px;
+}
+
+.menuBtn {
   display: grid;
-  align-content: center;
-  gap: 6px;
-  position: relative;
-  z-index: 202;
-  width: 44px;
-  height: 44px;
+  gap: 5px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1rem;
+  z-index: 302;
+  width: 42px;
+  height: 42px;
   padding: 10px;
   color: $color-white;
-  background: transparent;
+  background-color: transparent;
   border: 0;
-  border-radius: 50%;
   cursor: pointer;
-
   @include mq(lg) {
     display: none;
   }
-
-  &:focus-visible {
-    outline: 2px solid $color-gold;
-    outline-offset: 2px;
-  }
-
-  span {
+  & > span {
     display: block;
     width: 100%;
-    height: 1px;
-    background: currentColor;
-    transition: transform 300ms ease, opacity 200ms ease;
+    height: 2px;
+    background-color: rgba($color: $color-white, $alpha: .6);
+    border-radius: 999px;
+    transition: 
+      transform .4s ease,
+      opacity .4s ease;
   }
-
   &.isOpen {
-    span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
+    & > span:nth-last-of-type(1) {
+      transform: translateY(-9px) rotate(45deg);
     }
-
-    span:nth-child(2) {
+    & > span:nth-last-of-type(2) {
       opacity: 0;
     }
-
-    span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
+    & > span:nth-last-of-type(3) {
+      transform: translateY(9px) rotate(-45deg);
     }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pcNav a,
-  .pcNav a::after,
-  .menuButton span {
-    transition: none;
   }
 }

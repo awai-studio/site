@@ -1,115 +1,41 @@
-@use "@/styles/shared" as *;
+// @/components/layout/MobileMenu/MobileMenu.module.scss
+
+@use '@/styles/shared' as *;
 
 .menu {
-  display: flex;
-  flex-direction: column;
-  width: min(23rem, 88vw);
-  min-height: 100dvh;
-  padding: 1.25rem 1.5rem 2rem;
-  color: $color-white;
-  background:
-    linear-gradient(rgba(34, 30, 27, 0.97), rgba(34, 30, 27, 0.97)),
-    url("/images/hero-image-tea-room.jpg") center / cover;
-}
-
-.menuHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 3.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba($color: $color-white, $alpha: 0.18);
-}
-
-.eyebrow {
-  font-family: var(--ff-title-en);
-  font-size: 1.1rem;
-  letter-spacing: 0.14em;
-}
-
-.closeButton {
   display: grid;
   place-items: center;
   position: relative;
-  width: 44px;
-  height: 44px;
+  width: min(22rem, 85vw);
+  height: 100dvh;
+  // width: fit-content;
+  // min-width: 18rem;
+  // height: 100%;
+  padding: 5rem 2rem 2rem;
   color: $color-white;
-  background: transparent;
-  border: 0;
-  border-radius: 50%;
-  cursor: pointer;
-
-  span {
-    position: absolute;
-    width: 1.5rem;
-    height: 1px;
-    background: currentColor;
-  }
-
-  span:first-child {
-    transform: rotate(45deg);
-  }
-
-  span:last-child {
-    transform: rotate(-45deg);
-  }
-
-  &:focus-visible {
-    outline: 2px solid $color-gold;
-    outline-offset: 2px;
-  }
+  background-color: rgba($color: $color-black, $alpha: .9);
 }
 
 .nav {
   display: grid;
-  gap: 0;
-  margin-top: clamp(2.5rem, 9vh, 5rem);
-
-  a {
-    display: grid;
-    grid-template-columns: 2.25rem 1fr;
-    align-items: baseline;
-    padding: 1.1rem 0;
+  gap: 2rem;
+  width: 100%;
+  text-align: center;
+  & > a {
+    padding: .75rem;
     font-family: var(--ff-title-en);
-    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    font-size: 2rem;
+    font-weight: 400;
     line-height: 1;
-    color: rgba($color: $color-white, $alpha: 0.82);
-    border-bottom: 1px solid rgba($color: $color-white, $alpha: 0.13);
-
-    &[aria-current="page"] {
-      color: $color-gold;
-    }
-
-    &:focus-visible {
-      outline: 2px solid $color-gold;
-      outline-offset: 4px;
-    }
+    color: $color-white;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
-.itemNumber {
-  font-family: var(--ff-en-gothic);
-  font-size: 0.66rem;
-  letter-spacing: 0.1em;
-  color: rgba($color: $color-white, $alpha: 0.45);
-}
-
-.nav .mobileCta {
-  margin-top: 1rem;
-  padding: 1rem 1.15rem;
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   color: $color-white;
-  background: rgba($color: $color-gold-dark, $alpha: 0.25);
-  border: 1px solid rgba($color: $color-gold, $alpha: 0.7);
-  border-radius: 2px;
-}
-
-.menuNote {
-  max-width: 17rem;
-  margin-top: auto;
-  padding-top: 2rem;
-  font-family: var(--ff-en-gothic);
-  font-size: 0.76rem;
-  line-height: 1.7;
-  letter-spacing: 0.07em;
-  color: rgba($color: $color-white, $alpha: 0.55);
 }

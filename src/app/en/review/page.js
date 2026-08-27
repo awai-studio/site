@@ -23,7 +23,7 @@ export default async function ReviewPage({ searchParams }) {
           <p className="kicker">Awai Studio</p>
           <h1>Leave a Review</h1>
           <p className="shortDescription">
-            We coul not identify the experience. Please access this page from
+            We could not identify the experience. Please access this page from
             the review OR code you received after your experience.
           </p>
         </section>

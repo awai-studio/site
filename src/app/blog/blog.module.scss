@@ -1,153 +1,98 @@
-@use "@/styles/shared" as *;
+// @/app/blog/blog.module.scss
 
-.blogPage,
-.articlePage {
-  width: min(100% - 2rem, 72rem);
-  margin: $navHeight auto 0;
-  padding: clamp(3rem, 8vw, 7rem) 0;
-}
+@use '@/styles/shared/' as *;
 
-.blogHeader {
-  max-width: 44rem;
-  margin-bottom: clamp(2.5rem, 7vw, 5rem);
-
-  h1 {
-    margin-bottom: 1rem;
-  }
-
-  p {
-    max-width: 38rem;
-  }
-}
-
-.eyebrow {
-  margin-bottom: 0.65rem;
-  font-family: var(--ff-en-gothic) !important;
-  font-size: 0.72rem !important;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: $color-primary !important;
+.blogIndex {
+  width: 100%;
 }
 
 .articleGrid {
   display: grid;
-  gap: 2rem;
-
+  grid-template-columns: 1fr;
+  gap: 3rem;
   @include mq(md) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.5rem 2rem;
   }
 }
 
 .articleCard {
-  a {
+  & > a {
     display: grid;
     gap: 1rem;
   }
-
-  img,
-  .imagePlaceholder {
+  & img,
+  & .imagePlaceholder {
     display: block;
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
-    background: #e7e1d7;
+    background-color: rgba($color: $color-black, $alpha: .05);
   }
-
-  time {
+  & time {
     font-family: var(--ff-en-gothic);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    color: rgba($color: $color-text, $alpha: 0.58);
+    font-size: .75rem;
+    letter-spacing: .08em;
+    color: rgba($color: $color-text, $alpha: .6);
   }
-
-  h2 {
-    margin: 0.35rem 0 0.65rem;
-    font-size: clamp(1.8rem, 4vw, 2.7rem);
-  }
-
-  p {
-    font-size: 1.05rem;
+  & p {
     line-height: 1.6;
   }
 }
 
-.empty {
-  font-size: 1.05rem;
-}
+// =========================
+// Individual article
+// =========================
 
 .articlePage {
+  width: 100%;
   max-width: 48rem;
-}
-
-.backLink {
-  display: inline-flex;
-  margin-bottom: 2.5rem;
-  font-family: var(--ff-en-gothic);
-  font-size: 0.78rem;
-  color: $color-primary-dark;
-  text-decoration: underline;
-  text-underline-offset: 0.25rem;
-}
-
-.articleHeader {
-  margin-bottom: clamp(2.5rem, 7vw, 5rem);
-
-  h1 {
-    margin: 0.75rem 0 1.25rem;
-  }
-
-  time {
+  margin: 0 auto;
+  & time {
     font-family: var(--ff-en-gothic);
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    color: rgba($color: $color-text, $alpha: 0.58);
+    font-size: .75rem;
+    letter-spacing: .08em;
+    color: rgba($color: $color-text, $alpha: .6);
   }
 }
 
 .articleBody {
   display: grid;
   gap: 1.25rem;
-
-  h2,
-  h3 {
-    margin: 2rem 0 0;
+  & h2,
+  & h3 {
+    margin-top: 2rem;
   }
-
-  p,
-  li,
-  blockquote {
+  & p,
+  & li,
+  & blockquote {
     font-size: 1.2rem;
-    line-height: 1.8;
+    line-height: 1.7;
   }
-
-  ul,
-  ol {
+  & ul,
+  & ol {
     display: grid;
-    gap: 0.65rem;
+    gap: .65rem;
   }
-
-  img {
+  & img {
     display: block;
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
   }
-
-  hr {
+  & hr {
     width: 100%;
     margin: 2rem 0;
     border: 0;
-    border-top: 1px solid rgba($color: $color-text, $alpha: 0.2);
+    border-top: 1px solid rgba($color: $color-text, $alpha: .2);
   }
-
-  blockquote {
+  & blockquote {
     padding-left: 1.25rem;
     border-left: 2px solid $color-primary;
   }
-
-  a {
+  & a {
     color: $color-primary-dark;
     text-decoration: underline;
-    text-underline-offset: 0.2rem;
+    text-underline-offset: .2rem;
   }
 }

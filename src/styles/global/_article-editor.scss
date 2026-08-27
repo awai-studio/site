@@ -1,0 +1,144 @@
+// @/src/styles/global/_article-editor.scss
+
+@use "../shared/variables" as *;
+@use "../shared/mixins" as *;
+
+.article-editor-loading {
+  padding: 2rem;
+  font-family: var(--ff-gothic);
+  font-size: 0.95rem;
+  text-align: center;
+  background-color: rgba($color: $color-white, $alpha: 0.5);
+  border: 1px solid rgba($color: $color-text, $alpha: 0.15);
+}
+
+.awai-article-editor {
+  overflow: hidden;
+  background-color: rgba($color: $color-white, $alpha: 0.65);
+  border: 1px solid rgba($color: $color-text, $alpha: 0.2);
+  border-radius: 12px;
+}
+
+.awai-article-editor-content {
+  min-height: 30rem;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  font-family: var(--ff-mincho);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: $color-text;
+
+  &:focus {
+    outline: none;
+  }
+
+  & h2,
+  & h3 {
+    margin: 2rem 0 1rem;
+  }
+
+  & p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  & img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+}
+
+.article-image-library {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  background-color: rgba($color: $color-primary, $alpha: 0.05);
+  border: 1px solid rgba($color: $color-text, $alpha: 0.15);
+  border-radius: 12px;
+
+  &__heading {
+    & h2 {
+      margin-bottom: 0.5rem;
+      font-size: 1.75rem;
+    }
+
+    & p {
+      font-family: var(--ff-gothic);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+  }
+
+  &__upload {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1rem;
+    font-family: var(--ff-gothic);
+    font-size: 0.9rem;
+    font-weight: 700;
+    background-color: rgba($color: $color-white, $alpha: 0.7);
+    border: 1px dashed rgba($color: $color-primary, $alpha: 0.45);
+    border-radius: 8px;
+    cursor: pointer;
+
+    & input {
+      width: 100%;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @include mq(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item {
+    display: grid;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background-color: rgba($color: $color-white, $alpha: 0.7);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:has(input:checked) {
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color: $color-primary, $alpha: 0.1);
+    }
+
+    & img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    & input {
+      width: auto;
+      min-height: auto;
+    }
+
+    & span {
+      font-family: var(--ff-gothic);
+      font-size: 0.85rem;
+    }
+  }
+
+  & > button {
+    width: fit-content;
+    padding: 0.65rem 1rem;
+    font-size: 0.85rem;
+    color: $color-primary-dark;
+    background-color: transparent;
+    border: 1px solid rgba($color: $color-primary-dark, $alpha: 0.4);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+}
