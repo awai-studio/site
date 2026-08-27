@@ -70,6 +70,9 @@ export default async function ExperienceDetailPage({ params }) {
                 <Link
                   className={`btn btn--regular ${styles.expInlineCta}`}
                   href={`${experience.bookingHref}`}
+                  data-gtm-event="cta_click"
+                  data-gtm-location="experience_detail_mid_check_availability"
+                  data-gtm-experience={experience.slug}
                 >
                   Check Availability
                 </Link>
