@@ -3,6 +3,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { sendGTMEvent } from "@next/third-parties/google";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
 import styles from "./BookingForm.module.scss";
@@ -245,6 +246,7 @@ export default function BookingForm({ experience }) {
           formStartedAt: formStartedAtRef.current,
         }),
       });
+
       if (!response.ok) {
         const result = await response.json().catch(() => null);
         throw new Error(
@@ -252,12 +254,22 @@ export default function BookingForm({ experience }) {
         );
       }
 
+      sendGTMEvent({
+        event: "booking_request_success",
+        experience: experience.slug,
+      });      
+
       setSubmitStatus("success");
+
       setFormError("");
+
       // 使ったら戻すをやっている箇所。
       formElement.reset();
+
       setSelectedDates([]);
+
       formStartedAtRef.current = Date.now();
+      
       submissionTokenRef.current = "";
     } catch (error) {
       setFormError(

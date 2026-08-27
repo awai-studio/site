@@ -41,7 +41,12 @@ export default function Home() {
             ひらく体験へ
           </p>
           <div className={`cta ${styles.topCta}`}>
-            <Link className="btn btn--regular" href="/en/experiences">
+            <Link
+              className="btn btn--regular"
+              href="/en/experiences"
+              data-gtm-event="cta_click"
+              data-gtm-location="home_hero_view_experiences"
+            >
               View Experiences
             </Link>
           </div>

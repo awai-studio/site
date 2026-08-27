@@ -19,21 +19,27 @@ export default function MobileMenu({
       animation="slideRight"
       size="drawer"
       placement="right"
-      ariaLabel="Moblie navigation"
+      ariaLabel="Mobile navigation"
     >
       <div className={styles.menu}>
         <CloseButton
           className={styles.closeButton}
           onClick={onClose}
-          arialabel="メニューを閉じる"
+          ariaLabel="メニューを閉じる"
         />
         <nav
           id="mobile-menu"
           className={styles.nav}
-          aria-label="Moble navigation"
+          aria-label="Mobile navigation"
         >
           {navItems.map((item) => (
-            <Link key={item.label} href={item.href} onClick={onClose}>
+            <Link
+              key={item.label}
+              href={item.href}
+              onClick={onClose}
+              data-gtm-event={item.gtmEvent}
+              data-gtm-location={item.gtmLocationSp}
+            >
               {item.label}
             </Link>
           ))}

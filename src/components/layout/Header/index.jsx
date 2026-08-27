@@ -11,7 +11,13 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/en/experiences", label: "Experiences" },
   { href: "/blog", label: "Notes" },
-  { href: "/en/experiences", label: "Request Booking", isCta: true },
+  { href: "/en/experiences",
+    label: "Request Booking",
+    isCta: true,
+    gtmEvent: "cta_click",
+    gtmLocationPc: "global_header_request_booking",
+    gtmLocationSp: "mobile_menu_request_booking",    
+  },
 ]
 
 export default function Header() {
@@ -38,6 +44,8 @@ export default function Header() {
               key={item.label}
               className={item.isCta ? styles.navCta : undefined}
               href={item.href}
+              data-gtm-event={item.gtmEvent}
+              data-gtm-location={item.gtmLocationPc}
             >
               {item.label}
             </Link>
