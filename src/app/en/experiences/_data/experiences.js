@@ -32,7 +32,7 @@ export const experiences = [
         "Approximately 2 hours, with time allowed as needed for the experience",
     },
     host: {
-      name: "Soko",
+      name: "Jack Convery 宗好 Sōkō",
       role: "Canadian-born, Kyoto-based practitioner of Urasenke tea",
       languages: ["English"],
     },
@@ -142,7 +142,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "The gathering is guided by a Canadian practitioner of Urasenke tea whose tea name is SōKō (宗好).",
+        text: "The gathering is guided by a Canadian practitioner of Urasenke tea whose tea name is Jack Convery 宗好 Sōkō.",
       },
       {
         type: "paragraph",
@@ -150,7 +150,7 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "His tea name SōKō (宗好) and his Urasenke background offer one way to understand the depth behind this time together. \nSō (宗): The ancient lineage of Chado. Kō (好): Good.\nBut what matters most in this room is not a title. \nIt is how one meets the bowl in front of them, and how that time is shared. Together with others.",
+        text: "His tea name Jack Convery 宗好 Sōkō and his Urasenke background offer one way to understand the depth behind this time together. \nSō (宗): The ancient lineage of Chado. Kō (好): Good.\nBut what matters most in this room is not a title. \nIt is how one meets the bowl in front of them, and how that time is shared. Together with others.",
       },
       {
         type: "image",
