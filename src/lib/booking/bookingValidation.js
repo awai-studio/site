@@ -1,3 +1,5 @@
+// @/lib/article/booking/bookingValidation.js
+
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const DATE_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
 const CONTROL_PATTERN = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/u;
@@ -9,6 +11,8 @@ export const BOOKING_LIMITS = {
   name: 100,
   email: 254,
   message: 2000,
+  trackingValue: 500,
+  clickedUrl: 2000,
 };
 
 function text(value) {
@@ -23,7 +27,9 @@ function tokyoDateKey() {
     day: "2-digit",
   }).formatToParts(new Date());
   const values = Object.fromEntries(
-    parts.filter((part) => part.type !== "literal").map((part) => [part.type, part.value]),
+    parts
+      .filter((part) => part.type !== "literal")
+      .map((part) => [part.type, part.value]),
   );
   return `${values.year}-${values.month}-${values.day}`;
 }
@@ -46,23 +52,36 @@ function dateParts(dateKey) {
     date.getUTCFullYear() !== year ||
     date.getUTCMonth() !== month - 1 ||
     date.getUTCDate() !== day
-  ) return null;
+  )
+    return null;
   return { weekday: date.getUTCDay() };
 }
 
 export function validateBookingRequest(request) {
   const contentType = request.headers.get("content-type") || "";
   if (!contentType.toLowerCase().startsWith("application/json")) {
-    return { isValid: false, status: 415, message: "The request format is not supported." };
+    return {
+      isValid: false,
+      status: 415,
+      message: "The request format is not supported.",
+    };
   }
   const header = request.headers.get("content-length");
   if (header) {
     const length = Number(header);
     if (!Number.isFinite(length) || length < 0) {
-      return { isValid: false, status: 400, message: "Please check your request." };
+      return {
+        isValid: false,
+        status: 400,
+        message: "Please check your request.",
+      };
     }
     if (length > BOOKING_LIMITS.requestBytes) {
-      return { isValid: false, status: 413, message: "The request is too large." };
+      return {
+        isValid: false,
+        status: 413,
+        message: "The request is too large.",
+      };
     }
   }
   return { isValid: true, status: 200, message: "" };
@@ -71,7 +90,11 @@ export function validateBookingRequest(request) {
 export function isLikelyBotBooking(input) {
   if (text(input?.companyWebsite)) return true;
   const startedAt = Number(input?.formStartedAt);
-  return !Number.isFinite(startedAt) || startedAt <= 0 || Date.now() - startedAt < 2000;
+  return (
+    !Number.isFinite(startedAt) ||
+    startedAt <= 0 ||
+    Date.now() - startedAt < 2000
+  );
 }
 
 export function isValidSubmissionToken(value) {
@@ -92,7 +115,13 @@ export function validateBookingInput(input, experience) {
     preferredDate3: text(input?.preferredDate3),
     preferredTime3: text(input?.preferredTime3),
     message: text(input?.message),
+    trackingUtmSource: text(input?.trackingUtmSource),
+    trackingUtmMedium: text(input?.trackingUtmMedium),
+    trackingUtmCampaign: text(input?.trackingUtmCampaign),
+    trackingUtmContent: text(input?.trackingUtmContent),
+    trackingUtmClickedUrl: text(input?.trackingUtmClickedUrl),
   };
+
   const errors = {};
 
   if (!isValidSubmissionToken(values.submissionToken)) {
@@ -101,20 +130,60 @@ export function validateBookingInput(input, experience) {
   if (!experience || values.experienceSlug !== experience.slug) {
     errors.experienceSlug = "Please select a valid experience.";
   }
-  if (!values.customerName || values.customerName.length > BOOKING_LIMITS.name || CONTROL_PATTERN.test(values.customerName)) {
+  if (
+    !values.customerName ||
+    values.customerName.length > BOOKING_LIMITS.name ||
+    CONTROL_PATTERN.test(values.customerName)
+  ) {
     errors.customerName = "Please enter a valid name.";
   }
-  if (!EMAIL_PATTERN.test(values.customerEmail) || values.customerEmail.length > BOOKING_LIMITS.email || CONTROL_PATTERN.test(values.customerEmail)) {
+  if (
+    !EMAIL_PATTERN.test(values.customerEmail) ||
+    values.customerEmail.length > BOOKING_LIMITS.email ||
+    CONTROL_PATTERN.test(values.customerEmail)
+  ) {
     errors.customerEmail = "Please enter a valid email address.";
   }
 
   const minGuests = Number(experience?.pricing?.minGuests);
   const maxGuests = Number(experience?.pricing?.maxGuests);
-  if (!Number.isInteger(values.guestCount) || values.guestCount < minGuests || values.guestCount > maxGuests) {
+  if (
+    !Number.isInteger(values.guestCount) ||
+    values.guestCount < minGuests ||
+    values.guestCount > maxGuests
+  ) {
     errors.guestCount = "Please select a valid number of guests.";
   }
-  if (values.message.length > BOOKING_LIMITS.message || CONTROL_PATTERN.test(values.message)) {
+  if (
+    values.message.length > BOOKING_LIMITS.message ||
+    CONTROL_PATTERN.test(values.message)
+  ) {
     errors.message = `Please keep your message within ${BOOKING_LIMITS.message} characters.`;
+  }
+
+  const trackingFields = [
+    "trackingUtmSource",
+    "trackingUtmMedium",
+    "trackingUtmCampaign",
+    "trackingUtmContent",
+  ];
+
+  for (const field of trackingFields) {
+    const value = values[field];
+
+    if (
+      value.length > BOOKING_LIMITS.trackingValue ||
+      CONTROL_PATTERN.test(value)
+    ) {
+      errors[field] = "The tracking information is invalid.";
+    }
+  }
+
+  if (
+    values.trackingUtmClickedUrl.length > BOOKING_LIMITS.clickedUrl ||
+    CONTROL_PATTERN.test(values.trackingUtmClickedUrl)
+  ) {
+    errors.trackingUtmClickedUrl = "The tracking URL is invalid.";
   }
 
   const minimumDate = addDays(tokyoDateKey(), 10);
@@ -139,7 +208,9 @@ export function validateBookingInput(input, experience) {
 
     const parsed = dateParts(dateValue);
     if (
-      !parsed || dateValue < minimumDate || dateValue > maximumDate ||
+      !parsed ||
+      dateValue < minimumDate ||
+      dateValue > maximumDate ||
       !availability.availableWeekdays?.includes(parsed.weekday) ||
       availability.unavailableDates?.includes(dateValue)
     ) {

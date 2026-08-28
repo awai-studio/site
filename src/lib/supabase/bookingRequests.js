@@ -16,6 +16,11 @@ export async function createBookingRequest({
   preferredDate3,
   preferredTime3,
   message,
+  trackingUtmSource,
+  trackingUtmMedium,
+  trackingUtmCampaign,
+  trackingUtmContent,
+  trackingUtmClickedUrl,
 }) {
   // Supabaseへアクセスする。
   // Supabase上のカラム名にpropsにある値を対応させてDBへデータを差し込む。
@@ -35,6 +40,11 @@ export async function createBookingRequest({
         preferred_date_3: preferredDate3 || null,
         preferred_time_3: preferredTime3 || null,
         message: message || null,
+        tracking_utm_source: trackingUtmSource || null,
+        tracking_utm_medium: trackingUtmMedium || null,
+        tracking_utm_campaign: trackingUtmCampaign || null,
+        tracking_utm_content: trackingUtmContent || null,
+        tracking_utm_clicked_url: trackingUtmClickedUrl || null,
       },
     ])
     .select()

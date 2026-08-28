@@ -1,3 +1,5 @@
+// @/app/api/booking-request/route.js
+
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { experiences } from "@/app/en/experiences/_data/experiences";

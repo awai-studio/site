@@ -1,3 +1,5 @@
+// @/lib/article/booking/bookingRateLimit.js
+
 import "server-only";
 import { createHmac } from "node:crypto";
 import { supabaseServer } from "@/lib/supabase/server";
@@ -23,8 +25,7 @@ function getClientAddress(request) {
 
 function createClientKey(scope, clientAddress) {
   const secret =
-    process.env.BOOKING_RATE_LIMIT_SECRET ||
-    process.env.SUPABASE_SECRET_KEY;
+    process.env.BOOKING_RATE_LIMIT_SECRET || process.env.SUPABASE_SECRET_KEY;
 
   if (!secret) return null;
 

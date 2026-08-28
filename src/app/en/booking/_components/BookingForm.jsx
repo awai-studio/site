@@ -5,6 +5,7 @@
 import { useRef, useState } from "react";
 import { sendGTMEvent } from "@next/third-parties/google";
 import { DayPicker } from "react-day-picker";
+import { getUtmTrackingData } from "@/components/analytics/UtmTracker";
 import "react-day-picker/style.css";
 import styles from "./BookingForm.module.scss";
 
@@ -202,6 +203,8 @@ export default function BookingForm({ experience }) {
         return;
       }
 
+      const trackingData = getUtmTrackingData();
+
       // // 入力フォームに入った属性の値を
       // // DB呼び出して、インサートする命令を出している。
       // await createBookingRequest({
@@ -244,6 +247,7 @@ export default function BookingForm({ experience }) {
           message: formData.get("message"),
           companyWebsite: formData.get("companyWebsite"),
           formStartedAt: formStartedAtRef.current,
+          ...trackingData,
         }),
       });
 
