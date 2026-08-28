@@ -29,12 +29,23 @@ export default function FullDescription({ blocks }) {
           )
         : (
           <p key={idx}>
-            {(block.text ?? "").split("\n").map((line, index, lines) => (
+            {(
+              typeof block.text === "string"
+                ? block.text.split("\n")
+                : [block.text]
+              ).map((line, index, lines) => (
+                <span key={index}>
+                  {line}
+                  {index !== lines.length - 1 && <br />}
+                </span>
+              )
+            )}
+            {/* {(block.text ?? "").split("\n").map((line, index, lines) => (
               <span key={index}>
                 {line}
                 {index !== lines.length - 1 && <br />}
               </span>
-            ))}
+            ))} */}
           </p>
       );
   }

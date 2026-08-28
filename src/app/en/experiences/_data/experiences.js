@@ -142,7 +142,13 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "The gathering is guided by a Canadian practitioner of Urasenke tea whose tea name is Jack Convery 宗好 Sōkō.",
+        text: (
+          <>
+            The gathering is guided by a Canadian practitioner of Urasenke tea
+            whose tea name is Jack Convery <span className="name-jp">宗好</span>{" "}
+            Sōkō.
+          </>
+        ),
       },
       {
         type: "paragraph",
@@ -150,7 +156,26 @@ export const experiences = [
       },
       {
         type: "paragraph",
-        text: "His tea name Jack Convery 宗好 Sōkō and his Urasenke background offer one way to understand the depth behind this time together. \nSō (宗): The ancient lineage of Chado. Kō (好): Good.\nBut what matters most in this room is not a title. \nIt is how one meets the bowl in front of them, and how that time is shared. Together with others.",
+        text: (
+          <>
+            His tea name Jack Convery <span className="name-jp">宗好</span> Sōkō
+            and his Urasenke background offer one way to understand the depth
+            behind this time together.
+          </>
+        ),
+      },
+      {
+        type: "paragraph",
+        text: (
+          <>
+            Sō<span className="name-jp">（宗）</span>: The ancient lineage of
+            Chado. Kō<span className="name-jp">（好）</span>: Good.
+          </>
+        ),
+      },
+      {
+        type: "paragraph",
+        text: "But what matters most in this room is not a title. \nIt is how one meets the bowl in front of them, and how that time is shared. Together with others.",
       },
       {
         type: "image",
@@ -215,15 +240,6 @@ export const experiences = [
       "Hands-on participation in making tea",
       "Use of tea utensils provided for the experience",
     ],
-    // meetingPoint: {
-    //   description:
-    //     "The experience takes place in a quiet tea house in Kyoto. The exact address and access details will be shared by email after the booking has been confirmed.",
-    //   access: [
-    //     "18 minutes on foot from Kinkaku-ji Temple, the Golden Pavilion",
-    //     "13 minutes on foot from Daitokuji Temple",
-    //     "8 minutes on foot from Kenkun Shrine",
-    //   ],
-    // },
     meetingPoint: {
       description:
         "The experience takes place in a private tea house in northern Kyoto. The exact address and access details will be shared by email after the booking has been confirmed.",
@@ -250,7 +266,7 @@ export const experiences = [
       thumbnail:
         "/images/experiences/tea-experience-with-jack/thumbnail_260426_G9_7826.jpg",
       booking:
-        "/images/experiences/tea-experience-with-jack/booking_260510_G9_7969.jpg",
+        "/images/experiences/tea-experience-with-jack/thumbnail_260426_G9_7826.jpg",
     },
     galleryImages: [
       {
@@ -528,7 +544,8 @@ export const experiences = [
     images: {
       thumbnail:
         "/images/experiences/zen-experience-with-jirai/260711_G9_8984.jpg",
-      booking: "/images/experiences/zen-experience-with-jirai/booking.jpg",
+      booking:
+        "/images/experiences/zen-experience-with-jirai/260711_G9_8984.jpg",
       description: [
         "/images/experiences/zen-experience-with-jirai/description_01.jpg",
         "/images/experiences/zen-experience-with-jirai/description_02.jpg",

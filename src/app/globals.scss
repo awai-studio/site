@@ -247,3 +247,10 @@ a {
     display: none;
   }
 }
+
+.name-jp {
+  font-family: var(--ff-mincho);
+  font-weight: 600;
+  font-size: 0.85em;
+  font-feature-settings: "palt" 1;
+}
