@@ -1,5 +1,7 @@
 // @/lib/article/booking/bookingValidation.js
 
+import { getAvailableTimesForDate } from "@/lib/booking/availability";
+
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const DATE_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
 const CONTROL_PATTERN = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/u;
@@ -101,7 +103,7 @@ export function isValidSubmissionToken(value) {
   return UUID_V4_PATTERN.test(text(value));
 }
 
-export function validateBookingInput(input, experience) {
+export function validateBookingInput(input, experience, bookedDates = []) {
   const values = {
     submissionToken: text(input?.submissionToken),
     experienceSlug: text(input?.experienceSlug),
@@ -189,6 +191,7 @@ export function validateBookingInput(input, experience) {
   const minimumDate = addDays(tokyoDateKey(), 10);
   const maximumDate = addDays(tokyoDateKey(), 90);
   const availability = experience?.availability || {};
+  const bookedDateSet = new Set(bookedDates);
   const dates = new Set();
   for (let index = 1; index <= 3; index += 1) {
     const dateField = `preferredDate${index}`;
@@ -211,12 +214,12 @@ export function validateBookingInput(input, experience) {
       !parsed ||
       dateValue < minimumDate ||
       dateValue > maximumDate ||
-      !availability.availableWeekdays?.includes(parsed.weekday) ||
-      availability.unavailableDates?.includes(dateValue)
+      getAvailableTimesForDate(availability, dateValue).length === 0 ||
+      bookedDateSet.has(dateValue)
     ) {
       errors[dateField] = "Please choose an available date.";
     }
-    if (!availability.timeSlots?.includes(timeValue)) {
+    if (!getAvailableTimesForDate(availability, dateValue).includes(timeValue)) {
       errors[timeField] = "Please choose an available time.";
     }
     if (dates.has(dateValue)) {

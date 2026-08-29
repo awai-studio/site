@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import { sendGTMEvent } from "@next/third-parties/google";
 import { DayPicker } from "react-day-picker";
 import { getUtmTrackingData } from "@/components/analytics/UtmTracker";
+import { getAvailableTimesForDate } from "@/lib/booking/availability";
 import "react-day-picker/style.css";
 import styles from "./BookingForm.module.scss";
 
@@ -43,7 +44,7 @@ function isSameDate(date, dateString) {
 
 // このコンポーネントの主役
 // フォームを返して、入力された値をDBに渡す。
-export default function BookingForm({ experience }) {
+export default function BookingForm({ experience, bookedDates = [] }) {
   // Stateを初期化する。
   const [selectedDates, setSelectedDates] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -56,12 +57,9 @@ export default function BookingForm({ experience }) {
   // ここに、データの種類は何タイプ？　利用可能な希望の曜日は？　希望の開催時間はいつ？
   // 開催できない日付はいつ？　というデータが入っている。
   const availability = experience.availability || {};
-  // 利用可能な曜日
-  const availableWeekdays = availability.availableWeekdays || [];
   // 利用不可の日付
   const unavailableDates = availability.unavailableDates || [];
-  // 利用時間の選択肢
-  const timeSlots = availability.timeSlots || [];
+  const bookedDateSet = new Set(bookedDates);
   // 催行最大人数から配列を作る
   // const guestCounts = [...Array(experience.pricing.maxGuests).keys()].map((i) => i + 1);
   
@@ -93,23 +91,25 @@ export default function BookingForm({ experience }) {
   // 全ての条件をクリアして真が変える。
   function isDateDisabled(date) {
     const targetDate = startOfDay(date);
-    const day = targetDate.getDay();
+    const dateKey = formatDateKey(targetDate);
     // ターゲットの日付は、7日制限をクリアしているか？
     const isBeforeMinDate = targetDate < minSelectableDate;
     // ターゲットの日付は90日制限をクリアしているか？
     const isAfterMaxDate = targetDate > maxSelectableDate;
-    // ターゲットの日付は利用可能曜日以外を指定していないか？
-    const isUnavailableWeekday = !availableWeekdays.includes(day);
+    const hasNoAvailableTimes =
+      getAvailableTimesForDate(availability, dateKey).length === 0;
     // ターゲットの日付は利用不可日か？
     const isUnavailableDate = unavailableDates.some((dateString) => {
       return isSameDate(targetDate, dateString);
     });
+    const isBookedDate = bookedDateSet.has(dateKey);
 
     return (
       isBeforeMinDate ||
       isAfterMaxDate ||
-      isUnavailableWeekday ||
-      isUnavailableDate
+      hasNoAvailableTimes ||
+      isUnavailableDate ||
+      isBookedDate
     );
   }
   // form が submit された時に動く関数
@@ -373,7 +373,10 @@ export default function BookingForm({ experience }) {
                       <option value="" disabled>
                         Select a time
                       </option>
-                      {timeSlots.map((time) => (
+                      {getAvailableTimesForDate(
+                        availability,
+                        formatDateKey(date),
+                      ).map((time) => (
                         <option value={time} key={time}>
                           {time}
                         </option>
@@ -433,6 +436,10 @@ export default function BookingForm({ experience }) {
         {submitStatus === "success" && (
           <div className="formSuccessMessage">
             <p>Your booking request has been sent.</p>
+            <p>
+              Your selected dates are temporarily held while we check
+              availability.
+            </p>
             <p>We will check availability and contact you by email.</p>
             <p>Your booking is not yet confirmed.</p>
           </div>

@@ -3,6 +3,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
 import styles from "./AdminPage.module.scss";
@@ -47,6 +48,11 @@ export default function AdminPage() {
         <div className={styles.card}>
           <h1 className={styles.title}>Awai Studio Admin</h1>
           <p className={styles.description}>ログインしました。</p>
+
+          <nav className={styles.adminNavigation}>
+            <Link href="/admin/bookings">予約リクエストを管理</Link>
+            <Link href="/admin/articles">Awai Notesを管理</Link>
+          </nav>
 
           <div className="formInlineCta cta">
             <button

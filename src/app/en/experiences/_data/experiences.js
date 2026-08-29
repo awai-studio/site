@@ -38,9 +38,27 @@ export const experiences = [
     },
     availability: {
       type: "request",
-      availableWeekdays: [3, 4, 5, 6],
-      timeSlots: ["10:00", "15:00"],
-      unavailableDates: [],
+      weeklyTimeSlots: {
+        1: ["10:00", "15:00"],
+        2: ["15:00"],
+        3: ["15:00"],
+        4: ["15:00"],
+        5: ["15:00"],
+        6: ["10:00", "15:00"],
+      },
+      specialDateTimeSlots: {},
+      // Jack's unavailable Wednesdays and Thursdays are entered here.
+      unavailableDates: [
+        "2026-09-02",
+        "2026-09-03",
+        "2026-09-30",
+        "2026-10-01",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-11-04",
+        "2026-11-05",
+      ],
+      maxBookingsPerDay: 1,
     },
     cancellation: {
       summary: "Free cancellation up to 7 days before the experience",
@@ -354,9 +372,16 @@ export const experiences = [
     },
     availability: {
       type: "request",
-      availableWeekdays: [0, 3, 4, 5, 6],
-      timeSlots: ["09:00", "15:00"],
-      unavailableDates: ["2026-06-26", "2026-06-29"],
+      weeklyTimeSlots: {
+        2: ["09:00", "15:00"],
+        3: ["09:00", "15:00"],
+        4: ["09:00", "15:00"],
+        5: ["09:00", "15:00"],
+        6: ["09:00", "15:00"],
+      },
+      specialDateTimeSlots: {},
+      unavailableDates: [],
+      maxBookingsPerDay: 1,
     },
     cancellation: {
       summary: "Free cancellation up to 7 days before the experience",

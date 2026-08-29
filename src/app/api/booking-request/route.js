@@ -14,6 +14,8 @@ import {
 } from "@/lib/booking/bookingRateLimit";
 import {
   createBookingRequest,
+  getBlockedBookingDates,
+  isBookingDateUnavailableError,
   isDuplicateBookingRequestError,
 } from "@/lib/supabase/bookingRequests";
 
@@ -67,7 +69,10 @@ export async function POST(request) {
     const experience = experiences.find(
       (item) => item.slug === String(body?.experienceSlug || "").trim(),
     );
-    const validation = validateBookingInput(body, experience);
+    const bookedDates = experience
+      ? await getBlockedBookingDates(experience.slug, { throwOnError: true })
+      : [];
+    const validation = validateBookingInput(body, experience, bookedDates);
 
     if (!validation.isValid) {
       return NextResponse.json(
@@ -85,6 +90,16 @@ export async function POST(request) {
     try {
       bookingRequest = await createBookingRequest(values);
     } catch (error) {
+      if (isBookingDateUnavailableError(error)) {
+        return NextResponse.json(
+          {
+            message:
+              "One or more selected dates are no longer available. Please choose other dates.",
+          },
+          { status: 409 },
+        );
+      }
+
       if (isDuplicateBookingRequestError(error)) {
         return NextResponse.json({ ok: true }, { status: 201 });
       }

@@ -3,6 +3,7 @@
 import { experiences } from "../experiences/_data/experiences";
 import { getGuestText, getDurationText } from "@/lib/formatExperiences";
 import BookingForm from "./_components/BookingForm";
+import { getBlockedBookingDates } from "@/lib/supabase/bookingRequests";
 import styles from "./booking.module.scss";
 
 export const metadata = {
@@ -29,6 +30,7 @@ export default async function BookingPage({ searchParams }) {
 
   const guestText = getGuestText(experience.pricing);
   const durationText = getDurationText(experience.duration);
+  const bookedDates = await getBlockedBookingDates(experience.slug);
 
   return (
     <div className="container">
@@ -65,7 +67,7 @@ export default async function BookingPage({ searchParams }) {
         </section>
 
         <section className={styles.requestForm}>
-          <BookingForm experience={experience} />
+          <BookingForm experience={experience} bookedDates={bookedDates} />
         </section>
       </div>
     </div>

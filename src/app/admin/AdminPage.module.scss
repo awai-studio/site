@@ -38,3 +38,19 @@
   text-align: center;
   color: rgba($color: $color-text, $alpha: .7);
 }
+
+.adminNavigation {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+
+  & > a {
+    display: flex;
+    justify-content: center;
+    padding: 0.85rem 1rem;
+    font-weight: 700;
+    color: $color-white;
+    background-color: $color-primary;
+    border-radius: 999px;
+  }
+}

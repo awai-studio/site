@@ -64,3 +64,60 @@ export function isDuplicateBookingRequestError(error) {
   const databaseMessage = `${error?.message || ""} ${error?.details || ""}`;
   return databaseMessage.includes("submission_token");
 }
+
+export function isBookingDateUnavailableError(error) {
+  if (error?.code !== "23505") return false;
+
+  const databaseMessage = `${error?.message || ""} ${error?.details || ""}`;
+  return databaseMessage.includes("booking_request_date_holds_one_per_day");
+}
+
+async function getLegacyConfirmedBookingDates(experienceSlug) {
+  const { data, error } = await supabaseServer
+    .from("booking_requests")
+    .select("confirmed_date")
+    .eq("experience_slug", experienceSlug)
+    .eq("status", "confirmed")
+    .not("confirmed_date", "is", null);
+
+  if (error) throw error;
+  return [...new Set(data.map((item) => item.confirmed_date))];
+}
+
+export async function getBlockedBookingDates(
+  experienceSlug,
+  { throwOnError = false } = {},
+) {
+  const now = new Date().toISOString();
+  const { data, error } = await supabaseServer
+    .from("booking_request_date_holds")
+    .select("held_date")
+    .eq("experience_slug", experienceSlug)
+    .or(`expires_at.is.null,expires_at.gt.${now}`);
+
+  if (error) {
+    const isHoldsTableMissing =
+      error.code === "42P01" ||
+      error.code === "PGRST205" ||
+      error.message?.includes("booking_request_date_holds");
+
+    if (isHoldsTableMissing) {
+      try {
+        return await getLegacyConfirmedBookingDates(experienceSlug);
+      } catch (legacyError) {
+        if (throwOnError) throw legacyError;
+        console.error(
+          "Failed to load legacy confirmed booking dates:",
+          legacyError instanceof Error ? legacyError.message : "Unknown error",
+        );
+        return [];
+      }
+    }
+
+    if (throwOnError) throw error;
+    console.error("Failed to load blocked booking dates:", error.message);
+    return [];
+  }
+
+  return [...new Set(data.map((item) => item.held_date))];
+}
