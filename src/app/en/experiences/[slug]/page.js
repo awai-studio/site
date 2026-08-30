@@ -154,7 +154,7 @@ export default async function ExperienceDetailPage({ params }) {
             )}
 
             {/* Reviews */}
-            <ReviewList reviews={experienceReviews} />
+            {/* <ReviewList reviews={experienceReviews} /> */}
           </div>
 
           {/* Sidebar */}
