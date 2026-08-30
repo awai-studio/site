@@ -151,7 +151,8 @@ export const experiences = [
       },
       {
         type: "image",
-        src: "/images/experiences/tea-experience-with-jack/260807_G9_7905.jpg",
+        // src: "/images/experiences/tea-experience-with-jack/260807_G9_7905.jpg",
+        src: "/images/experiences/tea-experience-with-jack/thumbnail_260426_G9_7826.jpg",
         alt: "",
       },
       {

@@ -1,6 +1,6 @@
 # Confirmation of Arrangements for the Cultural Experience
 
-Jack Convery and Hiromi Convery, who conduct tea experiences at Shotoku-An (hereinafter collectively referred to as “Shotoku-An”), and 髙廣信之 (sole proprietor operating under the trade name Awai Studio; hereinafter referred to as “Awai Studio”) mutually confirm and agree to operate the cultural experience held at Shotoku-An in accordance with the following arrangements.
+Jack Convery 宗好 Sōkō and Hiromi Convery, who conduct tea experiences at Shotoku-An (hereinafter collectively referred to as “Shotoku-An”), and 髙廣信之 (sole proprietor operating under the trade name Awai Studio; hereinafter referred to as “Awai Studio”) mutually confirm and agree to operate the cultural experience held at Shotoku-An in accordance with the following arrangements.
 
 ## Article 1 — Experience Details
 
@@ -90,7 +90,7 @@ Awai Studio will reflect this information in its booking arrangements and will m
 1. If Awai Studio is required to cancel a confirmed experience for reasons attributable to Awai Studio, Awai Studio will bear all payment processing fees, refund fees, insurance arrangement costs, and any other expenses actually incurred by Awai Studio. Awai Studio will also pay Shotoku-An the JPY 30,000 specified in Article 4.
 2. If a confirmed experience must be cancelled for reasons attributable to Shotoku-An, Shotoku-An will bear all payment processing fees, refund fees, insurance arrangement costs, and any other expenses actually incurred by Awai Studio. In addition, as compensation for cancelling the confirmed experience, Shotoku-An will pay Awai Studio JPY 19,800, representing 30% of the JPY 66,000 sales price of the experience.
 3. The payment processing fees, refund fees, insurance arrangement costs, and other expenses referred to in Paragraphs 1 and 2 will be limited to actual out-of-pocket expenses for which the relevant amounts can be substantiated.
-4. Notwithstanding the preceding paragraphs, if the experience must be cancelled due to the sudden or serious illness or injury of Jack Convery, Hiromi Convery, or 髙廣信之, a natural disaster, the issuance of an official warning, the suspension of public transportation, or other unavoidable circumstances not attributable to either party, neither the payment to Shotoku-An under Paragraph 1 nor the compensation payable to Awai Studio under Paragraph 2 will become due. Shotoku-An and Awai Studio will each bear one half of the actual expenses incurred.
+4. Notwithstanding the preceding paragraphs, if the experience must be cancelled due to the sudden or serious illness or injury of Jack Convery 宗好 Sōkō, Hiromi Convery, or 髙廣信之, a natural disaster, the issuance of an official warning, the suspension of public transportation, or other unavoidable circumstances not attributable to either party, neither the payment to Shotoku-An under Paragraph 1 nor the compensation payable to Awai Studio under Paragraph 2 will become due. Shotoku-An and Awai Studio will each bear one half of the actual expenses incurred.
 5. If cancellation or rescheduling becomes necessary, the affected party will notify the other party promptly after becoming aware of the situation.
 
 ## Article 10 — Publication on the Website
@@ -135,7 +135,7 @@ Date of Confirmation: __________________, 2026
 
 Address: 8-32 Junibo-cho, Murasakino, Kita-ku, Kyoto 603-8303, Japan
 
-Name: Jack Convery
+Name: Jack Convery 宗好 Sōkō
 
 Signature or Seal:
 
